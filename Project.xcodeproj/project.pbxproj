@@ -7,23 +7,31 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		BB156A1B2362877E00BB1823 /* Review.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB156A1A2362877E00BB1823 /* Review.swift */; };
+		BB156A1D2362882A00BB1823 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB156A1C2362882A00BB1823 /* User.swift */; };
+		BB156A1F23629D2300BB1823 /* BandViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB156A1E23629D2300BB1823 /* BandViewController.swift */; };
 		BB19BC64235EBD1A00C1098C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB19BC63235EBD1A00C1098C /* AppDelegate.swift */; };
 		BB19BC66235EBD1A00C1098C /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB19BC65235EBD1A00C1098C /* SceneDelegate.swift */; };
-		BB19BC68235EBD1A00C1098C /* BandViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB19BC67235EBD1A00C1098C /* BandViewController.swift */; };
+		BB19BC68235EBD1A00C1098C /* BandListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB19BC67235EBD1A00C1098C /* BandListViewController.swift */; };
 		BB19BC6B235EBD1A00C1098C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BB19BC69235EBD1A00C1098C /* Main.storyboard */; };
 		BB19BC6D235EBD1E00C1098C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BB19BC6C235EBD1E00C1098C /* Assets.xcassets */; };
 		BB19BC70235EBD1E00C1098C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BB19BC6E235EBD1E00C1098C /* LaunchScreen.storyboard */; };
 		BB19BC78235EBF3200C1098C /* Genre.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB19BC77235EBF3200C1098C /* Genre.swift */; };
 		BB19BC7A235EC13B00C1098C /* Band.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB19BC79235EC13B00C1098C /* Band.swift */; };
 		BB19BC7C235EC40200C1098C /* Musician.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB19BC7B235EC40200C1098C /* Musician.swift */; };
+		BB836E2E2362740600D4711D /* Skills.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB836E2D2362740600D4711D /* Skills.swift */; };
+		BB836E302362771D00D4711D /* Address.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB836E2F2362771D00D4711D /* Address.swift */; };
 		BBB6E74523600F7C00D9E184 /* BandList.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBB6E74423600F7C00D9E184 /* BandList.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		BB156A1A2362877E00BB1823 /* Review.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Review.swift; sourceTree = "<group>"; };
+		BB156A1C2362882A00BB1823 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		BB156A1E23629D2300BB1823 /* BandViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BandViewController.swift; sourceTree = "<group>"; };
 		BB19BC60235EBD1A00C1098C /* Project.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Project.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BB19BC63235EBD1A00C1098C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BB19BC65235EBD1A00C1098C /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		BB19BC67235EBD1A00C1098C /* BandViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BandViewController.swift; sourceTree = "<group>"; };
+		BB19BC67235EBD1A00C1098C /* BandListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BandListViewController.swift; sourceTree = "<group>"; };
 		BB19BC6A235EBD1A00C1098C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		BB19BC6C235EBD1E00C1098C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		BB19BC6F235EBD1E00C1098C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -31,6 +39,8 @@
 		BB19BC77235EBF3200C1098C /* Genre.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Genre.swift; sourceTree = "<group>"; };
 		BB19BC79235EC13B00C1098C /* Band.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Band.swift; sourceTree = "<group>"; };
 		BB19BC7B235EC40200C1098C /* Musician.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Musician.swift; sourceTree = "<group>"; };
+		BB836E2D2362740600D4711D /* Skills.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Skills.swift; sourceTree = "<group>"; };
+		BB836E2F2362771D00D4711D /* Address.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Address.swift; sourceTree = "<group>"; };
 		BBB6E74423600F7C00D9E184 /* BandList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BandList.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -45,6 +55,48 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		BB02CCDF23615D75000D53FF /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				BB19BC77235EBF3200C1098C /* Genre.swift */,
+				BB836E2D2362740600D4711D /* Skills.swift */,
+				BB19BC79235EC13B00C1098C /* Band.swift */,
+				BB156A1C2362882A00BB1823 /* User.swift */,
+				BB156A1A2362877E00BB1823 /* Review.swift */,
+				BB836E2F2362771D00D4711D /* Address.swift */,
+				BBB6E74423600F7C00D9E184 /* BandList.swift */,
+				BB19BC7B235EC40200C1098C /* Musician.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		BB02CCE023616113000D53FF /* View */ = {
+			isa = PBXGroup;
+			children = (
+				BB19BC69235EBD1A00C1098C /* Main.storyboard */,
+				BB19BC6E235EBD1E00C1098C /* LaunchScreen.storyboard */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		BB02CCE12361627D000D53FF /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				BB19BC67235EBD1A00C1098C /* BandListViewController.swift */,
+				BB156A1E23629D2300BB1823 /* BandViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		BB02CCE223616295000D53FF /* Core */ = {
+			isa = PBXGroup;
+			children = (
+				BB19BC63235EBD1A00C1098C /* AppDelegate.swift */,
+				BB19BC65235EBD1A00C1098C /* SceneDelegate.swift */,
+			);
+			path = Core;
+			sourceTree = "<group>";
+		};
 		BB19BC57235EBD1A00C1098C = {
 			isa = PBXGroup;
 			children = (
@@ -64,16 +116,11 @@
 		BB19BC62235EBD1A00C1098C /* Project */ = {
 			isa = PBXGroup;
 			children = (
-				BB19BC63235EBD1A00C1098C /* AppDelegate.swift */,
-				BB19BC65235EBD1A00C1098C /* SceneDelegate.swift */,
-				BB19BC67235EBD1A00C1098C /* BandViewController.swift */,
-				BB19BC77235EBF3200C1098C /* Genre.swift */,
-				BB19BC79235EC13B00C1098C /* Band.swift */,
-				BBB6E74423600F7C00D9E184 /* BandList.swift */,
-				BB19BC7B235EC40200C1098C /* Musician.swift */,
-				BB19BC69235EBD1A00C1098C /* Main.storyboard */,
+				BB02CCE223616295000D53FF /* Core */,
+				BB02CCE12361627D000D53FF /* Controller */,
+				BB02CCDF23615D75000D53FF /* Model */,
+				BB02CCE023616113000D53FF /* View */,
 				BB19BC6C235EBD1E00C1098C /* Assets.xcassets */,
-				BB19BC6E235EBD1E00C1098C /* LaunchScreen.storyboard */,
 				BB19BC71235EBD1E00C1098C /* Info.plist */,
 			);
 			path = Project;
@@ -150,13 +197,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BB19BC68235EBD1A00C1098C /* BandViewController.swift in Sources */,
+				BB836E302362771D00D4711D /* Address.swift in Sources */,
+				BB19BC68235EBD1A00C1098C /* BandListViewController.swift in Sources */,
+				BB836E2E2362740600D4711D /* Skills.swift in Sources */,
+				BB156A1F23629D2300BB1823 /* BandViewController.swift in Sources */,
 				BB19BC64235EBD1A00C1098C /* AppDelegate.swift in Sources */,
 				BB19BC7C235EC40200C1098C /* Musician.swift in Sources */,
+				BB156A1B2362877E00BB1823 /* Review.swift in Sources */,
 				BBB6E74523600F7C00D9E184 /* BandList.swift in Sources */,
 				BB19BC7A235EC13B00C1098C /* Band.swift in Sources */,
 				BB19BC66235EBD1A00C1098C /* SceneDelegate.swift in Sources */,
 				BB19BC78235EBF3200C1098C /* Genre.swift in Sources */,
+				BB156A1D2362882A00BB1823 /* User.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

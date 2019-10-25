@@ -1,5 +1,5 @@
 //
-//  Genre.swift
+//  Band.swift
 //  Project
 //
 //  Created by Henrique Orlandin on 2019-10-21.
@@ -8,6 +8,8 @@
 
 import Foundation
 
-struct Genre {
-    var name: String
+struct Review {
+    var user: User
+    var score: Int
+    var description: String?
 }
