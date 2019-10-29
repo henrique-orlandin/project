@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct Musician {
+struct Musician: Decodable {
     var name: String
     var description: String
     var pictures: [String]?

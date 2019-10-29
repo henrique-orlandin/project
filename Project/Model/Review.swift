@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct Review {
+struct Review: Decodable {
     var user: User
     var score: Int
     var description: String?

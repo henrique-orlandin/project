@@ -8,13 +8,13 @@
 
 import Foundation
 
-struct Address {
+struct Address: Decodable {
     var address: String?
     var city: String
     var state: String?
     var country: String
     var complement: String?
-    var lat: String
-    var lng: String
+    var lat: String?
+    var lng: String?
     var zipcode: String?
 }

@@ -8,7 +8,7 @@
 
 import Foundation
 
-enum Genre: String {
+enum Genre: String, Decodable {
     case alternative = "Alternative"
     case blues = "Blues"
     case classical = "Classical"
@@ -16,8 +16,8 @@ enum Genre: String {
     case dance = "Dance"
     case electronic = "Electronic"
     case folk = "Folk"
+    case grunge = "Grounge"
     case hiphop = "Hip-Hop"
-    case rap = "Rap"
     case indie = "Indie"
     case industrial = "Industrial"
     case gospel = "Gospel"
@@ -25,6 +25,7 @@ enum Genre: String {
     case latin = "Latin"
     case metal = "Metal"
     case pop = "Pop"
+    case rap = "Rap"
     case soul = "Soul"
     case reggae = "Reggae"
     case rock = "Rock"

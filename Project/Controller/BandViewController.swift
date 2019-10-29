@@ -10,7 +10,7 @@ import UIKit
 
 class BandViewController: UIViewController {
 
-    weak var band: Band?
+    var band: Band?
     
     @IBOutlet weak var genreLabel: UILabel!
     @IBOutlet weak var locationButton: UIButton!

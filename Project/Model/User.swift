@@ -8,7 +8,7 @@
 
 import Foundation
 
-class User {
+class User: Decodable {
     var name: String
     var email: String
     var address: Address?

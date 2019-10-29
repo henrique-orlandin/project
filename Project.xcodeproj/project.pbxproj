@@ -19,9 +19,13 @@
 		BB19BC78235EBF3200C1098C /* Genre.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB19BC77235EBF3200C1098C /* Genre.swift */; };
 		BB19BC7A235EC13B00C1098C /* Band.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB19BC79235EC13B00C1098C /* Band.swift */; };
 		BB19BC7C235EC40200C1098C /* Musician.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB19BC7B235EC40200C1098C /* Musician.swift */; };
+		BB41E7F8236552B40090DB48 /* bands.json in Resources */ = {isa = PBXBuildFile; fileRef = BB41E7F6236551C60090DB48 /* bands.json */; };
+		BB41E7FA23655C110090DB48 /* test.txt in Resources */ = {isa = PBXBuildFile; fileRef = BB41E7F923655C110090DB48 /* test.txt */; };
 		BB836E2E2362740600D4711D /* Skills.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB836E2D2362740600D4711D /* Skills.swift */; };
 		BB836E302362771D00D4711D /* Address.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB836E2F2362771D00D4711D /* Address.swift */; };
-		BBB6E74523600F7C00D9E184 /* BandList.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBB6E74423600F7C00D9E184 /* BandList.swift */; };
+		BB8E079E2364B20000C0DCB6 /* FileManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB8E079D2364B20000C0DCB6 /* FileManager.swift */; };
+		BB8E07A12364B2C500C0DCB6 /* UIImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB8E07A02364B2C500C0DCB6 /* UIImageView.swift */; };
+		BBB9BC372363DA7A00DB93BD /* BandTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBB9BC362363DA7A00DB93BD /* BandTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -39,9 +43,13 @@
 		BB19BC77235EBF3200C1098C /* Genre.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Genre.swift; sourceTree = "<group>"; };
 		BB19BC79235EC13B00C1098C /* Band.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Band.swift; sourceTree = "<group>"; };
 		BB19BC7B235EC40200C1098C /* Musician.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Musician.swift; sourceTree = "<group>"; };
+		BB41E7F6236551C60090DB48 /* bands.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = bands.json; sourceTree = "<group>"; };
+		BB41E7F923655C110090DB48 /* test.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = test.txt; sourceTree = "<group>"; };
 		BB836E2D2362740600D4711D /* Skills.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Skills.swift; sourceTree = "<group>"; };
 		BB836E2F2362771D00D4711D /* Address.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Address.swift; sourceTree = "<group>"; };
-		BBB6E74423600F7C00D9E184 /* BandList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BandList.swift; sourceTree = "<group>"; };
+		BB8E079D2364B20000C0DCB6 /* FileManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileManager.swift; sourceTree = "<group>"; };
+		BB8E07A02364B2C500C0DCB6 /* UIImageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIImageView.swift; sourceTree = "<group>"; };
+		BBB9BC362363DA7A00DB93BD /* BandTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BandTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -64,7 +72,6 @@
 				BB156A1C2362882A00BB1823 /* User.swift */,
 				BB156A1A2362877E00BB1823 /* Review.swift */,
 				BB836E2F2362771D00D4711D /* Address.swift */,
-				BBB6E74423600F7C00D9E184 /* BandList.swift */,
 				BB19BC7B235EC40200C1098C /* Musician.swift */,
 			);
 			path = Model;
@@ -75,6 +82,7 @@
 			children = (
 				BB19BC69235EBD1A00C1098C /* Main.storyboard */,
 				BB19BC6E235EBD1E00C1098C /* LaunchScreen.storyboard */,
+				BBB9BC362363DA7A00DB93BD /* BandTableViewCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -118,12 +126,32 @@
 			children = (
 				BB02CCE223616295000D53FF /* Core */,
 				BB02CCE12361627D000D53FF /* Controller */,
+				BB8E079F2364B20A00C0DCB6 /* Extension */,
 				BB02CCDF23615D75000D53FF /* Model */,
+				BB3E9E502364CDFD006240D1 /* Resources */,
 				BB02CCE023616113000D53FF /* View */,
 				BB19BC6C235EBD1E00C1098C /* Assets.xcassets */,
 				BB19BC71235EBD1E00C1098C /* Info.plist */,
 			);
 			path = Project;
+			sourceTree = "<group>";
+		};
+		BB3E9E502364CDFD006240D1 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				BB41E7F923655C110090DB48 /* test.txt */,
+				BB41E7F6236551C60090DB48 /* bands.json */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		BB8E079F2364B20A00C0DCB6 /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				BB8E079D2364B20000C0DCB6 /* FileManager.swift */,
+				BB8E07A02364B2C500C0DCB6 /* UIImageView.swift */,
+			);
+			path = Extension;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -184,9 +212,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BB41E7F8236552B40090DB48 /* bands.json in Resources */,
 				BB19BC70235EBD1E00C1098C /* LaunchScreen.storyboard in Resources */,
 				BB19BC6D235EBD1E00C1098C /* Assets.xcassets in Resources */,
 				BB19BC6B235EBD1A00C1098C /* Main.storyboard in Resources */,
+				BB41E7FA23655C110090DB48 /* test.txt in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -198,13 +228,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				BB836E302362771D00D4711D /* Address.swift in Sources */,
+				BB8E07A12364B2C500C0DCB6 /* UIImageView.swift in Sources */,
 				BB19BC68235EBD1A00C1098C /* BandListViewController.swift in Sources */,
 				BB836E2E2362740600D4711D /* Skills.swift in Sources */,
+				BB8E079E2364B20000C0DCB6 /* FileManager.swift in Sources */,
+				BBB9BC372363DA7A00DB93BD /* BandTableViewCell.swift in Sources */,
 				BB156A1F23629D2300BB1823 /* BandViewController.swift in Sources */,
 				BB19BC64235EBD1A00C1098C /* AppDelegate.swift in Sources */,
 				BB19BC7C235EC40200C1098C /* Musician.swift in Sources */,
 				BB156A1B2362877E00BB1823 /* Review.swift in Sources */,
-				BBB6E74523600F7C00D9E184 /* BandList.swift in Sources */,
 				BB19BC7A235EC13B00C1098C /* Band.swift in Sources */,
 				BB19BC66235EBD1A00C1098C /* SceneDelegate.swift in Sources */,
 				BB19BC78235EBF3200C1098C /* Genre.swift in Sources */,
