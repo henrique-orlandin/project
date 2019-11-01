@@ -8,22 +8,27 @@
 
 import UIKit
 
-class BandListViewController: UITableViewController {
-
-    var bands = [Band]()
+class BandListViewController: UITableViewController, BandListProviderProtocol {
     
+    func providerDidFinishUpdatedDataset(provider of: BandListProvider) {
+        self.tableView.reloadData()
+    }
+
+    //var bands = [Band]()
+    
+    var provider: BandListProvider! = nil
+        
     override func viewDidLoad() {
         super.viewDidLoad()
-        do {
-            bands = try [Band](fileName: "bands")
-        } catch {
-            print("\(error)")
-        }
+        self.provider = BandListProvider()
+        self.provider.delegate = self
+        self.provider.updateBandList()
     }
     
     //return the number of rows for this table
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return bands.count
+        //return bands.count
+        return self.provider.numberOfBands
     }
     
     //executed for each cell on the table
@@ -31,10 +36,15 @@ class BandListViewController: UITableViewController {
         //get the reusable cell with identifier BandCellItem
         let cell = tableView.dequeueReusableCell(withIdentifier: "BandCellItem", for: indexPath)
         //get band related to table row position
-        let band = bands[indexPath.row]
+        
+        let bandViewModel = self.provider.getBandViewModel(row: indexPath.row, section: indexPath.section)
+        
         
         if let bandCell = cell as? BandTableViewCell {
-            bandCell.bandCellFormat(band: band)
+            if let band=bandViewModel {
+                bandCell.bandCellFormat(band: band)
+            }
+            return bandCell
         }
 
         return cell
@@ -48,7 +58,8 @@ class BandListViewController: UITableViewController {
         if segue.identifier == "ShowBandSegue" {
             if let bandViewController = segue.destination as? BandViewController {
                 if let cell = sender as? UITableViewCell, let indexPath = tableView.indexPath(for: cell) {
-                    let item = bands[indexPath.row]
+                    let item = self.provider.getBandViewModel(row: indexPath.row, section: indexPath.section)
+                    //let item = bands[indexPath.row]
                     bandViewController.band = item
                 }
             }

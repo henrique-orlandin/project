@@ -33,15 +33,3 @@ struct Band: Decodable {
         self.address = address
     }
 }
-
-extension Array where Element == Band {
-    init(fileName: String) throws {
-        guard let url = Bundle.main.url(forResource: fileName, withExtension: "json") else {
-            throw Band.DecodingError.missingFile
-        }
-        
-        let decoder = JSONDecoder()
-        let data = try Data(contentsOf: url)
-        self = try decoder.decode([Band].self, from: data)
-    }
-}

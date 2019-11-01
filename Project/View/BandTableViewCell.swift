@@ -26,21 +26,19 @@ class BandTableViewCell: UITableViewCell {
         // Configure the view for the selected state
     }
     
-    func bandCellFormat(band: Band) {
+    func bandCellFormat(band: BandViewModel) {
         self.bandNameLabel.text = band.name
-        self.bandImage.load(url: URL(string: band.pictures[0])!)
+        self.bandImage.load(url: URL(string: band.image)!)
         
-        let genres = band.genres.map({
-            $0.rawValue
-        })
-        self.bandGenreLabel.text = "Genres: \(genres.joined(separator: ", "))"
         
-        var address = [band.address.city]
-        if let state = band.address.state {
-            address.append(state)
-        } else {
-            address.append(band.address.country)
-        }
+        self.bandGenreLabel.text = "Genres: \(band.genre)"
+        
+        let address = [band.location]
+//        if let state = band.address.state {
+//            address.append(state)
+//        } else {
+//            address.append(band.address.country)
+//        }
         self.bandLocationButton.setTitle("\(address.joined(separator: " - "))", for: .normal)
     }
 }

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		BB0AEB18236A992700B7FA29 /* BandListProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB0AEB17236A992700B7FA29 /* BandListProvider.swift */; };
 		BB156A1B2362877E00BB1823 /* Review.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB156A1A2362877E00BB1823 /* Review.swift */; };
 		BB156A1D2362882A00BB1823 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB156A1C2362882A00BB1823 /* User.swift */; };
 		BB156A1F23629D2300BB1823 /* BandViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB156A1E23629D2300BB1823 /* BandViewController.swift */; };
@@ -20,15 +21,17 @@
 		BB19BC7A235EC13B00C1098C /* Band.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB19BC79235EC13B00C1098C /* Band.swift */; };
 		BB19BC7C235EC40200C1098C /* Musician.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB19BC7B235EC40200C1098C /* Musician.swift */; };
 		BB41E7F8236552B40090DB48 /* bands.json in Resources */ = {isa = PBXBuildFile; fileRef = BB41E7F6236551C60090DB48 /* bands.json */; };
-		BB41E7FA23655C110090DB48 /* test.txt in Resources */ = {isa = PBXBuildFile; fileRef = BB41E7F923655C110090DB48 /* test.txt */; };
+		BB7E5921236936DF005FAADF /* BandViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB7E5920236936DF005FAADF /* BandViewModel.swift */; };
+		BB7E59242369381D005FAADF /* ArrayExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB7E59232369381D005FAADF /* ArrayExtension.swift */; };
 		BB836E2E2362740600D4711D /* Skills.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB836E2D2362740600D4711D /* Skills.swift */; };
 		BB836E302362771D00D4711D /* Address.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB836E2F2362771D00D4711D /* Address.swift */; };
-		BB8E079E2364B20000C0DCB6 /* FileManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB8E079D2364B20000C0DCB6 /* FileManager.swift */; };
+		BB8E079E2364B20000C0DCB6 /* FileManagerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB8E079D2364B20000C0DCB6 /* FileManagerExtension.swift */; };
 		BB8E07A12364B2C500C0DCB6 /* UIImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB8E07A02364B2C500C0DCB6 /* UIImageView.swift */; };
 		BBB9BC372363DA7A00DB93BD /* BandTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBB9BC362363DA7A00DB93BD /* BandTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		BB0AEB17236A992700B7FA29 /* BandListProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BandListProvider.swift; sourceTree = "<group>"; };
 		BB156A1A2362877E00BB1823 /* Review.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Review.swift; sourceTree = "<group>"; };
 		BB156A1C2362882A00BB1823 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		BB156A1E23629D2300BB1823 /* BandViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BandViewController.swift; sourceTree = "<group>"; };
@@ -44,10 +47,11 @@
 		BB19BC79235EC13B00C1098C /* Band.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Band.swift; sourceTree = "<group>"; };
 		BB19BC7B235EC40200C1098C /* Musician.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Musician.swift; sourceTree = "<group>"; };
 		BB41E7F6236551C60090DB48 /* bands.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = bands.json; sourceTree = "<group>"; };
-		BB41E7F923655C110090DB48 /* test.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = test.txt; sourceTree = "<group>"; };
+		BB7E5920236936DF005FAADF /* BandViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BandViewModel.swift; sourceTree = "<group>"; };
+		BB7E59232369381D005FAADF /* ArrayExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArrayExtension.swift; sourceTree = "<group>"; };
 		BB836E2D2362740600D4711D /* Skills.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Skills.swift; sourceTree = "<group>"; };
 		BB836E2F2362771D00D4711D /* Address.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Address.swift; sourceTree = "<group>"; };
-		BB8E079D2364B20000C0DCB6 /* FileManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileManager.swift; sourceTree = "<group>"; };
+		BB8E079D2364B20000C0DCB6 /* FileManagerExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileManagerExtension.swift; sourceTree = "<group>"; };
 		BB8E07A02364B2C500C0DCB6 /* UIImageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIImageView.swift; sourceTree = "<group>"; };
 		BBB9BC362363DA7A00DB93BD /* BandTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BandTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -63,7 +67,7 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		BB02CCDF23615D75000D53FF /* Model */ = {
+		BB02CCDF23615D75000D53FF /* DataModel */ = {
 			isa = PBXGroup;
 			children = (
 				BB19BC77235EBF3200C1098C /* Genre.swift */,
@@ -74,7 +78,7 @@
 				BB836E2F2362771D00D4711D /* Address.swift */,
 				BB19BC7B235EC40200C1098C /* Musician.swift */,
 			);
-			path = Model;
+			path = DataModel;
 			sourceTree = "<group>";
 		};
 		BB02CCE023616113000D53FF /* View */ = {
@@ -87,13 +91,13 @@
 			path = View;
 			sourceTree = "<group>";
 		};
-		BB02CCE12361627D000D53FF /* Controller */ = {
+		BB02CCE12361627D000D53FF /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
 				BB19BC67235EBD1A00C1098C /* BandListViewController.swift */,
 				BB156A1E23629D2300BB1823 /* BandViewController.swift */,
 			);
-			path = Controller;
+			path = ViewController;
 			sourceTree = "<group>";
 		};
 		BB02CCE223616295000D53FF /* Core */ = {
@@ -103,6 +107,14 @@
 				BB19BC65235EBD1A00C1098C /* SceneDelegate.swift */,
 			);
 			path = Core;
+			sourceTree = "<group>";
+		};
+		BB0AEB16236A990100B7FA29 /* Provider */ = {
+			isa = PBXGroup;
+			children = (
+				BB0AEB17236A992700B7FA29 /* BandListProvider.swift */,
+			);
+			path = Provider;
 			sourceTree = "<group>";
 		};
 		BB19BC57235EBD1A00C1098C = {
@@ -124,12 +136,14 @@
 		BB19BC62235EBD1A00C1098C /* Project */ = {
 			isa = PBXGroup;
 			children = (
+				BB0AEB16236A990100B7FA29 /* Provider */,
 				BB02CCE223616295000D53FF /* Core */,
-				BB02CCE12361627D000D53FF /* Controller */,
+				BB02CCDF23615D75000D53FF /* DataModel */,
 				BB8E079F2364B20A00C0DCB6 /* Extension */,
-				BB02CCDF23615D75000D53FF /* Model */,
 				BB3E9E502364CDFD006240D1 /* Resources */,
 				BB02CCE023616113000D53FF /* View */,
+				BB02CCE12361627D000D53FF /* ViewController */,
+				BB7E5922236936F1005FAADF /* ViewModel */,
 				BB19BC6C235EBD1E00C1098C /* Assets.xcassets */,
 				BB19BC71235EBD1E00C1098C /* Info.plist */,
 			);
@@ -139,16 +153,24 @@
 		BB3E9E502364CDFD006240D1 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				BB41E7F923655C110090DB48 /* test.txt */,
 				BB41E7F6236551C60090DB48 /* bands.json */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
 		};
+		BB7E5922236936F1005FAADF /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				BB7E5920236936DF005FAADF /* BandViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
 		BB8E079F2364B20A00C0DCB6 /* Extension */ = {
 			isa = PBXGroup;
 			children = (
-				BB8E079D2364B20000C0DCB6 /* FileManager.swift */,
+				BB7E59232369381D005FAADF /* ArrayExtension.swift */,
+				BB8E079D2364B20000C0DCB6 /* FileManagerExtension.swift */,
 				BB8E07A02364B2C500C0DCB6 /* UIImageView.swift */,
 			);
 			path = Extension;
@@ -216,7 +238,6 @@
 				BB19BC70235EBD1E00C1098C /* LaunchScreen.storyboard in Resources */,
 				BB19BC6D235EBD1E00C1098C /* Assets.xcassets in Resources */,
 				BB19BC6B235EBD1A00C1098C /* Main.storyboard in Resources */,
-				BB41E7FA23655C110090DB48 /* test.txt in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -231,12 +252,15 @@
 				BB8E07A12364B2C500C0DCB6 /* UIImageView.swift in Sources */,
 				BB19BC68235EBD1A00C1098C /* BandListViewController.swift in Sources */,
 				BB836E2E2362740600D4711D /* Skills.swift in Sources */,
-				BB8E079E2364B20000C0DCB6 /* FileManager.swift in Sources */,
+				BB8E079E2364B20000C0DCB6 /* FileManagerExtension.swift in Sources */,
 				BBB9BC372363DA7A00DB93BD /* BandTableViewCell.swift in Sources */,
 				BB156A1F23629D2300BB1823 /* BandViewController.swift in Sources */,
 				BB19BC64235EBD1A00C1098C /* AppDelegate.swift in Sources */,
+				BB0AEB18236A992700B7FA29 /* BandListProvider.swift in Sources */,
 				BB19BC7C235EC40200C1098C /* Musician.swift in Sources */,
+				BB7E5921236936DF005FAADF /* BandViewModel.swift in Sources */,
 				BB156A1B2362877E00BB1823 /* Review.swift in Sources */,
+				BB7E59242369381D005FAADF /* ArrayExtension.swift in Sources */,
 				BB19BC7A235EC13B00C1098C /* Band.swift in Sources */,
 				BB19BC66235EBD1A00C1098C /* SceneDelegate.swift in Sources */,
 				BB19BC78235EBF3200C1098C /* Genre.swift in Sources */,
