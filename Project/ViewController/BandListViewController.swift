@@ -41,7 +41,7 @@ class BandListViewController: UITableViewController, BandListProviderProtocol {
         
         
         if let bandCell = cell as? BandTableViewCell {
-            if let band=bandViewModel {
+            if let band = bandViewModel {
                 bandCell.bandCellFormat(band: band)
             }
             return bandCell
@@ -58,8 +58,7 @@ class BandListViewController: UITableViewController, BandListProviderProtocol {
         if segue.identifier == "ShowBandSegue" {
             if let bandViewController = segue.destination as? BandViewController {
                 if let cell = sender as? UITableViewCell, let indexPath = tableView.indexPath(for: cell) {
-                    let item = self.provider.getBandViewModel(row: indexPath.row, section: indexPath.section)
-                    //let item = bands[indexPath.row]
+                    let item = self.provider.getBandDetailViewModel(row: indexPath.row, section: indexPath.section)
                     bandViewController.band = item
                 }
             }

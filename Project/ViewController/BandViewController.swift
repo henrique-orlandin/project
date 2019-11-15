@@ -10,10 +10,11 @@ import UIKit
 
 class BandViewController: UIViewController {
 
-    var band: BandViewModel?
+    var band: BandDetailViewModel?
     
+    @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var genreLabel: UILabel!
-    @IBOutlet weak var locationButton: UIButton!
+    @IBOutlet weak var locationLabel: UILabel!
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var descriptionText: UITextView!
     
@@ -21,9 +22,22 @@ class BandViewController: UIViewController {
         super.viewDidLoad()
         if let band = self.band {
             title = band.name
+            nameLabel.text = band.name
             imageView.load(url: URL(string: band.image)!)
             genreLabel.text = "\(band.genre)"
-            locationButton.setTitle("\(band.location)", for: .normal)
+            descriptionText.text = "\(band.description)"
+            locationLabel.text = "\(band.location)"
         }
+    }
+}
+
+@IBDesignable class UITextViewFixed: UITextView {
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        setup()
+    }
+    func setup() {
+        textContainerInset = UIEdgeInsets.zero
+        textContainer.lineFragmentPadding = 0
     }
 }

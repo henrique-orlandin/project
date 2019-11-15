@@ -10,10 +10,10 @@ import UIKit
 
 class BandTableViewCell: UITableViewCell {
 
+    @IBOutlet weak var bandImage: UIImageView!
     @IBOutlet weak var bandNameLabel: UILabel!
     @IBOutlet weak var bandGenreLabel: UILabel!
-    @IBOutlet weak var bandLocationButton: UIButton!
-    @IBOutlet weak var bandImage: UIImageView!
+    @IBOutlet weak var locationLabel: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -29,16 +29,7 @@ class BandTableViewCell: UITableViewCell {
     func bandCellFormat(band: BandViewModel) {
         self.bandNameLabel.text = band.name
         self.bandImage.load(url: URL(string: band.image)!)
-        
-        
-        self.bandGenreLabel.text = "Genres: \(band.genre)"
-        
-        let address = [band.location]
-//        if let state = band.address.state {
-//            address.append(state)
-//        } else {
-//            address.append(band.address.country)
-//        }
-        self.bandLocationButton.setTitle("\(address.joined(separator: " - "))", for: .normal)
+        self.bandGenreLabel.text = "\(band.genre)"
+        self.locationLabel.text = "\(band.location)"
     }
 }

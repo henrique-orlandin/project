@@ -24,12 +24,4 @@ struct Band: Decodable {
     enum DecodingError: Error {
         case missingFile
     }
-    
-    init(name: String, description: String, pictures: [String], genres: [Genre], address: Address) {
-        self.name = name
-        self.description = description
-        self.pictures = pictures
-        self.genres = genres
-        self.address = address
-    }
 }

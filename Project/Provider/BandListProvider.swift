@@ -13,7 +13,8 @@ class BandListProvider {
     
     weak var delegate : BandListProviderProtocol?
     
-    private var bandList:[BandViewModel]?
+    private var bandList: [BandViewModel]?
+    private var bandDetail: [BandDetailViewModel]?
     
     var numberOfBands: Int {
         updateBandList()
@@ -21,21 +22,29 @@ class BandListProvider {
     }
     
     public func getBandViewModel(row withRID: Int, section withSID: Int) -> BandViewModel? {
-        
         updateBandList()
-        
         guard let list = bandList else {
             return nil
         }
         return list[withRID]
     }
     
+    public func getBandDetailViewModel(row withRID: Int, section withSID: Int) -> BandDetailViewModel? {
+        updateBandList()
+        guard let list = bandDetail else {
+            return nil
+        }
+        return list[withRID]
+    }
+    
     public func updateBandList() {
-        if bandList==nil {
+        if bandList == nil {
             var bands = [Band]()
             do {
                 bands = try [Band](fileName: "bands")
-                bandList = bands.map {BandViewModel($0)}
+                //bands = try [Band](url: "https://www.ereditagenealogia.com/bands.json")
+                bandList = bands.map { BandViewModel($0) }
+                bandDetail = bands.map { BandDetailViewModel($0) }
                 self.delegate?.providerDidFinishUpdatedDataset(provider: self)
             } catch {
                 print("\(error)")
@@ -45,7 +54,6 @@ class BandListProvider {
     
 }
 
-protocol  BandListProviderProtocol:class{
-    
+protocol BandListProviderProtocol:class{
     func providerDidFinishUpdatedDataset(provider of: BandListProvider);
 }
