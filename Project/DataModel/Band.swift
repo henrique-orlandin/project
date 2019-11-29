@@ -8,7 +8,12 @@
 
 import Foundation
 
-struct Band: Decodable {
+struct Band: Equatable, Decodable {
+    static func == (lhs: Band, rhs: Band) -> Bool {
+        return lhs.id == rhs.id
+    }
+    
+    var id: Int
     var name: String
     var description: String
     var pictures: [String]
@@ -20,8 +25,4 @@ struct Band: Decodable {
     var audios: [String]?
     var links: [String]?
     var musicians: [Musician]?
-    
-    enum DecodingError: Error {
-        case missingFile
-    }
 }
