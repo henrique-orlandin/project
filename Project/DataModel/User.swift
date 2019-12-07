@@ -9,13 +9,15 @@
 import Foundation
 
 class User: Decodable {
+    var id: Int
     var name: String
     var email: String
     var address: Address?
     var reviews: [Review]?
     var bands: [Band]?
     
-    init(name: String, email: String) {
+    init(id: Int, name: String, email: String) {
+        self.id = id
         self.name = name
         self.email = email
     }
