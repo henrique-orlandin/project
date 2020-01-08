@@ -32,7 +32,7 @@ class MyBandTableViewCell: UITableViewCell {
     
     func bandCellFormat(band: MyBandListViewModel) {
         self.bandNameLabel.text = band.name
-        self.bandImage.load(url: URL(string: band.image)!)
+        self.bandImage.image = UIImage(data: band.image)
         self.bandGenreLabel.text = "\(band.genre)"
         self.locationLabel.text = "\(band.location)"
         

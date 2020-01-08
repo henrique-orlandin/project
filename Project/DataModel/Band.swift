@@ -13,16 +13,18 @@ struct Band: Equatable, Decodable {
         return lhs.id == rhs.id
     }
     
-    var id: Int
+    var id: String
     var name: String
+    var image: String
     var description: String
-    var pictures: [String]
     var genres: [Genre]
-    var address: Address
+    var location: Location
+    var gallery: [String]?
     var reviews: [Review]?
     var contact: [String]?
     var videos: [String]?
     var audios: [String]?
     var links: [String]?
     var musicians: [Musician]?
+    
 }

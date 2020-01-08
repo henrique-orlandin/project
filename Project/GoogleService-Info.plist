@@ -3,9 +3,9 @@
 <plist version="1.0">
 <dict>
 	<key>CLIENT_ID</key>
-	<string>382018237157-ela2thf2op79cdp0rgatmmljk6fik9af.apps.googleusercontent.com</string>
+	<string>382018237157-9mm8ls3mt75lq54nkkmcmc3roo6u8upf.apps.googleusercontent.com</string>
 	<key>REVERSED_CLIENT_ID</key>
-	<string>com.googleusercontent.apps.382018237157-ela2thf2op79cdp0rgatmmljk6fik9af</string>
+	<string>com.googleusercontent.apps.382018237157-9mm8ls3mt75lq54nkkmcmc3roo6u8upf</string>
 	<key>API_KEY</key>
 	<string>AIzaSyCI6b0NuKk9RNplRLRquPd0BC4CwT-jFWM</string>
 	<key>GCM_SENDER_ID</key>
@@ -13,7 +13,7 @@
 	<key>PLIST_VERSION</key>
 	<string>1</string>
 	<key>BUNDLE_ID</key>
-	<string>com.letsjam.app</string>
+	<string>com.jam.project</string>
 	<key>PROJECT_ID</key>
 	<string>let-s-jam-27d89</string>
 	<key>STORAGE_BUCKET</key>
@@ -29,7 +29,7 @@
 	<key>IS_SIGNIN_ENABLED</key>
 	<true></true>
 	<key>GOOGLE_APP_ID</key>
-	<string>1:382018237157:ios:190178dd9bd340db4a9a0c</string>
+	<string>1:382018237157:ios:6eeb970652a831954a9a0c</string>
 	<key>DATABASE_URL</key>
 	<string>https://let-s-jam-27d89.firebaseio.com</string>
 </dict>

@@ -9,16 +9,23 @@
 /* Begin PBXBuildFile section */
 		7018D7C75CBDC52FFC15A9C1 /* Pods_Jam.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 80FBF20DD3AA248581FB586D /* Pods_Jam.framework */; };
 		84457353236D22EC005486DD /* BandDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84457352236D22EC005486DD /* BandDetailViewModel.swift */; };
+		8448A11B23AC37E4000DFC3D /* BandDetailProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8448A11A23AC37E4000DFC3D /* BandDetailProvider.swift */; };
+		844DC9C223A1E7A70020A262 /* SignUpView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 844DC9C023A1E7A70020A262 /* SignUpView.storyboard */; };
+		844DC9C623A1E7FA0020A262 /* LoginView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 844DC9C423A1E7FA0020A262 /* LoginView.storyboard */; };
+		844E861D239D7E8E005D879B /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 844E861C239D7E8E005D879B /* GoogleService-Info.plist */; };
 		8459566F2394471D00026A89 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8459566E2394471D00026A89 /* Constants.swift */; };
 		84595677239449D200026A89 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84595676239449D200026A89 /* ProfileViewController.swift */; };
 		845BFAA4238BB53600D7DD0E /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 845BFAA3238BB53600D7DD0E /* UIColor.swift */; };
 		845EB4032383608A003A7F6A /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 845EB4022383608A003A7F6A /* ImagePicker.swift */; };
-		8462E53D2393034600F017CF /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8462E53C2393034600F017CF /* GoogleService-Info.plist */; };
 		8462E5432393397C00F017CF /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8462E5422393397C00F017CF /* LoginViewController.swift */; };
 		846F17002398C4EF00CE1712 /* LoginProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 846F16FF2398C4EF00CE1712 /* LoginProvider.swift */; };
 		846F17032398C8E800CE1712 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 846F17022398C8E800CE1712 /* LoginViewModel.swift */; };
+		8478A95E23AEF81D0046B60C /* LocationMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8478A95D23AEF81D0046B60C /* LocationMapViewController.swift */; };
+		8485AA4523BA83AF00000C32 /* BandsFilterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8485AA4423BA83AF00000C32 /* BandsFilterViewController.swift */; };
 		84892E7F23939591000CBCE8 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84892E7E23939591000CBCE8 /* SignUpViewController.swift */; };
 		848AE7EB2384BBF50089F515 /* MyBandDetailProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 848AE7EA2384BBF50089F515 /* MyBandDetailProvider.swift */; };
+		848DA666239C85EA00996D04 /* SignUpProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 848DA665239C85EA00996D04 /* SignUpProvider.swift */; };
+		848DA668239C8E4B00996D04 /* SignUpViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 848DA667239C8E4B00996D04 /* SignUpViewModel.swift */; };
 		8495FCF9239234D00099B635 /* MyBands.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8495FCF7239234D00099B635 /* MyBands.storyboard */; };
 		8495FCFB239234E90099B635 /* Bands.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8495FCFA239234E90099B635 /* Bands.storyboard */; };
 		84A440EF2381C75100685924 /* MyBandListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84A440EE2381C75100685924 /* MyBandListViewController.swift */; };
@@ -30,7 +37,7 @@
 		BB0AEB18236A992700B7FA29 /* BandListProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB0AEB17236A992700B7FA29 /* BandListProvider.swift */; };
 		BB156A1B2362877E00BB1823 /* Review.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB156A1A2362877E00BB1823 /* Review.swift */; };
 		BB156A1D2362882A00BB1823 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB156A1C2362882A00BB1823 /* User.swift */; };
-		BB156A1F23629D2300BB1823 /* BandViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB156A1E23629D2300BB1823 /* BandViewController.swift */; };
+		BB156A1F23629D2300BB1823 /* BandDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB156A1E23629D2300BB1823 /* BandDetailViewController.swift */; };
 		BB19BC64235EBD1A00C1098C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB19BC63235EBD1A00C1098C /* AppDelegate.swift */; };
 		BB19BC66235EBD1A00C1098C /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB19BC65235EBD1A00C1098C /* SceneDelegate.swift */; };
 		BB19BC68235EBD1A00C1098C /* BandListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB19BC67235EBD1A00C1098C /* BandListViewController.swift */; };
@@ -43,7 +50,7 @@
 		BB7E5921236936DF005FAADF /* BandListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB7E5920236936DF005FAADF /* BandListViewModel.swift */; };
 		BB7E59242369381D005FAADF /* ArrayExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB7E59232369381D005FAADF /* ArrayExtension.swift */; };
 		BB836E2E2362740600D4711D /* Skills.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB836E2D2362740600D4711D /* Skills.swift */; };
-		BB836E302362771D00D4711D /* Address.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB836E2F2362771D00D4711D /* Address.swift */; };
+		BB836E302362771D00D4711D /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB836E2F2362771D00D4711D /* Location.swift */; };
 		BB8E079E2364B20000C0DCB6 /* FileManagerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB8E079D2364B20000C0DCB6 /* FileManagerExtension.swift */; };
 		BB8E07A12364B2C500C0DCB6 /* UIImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB8E07A02364B2C500C0DCB6 /* UIImageView.swift */; };
 		BBB9BC372363DA7A00DB93BD /* BandTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBB9BC362363DA7A00DB93BD /* BandTableViewCell.swift */; };
@@ -54,17 +61,24 @@
 		6B249B78380B0E2EDE210C5D /* Pods-Project.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Project.debug.xcconfig"; path = "Target Support Files/Pods-Project/Pods-Project.debug.xcconfig"; sourceTree = "<group>"; };
 		80FBF20DD3AA248581FB586D /* Pods_Jam.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Jam.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		84457352236D22EC005486DD /* BandDetailViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BandDetailViewModel.swift; sourceTree = "<group>"; };
+		8448A11A23AC37E4000DFC3D /* BandDetailProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BandDetailProvider.swift; sourceTree = "<group>"; };
+		844DC9C123A1E7A70020A262 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Project/View/Base.lproj/SignUpView.storyboard; sourceTree = SOURCE_ROOT; };
+		844DC9C523A1E7FA0020A262 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Project/View/Base.lproj/LoginView.storyboard; sourceTree = SOURCE_ROOT; };
+		844E861C239D7E8E005D879B /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		84589F9B2394D83300557446 /* Jam.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Jam.entitlements; sourceTree = "<group>"; };
 		8459566E2394471D00026A89 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Constants.swift; path = "Project/Modules/Sign Up/ViewController/Constants.swift"; sourceTree = SOURCE_ROOT; };
 		84595676239449D200026A89 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		845BFAA3238BB53600D7DD0E /* UIColor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIColor.swift; sourceTree = "<group>"; };
 		845EB4022383608A003A7F6A /* ImagePicker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
-		8462E53C2393034600F017CF /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		8462E5422393397C00F017CF /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		846F16FF2398C4EF00CE1712 /* LoginProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginProvider.swift; sourceTree = "<group>"; };
 		846F17022398C8E800CE1712 /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
+		8478A95D23AEF81D0046B60C /* LocationMapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = LocationMapViewController.swift; path = "Project/Modules/My Bands/Details/ViewController/LocationMapViewController.swift"; sourceTree = SOURCE_ROOT; };
+		8485AA4423BA83AF00000C32 /* BandsFilterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = BandsFilterViewController.swift; path = Project/Modules/Bands/List/ViewController/BandsFilterViewController.swift; sourceTree = SOURCE_ROOT; };
 		84892E7E23939591000CBCE8 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		848AE7EA2384BBF50089F515 /* MyBandDetailProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyBandDetailProvider.swift; sourceTree = "<group>"; };
+		848DA665239C85EA00996D04 /* SignUpProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpProvider.swift; sourceTree = "<group>"; };
+		848DA667239C8E4B00996D04 /* SignUpViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewModel.swift; sourceTree = "<group>"; };
 		8495FCF8239234D00099B635 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Project/View/Base.lproj/MyBands.storyboard; sourceTree = SOURCE_ROOT; };
 		8495FCFA239234E90099B635 /* Bands.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Bands.storyboard; sourceTree = SOURCE_ROOT; };
 		84A440EE2381C75100685924 /* MyBandListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyBandListViewController.swift; sourceTree = "<group>"; };
@@ -77,7 +91,7 @@
 		BB0AEB17236A992700B7FA29 /* BandListProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BandListProvider.swift; sourceTree = "<group>"; };
 		BB156A1A2362877E00BB1823 /* Review.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Review.swift; sourceTree = "<group>"; };
 		BB156A1C2362882A00BB1823 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
-		BB156A1E23629D2300BB1823 /* BandViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BandViewController.swift; sourceTree = "<group>"; };
+		BB156A1E23629D2300BB1823 /* BandDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BandDetailViewController.swift; sourceTree = "<group>"; };
 		BB19BC60235EBD1A00C1098C /* Jam.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Jam.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BB19BC63235EBD1A00C1098C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BB19BC65235EBD1A00C1098C /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -92,7 +106,7 @@
 		BB7E5920236936DF005FAADF /* BandListViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BandListViewModel.swift; sourceTree = "<group>"; };
 		BB7E59232369381D005FAADF /* ArrayExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArrayExtension.swift; sourceTree = "<group>"; };
 		BB836E2D2362740600D4711D /* Skills.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Skills.swift; sourceTree = "<group>"; };
-		BB836E2F2362771D00D4711D /* Address.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Address.swift; sourceTree = "<group>"; };
+		BB836E2F2362771D00D4711D /* Location.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
 		BB8E079D2364B20000C0DCB6 /* FileManagerExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileManagerExtension.swift; sourceTree = "<group>"; };
 		BB8E07A02364B2C500C0DCB6 /* UIImageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIImageView.swift; sourceTree = "<group>"; };
 		BBB9BC362363DA7A00DB93BD /* BandTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BandTableViewCell.swift; sourceTree = "<group>"; };
@@ -111,6 +125,30 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		8448A11923AC37AA000DFC3D /* Provider */ = {
+			isa = PBXGroup;
+			children = (
+				8448A11A23AC37E4000DFC3D /* BandDetailProvider.swift */,
+			);
+			path = Provider;
+			sourceTree = "<group>";
+		};
+		844DC9BF23A1E7150020A262 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				844DC9C023A1E7A70020A262 /* SignUpView.storyboard */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		844DC9C323A1E7DC0020A262 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				844DC9C423A1E7FA0020A262 /* LoginView.storyboard */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		845956742394499300026A89 /* Profile */ = {
 			isa = PBXGroup;
 			children = (
@@ -146,6 +184,7 @@
 		8462E540239337EC00F017CF /* Login */ = {
 			isa = PBXGroup;
 			children = (
+				844DC9C323A1E7DC0020A262 /* View */,
 				846F16FE2398C4AC00CE1712 /* Provider */,
 				8462E541239338F600F017CF /* ViewController */,
 				846F17012398C60F00CE1712 /* ViewModel */,
@@ -244,6 +283,7 @@
 		84756DAF238F89710025D426 /* Details */ = {
 			isa = PBXGroup;
 			children = (
+				8448A11923AC37AA000DFC3D /* Provider */,
 				8495FCF6239227250099B635 /* ViewController */,
 				8495FCF5239227130099B635 /* ViewModel */,
 			);
@@ -253,7 +293,10 @@
 		84892E7C23939523000CBCE8 /* Sign Up */ = {
 			isa = PBXGroup;
 			children = (
+				844DC9BF23A1E7150020A262 /* View */,
+				848DA661239C84B000996D04 /* Provider */,
 				84892E7D2393955E000CBCE8 /* ViewController */,
+				848DA662239C84C600996D04 /* ViewModel */,
 			);
 			path = "Sign Up";
 			sourceTree = "<group>";
@@ -264,6 +307,22 @@
 				84892E7E23939591000CBCE8 /* SignUpViewController.swift */,
 			);
 			path = ViewController;
+			sourceTree = "<group>";
+		};
+		848DA661239C84B000996D04 /* Provider */ = {
+			isa = PBXGroup;
+			children = (
+				848DA665239C85EA00996D04 /* SignUpProvider.swift */,
+			);
+			path = Provider;
+			sourceTree = "<group>";
+		};
+		848DA662239C84C600996D04 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				848DA667239C8E4B00996D04 /* SignUpViewModel.swift */,
+			);
+			path = ViewModel;
 			sourceTree = "<group>";
 		};
 		8495FCEA239225F80099B635 /* View */ = {
@@ -325,6 +384,7 @@
 		8495FCF1239226D30099B635 /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
+				8478A95D23AEF81D0046B60C /* LocationMapViewController.swift */,
 				84A440F22381D89100685924 /* MyBandDetailViewController.swift */,
 			);
 			path = ViewController;
@@ -350,6 +410,7 @@
 			isa = PBXGroup;
 			children = (
 				BB19BC67235EBD1A00C1098C /* BandListViewController.swift */,
+				8485AA4423BA83AF00000C32 /* BandsFilterViewController.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -365,7 +426,7 @@
 		8495FCF6239227250099B635 /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
-				BB156A1E23629D2300BB1823 /* BandViewController.swift */,
+				BB156A1E23629D2300BB1823 /* BandDetailViewController.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -389,7 +450,7 @@
 				BB19BC79235EC13B00C1098C /* Band.swift */,
 				BB156A1C2362882A00BB1823 /* User.swift */,
 				BB156A1A2362877E00BB1823 /* Review.swift */,
-				BB836E2F2362771D00D4711D /* Address.swift */,
+				BB836E2F2362771D00D4711D /* Location.swift */,
 				BB19BC7B235EC40200C1098C /* Musician.swift */,
 			);
 			path = DataModel;
@@ -452,7 +513,7 @@
 				BB02CCE023616113000D53FF /* View */,
 				BB19BC6C235EBD1E00C1098C /* Assets.xcassets */,
 				BB19BC71235EBD1E00C1098C /* Info.plist */,
-				8462E53C2393034600F017CF /* GoogleService-Info.plist */,
+				844E861C239D7E8E005D879B /* GoogleService-Info.plist */,
 			);
 			path = Project;
 			sourceTree = "<group>";
@@ -488,6 +549,7 @@
 				BB19BC5D235EBD1A00C1098C /* Frameworks */,
 				BB19BC5E235EBD1A00C1098C /* Resources */,
 				E9DCC27F15F9354CBDD955C6 /* [CP] Embed Pods Frameworks */,
+				8DDA0B246638655E16C20AB4 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -541,13 +603,32 @@
 				8495FCFB239234E90099B635 /* Bands.storyboard in Resources */,
 				BB19BC6B235EBD1A00C1098C /* Main.storyboard in Resources */,
 				8495FCF9239234D00099B635 /* MyBands.storyboard in Resources */,
-				8462E53D2393034600F017CF /* GoogleService-Info.plist in Resources */,
+				844E861D239D7E8E005D879B /* GoogleService-Info.plist in Resources */,
+				844DC9C223A1E7A70020A262 /* SignUpView.storyboard in Resources */,
+				844DC9C623A1E7FA0020A262 /* LoginView.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		8DDA0B246638655E16C20AB4 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Jam/Pods-Jam-resources-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Jam/Pods-Jam-resources-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Jam/Pods-Jam-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		9E4DB7E2CD2982FECAC26C9E /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -595,19 +676,21 @@
 			buildActionMask = 2147483647;
 			files = (
 				8462E5432393397C00F017CF /* LoginViewController.swift in Sources */,
-				BB836E302362771D00D4711D /* Address.swift in Sources */,
+				BB836E302362771D00D4711D /* Location.swift in Sources */,
 				846F17032398C8E800CE1712 /* LoginViewModel.swift in Sources */,
 				BB8E07A12364B2C500C0DCB6 /* UIImageView.swift in Sources */,
 				848AE7EB2384BBF50089F515 /* MyBandDetailProvider.swift in Sources */,
 				BB19BC68235EBD1A00C1098C /* BandListViewController.swift in Sources */,
 				8459566F2394471D00026A89 /* Constants.swift in Sources */,
+				8485AA4523BA83AF00000C32 /* BandsFilterViewController.swift in Sources */,
 				84A440F32381D89100685924 /* MyBandDetailViewController.swift in Sources */,
 				BB836E2E2362740600D4711D /* Skills.swift in Sources */,
 				BB8E079E2364B20000C0DCB6 /* FileManagerExtension.swift in Sources */,
 				84A440F12381C79700685924 /* MyBandListProvider.swift in Sources */,
 				BBB9BC372363DA7A00DB93BD /* BandTableViewCell.swift in Sources */,
-				BB156A1F23629D2300BB1823 /* BandViewController.swift in Sources */,
+				BB156A1F23629D2300BB1823 /* BandDetailViewController.swift in Sources */,
 				84595677239449D200026A89 /* ProfileViewController.swift in Sources */,
+				8478A95E23AEF81D0046B60C /* LocationMapViewController.swift in Sources */,
 				BB19BC64235EBD1A00C1098C /* AppDelegate.swift in Sources */,
 				84A440F923821CBF00685924 /* MyBandTableViewCell.swift in Sources */,
 				BB0AEB18236A992700B7FA29 /* BandListProvider.swift in Sources */,
@@ -616,16 +699,19 @@
 				846F17002398C4EF00CE1712 /* LoginProvider.swift in Sources */,
 				84892E7F23939591000CBCE8 /* SignUpViewController.swift in Sources */,
 				84A440EF2381C75100685924 /* MyBandListViewController.swift in Sources */,
+				8448A11B23AC37E4000DFC3D /* BandDetailProvider.swift in Sources */,
 				BB7E5921236936DF005FAADF /* BandListViewModel.swift in Sources */,
 				BB156A1B2362877E00BB1823 /* Review.swift in Sources */,
 				BB7E59242369381D005FAADF /* ArrayExtension.swift in Sources */,
 				BB19BC7A235EC13B00C1098C /* Band.swift in Sources */,
 				BB19BC66235EBD1A00C1098C /* SceneDelegate.swift in Sources */,
+				848DA668239C8E4B00996D04 /* SignUpViewModel.swift in Sources */,
 				BB19BC78235EBF3200C1098C /* Genre.swift in Sources */,
 				845BFAA4238BB53600D7DD0E /* UIColor.swift in Sources */,
 				845EB4032383608A003A7F6A /* ImagePicker.swift in Sources */,
 				84457353236D22EC005486DD /* BandDetailViewModel.swift in Sources */,
 				BB156A1D2362882A00BB1823 /* User.swift in Sources */,
+				848DA666239C85EA00996D04 /* SignUpProvider.swift in Sources */,
 				84A440F72381DC4C00685924 /* MyBandDetailViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -633,6 +719,22 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
+		844DC9C023A1E7A70020A262 /* SignUpView.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				844DC9C123A1E7A70020A262 /* Base */,
+			);
+			name = SignUpView.storyboard;
+			sourceTree = "<group>";
+		};
+		844DC9C423A1E7FA0020A262 /* LoginView.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				844DC9C523A1E7FA0020A262 /* Base */,
+			);
+			name = LoginView.storyboard;
+			sourceTree = "<group>";
+		};
 		8495FCF7239234D00099B635 /* MyBands.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -781,13 +883,13 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = Jam.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = RJKB9VQPXG;
+				DEVELOPMENT_TEAM = 58BN93L43H;
 				INFOPLIST_FILE = Project/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.letsjam.app;
+				PRODUCT_BUNDLE_IDENTIFIER = com.jam.project;
 				PRODUCT_NAME = Jam;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -801,13 +903,13 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = Jam.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = RJKB9VQPXG;
+				DEVELOPMENT_TEAM = 58BN93L43H;
 				INFOPLIST_FILE = Project/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.letsjam.app;
+				PRODUCT_BUNDLE_IDENTIFIER = com.jam.project;
 				PRODUCT_NAME = Jam;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";

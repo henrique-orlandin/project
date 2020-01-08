@@ -12,23 +12,12 @@ class MyBandListViewController: UITableViewController, MyBandListProviderProtoco
     
     var provider: MyBandListProvider! = nil
     @IBOutlet weak var deleteButton: UIBarButtonItem!
+    @IBOutlet weak var addButton: UIBarButtonItem!
     
     @IBAction func addItem(_ sender: Any) {
         let newRowIndex = provider.numberOfBands
         let indexPath = IndexPath(row: newRowIndex, section: 0)
         tableView.insertRows(at: [indexPath], with: .automatic)
-    }
-
-    @IBAction func deleteItems(_ sender: Any) {
-        if let selectedRows = tableView.indexPathsForSelectedRows {
-            for indexPath in selectedRows {
-                let rowToDelete = indexPath.row > provider.numberOfBands - 1 ? provider.numberOfBands - 1 : indexPath.row
-                provider.deleteBand(at: rowToDelete)
-            }
-            tableView.beginUpdates()
-            tableView.deleteRows(at: selectedRows, with: .automatic)
-            tableView.endUpdates()
-        }
     }
 
     func providerDidFinishUpdatedDataset(provider of: MyBandListProvider) {
@@ -40,21 +29,6 @@ class MyBandListViewController: UITableViewController, MyBandListProviderProtoco
         self.provider = MyBandListProvider()
         self.provider.delegate = self
         self.provider.loadBands()
-        
-        navigationItem.leftBarButtonItem = editButtonItem
-        tableView.allowsMultipleSelectionDuringEditing = true
-        
-    }
-    
-    override func setEditing(_ editing: Bool, animated: Bool) {
-        super.setEditing(editing, animated: true)
-        tableView.setEditing(tableView.isEditing, animated: true)
-        
-        if tableView.isEditing {
-            deleteButton.isEnabled = true
-        } else {
-            deleteButton.isEnabled = false
-        }
     }
     
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
@@ -86,9 +60,6 @@ class MyBandListViewController: UITableViewController, MyBandListProviderProtoco
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        if tableView.isEditing {
-            return
-        }
         tableView.deselectRow(at: indexPath, animated: true)
     }
     
@@ -102,7 +73,7 @@ class MyBandListViewController: UITableViewController, MyBandListProviderProtoco
                 if let cell = sender as? UITableViewCell,
                     let indexPath = tableView.indexPath(for: cell),
                     let band = self.provider.getBand(indexOf: indexPath.row) {
-                    myBandViewController.band = MyBandDetailViewModel(band)
+                    myBandViewController.id = band.id
                     myBandViewController.delegate = self
                 }
             }

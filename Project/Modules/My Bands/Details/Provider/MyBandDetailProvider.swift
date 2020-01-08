@@ -7,74 +7,140 @@
 //
 
 import Foundation
-
+import FirebaseFirestore
+import FirebaseAuth
 
 class MyBandDetailProvider {
     
     weak var delegate : MyBandDetailProviderProtocol?
-    
-    private var bandDetail: MyBandDetailViewModel?
-    private var jsonError: ProviderError?
-    
+    public var error: Error?
     
     enum ProviderError: Error {
-        case invalidURL
-        case unreacheble
-        case badFormat
+        case decodeError
+    }
+    
+    public func loadBand(_ id: String) throws {
+        
+        let db = Firestore.firestore()
+        var bandDetail:MyBandDetailViewModel?
+        db.collection("bands").document(id).getDocument(completion: {
+            document, error in
+            if let error = error {
+                self.error = error
+            } else if
+                let document = document,
+                let data = document.data(),
+                let band = self.decode(id: document.documentID, data: data) {
+                    bandDetail = MyBandDetailViewModel(band)
+            } else {
+                self.error = ProviderError.decodeError
+            }
+            self.delegate?.providerDidLoadBand(provider: self, band: bandDetail)
+        })
     }
     
     func saveBand(_ band: MyBandDetailViewModel) {
         
-        print(band)
-        let json = """
-        {
-            'name' : 'My band',
-            'genre' : 'Rock',
-            'location' : 'Vancouver',
-            'description' : 'This is the description',
-            'image' : 'http://ppcorn.com/us/wp-content/uploads/sites/14/2016/01/Led-Zeppelin-pop-art-ppcorn.jpg',
-        }
-        """
+        let data = encode(band: band)
         
-        let url = URL(string: "http://httpbin.org/post")!
-        var request = URLRequest(url: url)
-
-        request.httpMethod = "Post"
-        request.httpBody = json.data(using: .utf8)
-
-        let session = URLSession(configuration: .default)
-        let task = session.dataTask(with: request) {
-            (data, request, error) in
-            if let data = data {
-                do {
-                    let decoder = JSONDecoder()
-                    let band = try decoder.decode(Band.self, from: data)
-                    OperationQueue.main.addOperation {
-                        self.delegate?.providerDidFinishAddingBand(provider: self, band: band)
-                    }
-                    
-                } catch {
-                    let address = Address(address: nil, city: "Vancouver", state: "BC", country: "Canada", complement: nil, lat: nil, lng: nil, zipcode: nil)
-                    let id = band.id != nil ? band.id! : 12
-                    let tempBand = Band(id: id, name: "My band", description: "This is the description", pictures: ["https://i.ytimg.com/vi/TFjmvfRvjTc/hqdefault.jpg"], genres: [.rock], address: address, reviews: nil, contact: nil, videos: nil, audios: nil, links: nil, musicians: nil)
-                    OperationQueue.main.addOperation {
-                        if band.id == nil {
-                            self.delegate?.providerDidFinishAddingBand(provider: self, band: tempBand)
-                        } else {
-                            self.delegate?.providerDidFinishEditingBand(provider: self, band: tempBand)
+        let db = Firestore.firestore()
+        let uid = band.id ?? UUID().uuidString
+        db.collection("bands").document(uid).setData(data, completion: {
+            (error) in
+            if let error = error {
+                self.delegate?.providerDidFinishSavingBand(provider: self, error: error.localizedDescription)
+            }
+            else {
+                db.collection("bands").document(uid).getDocument(completion: {
+                    snapshot, error in
+                    if let error = error {
+                        self.delegate?.providerDidFinishSavingBand(provider: self, error: error.localizedDescription)
+                    } else {
+                        if let snapshot = snapshot {
+                            if let response = snapshot.data(),
+                                let newBand = self.decode(id: uid, data: response) {
+                                self.delegate?.providerDidFinishSavingBand(provider: self, band: newBand)
+                            }
                         }
                     }
-                }
+                })
+            }
+        })
+        
+    }
+    
+    func decode(id: String, data:[String: Any]) -> Band? {
+        
+        guard
+            let name = data["name"] as? String,
+            let image = data["image"] as? String,
+            let description = data["description"] as? String,
+            let genres = data["genre"] as? [String],
+            let location = data["location"] as? [String: Any]
+        else {
+            return nil
+        }
+        
+        guard let lat_lng = location["lat_lng"] as? GeoPoint else {
+            return nil
+        }
+        
+        let loc = Location(city: location["city"] as? String, state: location["state"] as? String, country: location["country"] as? String, postalCode: location["postal_code"] as? String, lat: lat_lng.latitude, lng: lat_lng.longitude)
+        
+        var genreList = [Genre]()
+        for genre in genres {
+            if let value = Genre(rawValue: genre) {
+                genreList.append(value)
             }
         }
-        task.resume()
         
+        let band = Band(id: id, name: name, image: image, description: description, genres: genreList, location: loc, gallery: nil, reviews: nil, contact: nil, videos: nil, audios: nil, links: nil, musicians: nil)
+            
+        return band
+    }
+    
+    func encode(band: MyBandDetailViewModel) -> [String:Any] {
+        
+        let geopoint = GeoPoint(latitude: band.location!.lat, longitude: band.location!.lng)
+        
+        var data:[String: Any] = [
+            "name": band.name!,
+            "image": band.image!,
+            "description": band.description!,
+            "id_user": Auth.auth().currentUser!.uid
+        ]
+        
+        var location: [String: Any] = [
+            "lat_lng": geopoint
+        ]
+        if let city = band.location!.city {
+            location["city"] = city
+        }
+        if let state = band.location!.state {
+            location["state"] = state
+        }
+        if let country = band.location!.country {
+            location["country"] = country
+        }
+        if let postalCode = band.location!.postalCode {
+            location["postal_code"] = postalCode
+        }
+        data["location"] = location
+        
+        var genres = [String]()
+        for genre in band.genre! {
+            genres.append(genre.rawValue)
+        }
+        data["genre"] = genres
+        
+        return data
     }
     
 }
 
 
 protocol MyBandDetailProviderProtocol:class {
-    func providerDidFinishAddingBand(provider of: MyBandDetailProvider, band: Band);
-    func providerDidFinishEditingBand(provider of: MyBandDetailProvider, band: Band);
+    func providerDidFinishSavingBand(provider of: MyBandDetailProvider, error: String);
+    func providerDidFinishSavingBand(provider of: MyBandDetailProvider, band: Band);
+    func providerDidLoadBand(provider of: MyBandDetailProvider, band: MyBandDetailViewModel?);
 }

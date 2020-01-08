@@ -8,24 +8,28 @@
 
 import UIKit
 
-class BandListViewController: UITableViewController, BandListProviderProtocol {
+class BandListViewController: UITableViewController {
     
     var provider: BandListProvider! = nil
-
-    func providerDidFinishUpdatedDataset(provider of: BandListProvider) {
-        self.tableView.reloadData()
-    }
-        
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.provider = BandListProvider()
         self.provider.delegate = self
-        self.provider.updateBandList()
+        do {
+            try self.provider.updateBandList()
+        } catch {
+            print(error)
+        }
+        
+        let refreshControl = UIRefreshControl()
+        refreshControl.addTarget(self, action:  #selector(refreshData), for: .valueChanged)
+        self.refreshControl = refreshControl
+        
     }
     
     //return the number of rows for this table
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        //return bands.count
         return self.provider.numberOfBands
     }
     
@@ -42,7 +46,7 @@ class BandListViewController: UITableViewController, BandListProviderProtocol {
             }
             return bandCell
         }
-
+        
         return cell
     }
     
@@ -52,13 +56,30 @@ class BandListViewController: UITableViewController, BandListProviderProtocol {
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "ShowBandSegue" {
-            if let bandViewController = segue.destination as? BandViewController {
+            if let bandViewController = segue.destination as? BandDetailViewController {
                 if let cell = sender as? UITableViewCell, let indexPath = tableView.indexPath(for: cell) {
-                    let item = self.provider.getBandDetailViewModel(row: indexPath.row, section: indexPath.section)
-                    bandViewController.band = item
+                    let item = self.provider.getBandViewModel(row: indexPath.row, section: indexPath.section)
+                    bandViewController.id = item!.id
                 }
             }
         }
     }
     
+    @objc func refreshData() {
+        do {
+            try self.provider.updateBandList()
+        } catch {
+            print(error)
+            refreshControl?.endRefreshing()
+        }
+    }
+    
 }
+
+extension BandListViewController: BandListProviderProtocol {
+    func providerDidFinishUpdatedDataset(provider of: BandListProvider) {
+        self.tableView.reloadData()
+        refreshControl?.endRefreshing()
+    }
+}
+

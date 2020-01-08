@@ -29,9 +29,4 @@ class LoginViewModel {
         self.password = password
     }
     
-    func validate() -> String? {
-        
-        return nil
-    }
-    
 }

@@ -8,17 +8,34 @@
 
 import Foundation
 
-struct BandListViewModel: Decodable {
+struct BandListViewModel {
     
-    var image: String
+    var id: String
+    var image: Data
     var name: String
     var genre: String
     var location: String
     
     init(_ band: Band) {
-        self.image = band.pictures[0]
+        
+        self.id = band.id
+        
+        self.image = Data(base64Encoded: band.image, options: .ignoreUnknownCharacters)!
+        
         self.name = band.name
         self.genre = band.genres.map {$0.rawValue}.joined(separator: ", ")
-        self.location = band.address.city
+        
+        var location = [String]()
+        if let city = band.location.city {
+            location.append(city)
+        }
+        if let state = band.location.state {
+            location.append(state)
+        }
+        if let country = band.location.country {
+            location.append(country)
+        }
+        
+        self.location = location.joined(separator: ", ")
     }
 }

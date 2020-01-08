@@ -9,6 +9,9 @@ target 'Jam' do
   pod 'Firebase/Core'
   pod 'Firebase/Auth'
   pod 'Firebase/Firestore'
-  pod try MaterialComponents
+  pod 'Firebase/Messaging'
+  pod 'SwiftValidator', :git => 'https://github.com/jpotts18/SwiftValidator.git', :tag => '4.2.0'
+  pod 'RSSelectionMenu'
+  pod 'GoogleMaps'
  
 end

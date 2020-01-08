@@ -12,9 +12,8 @@ class User: Decodable {
     var id: Int
     var name: String
     var email: String
-    var address: Address?
+    var location: Location?
     var reviews: [Review]?
-    var bands: [Band]?
     
     init(id: Int, name: String, email: String) {
         self.id = id

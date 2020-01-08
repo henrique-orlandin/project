@@ -7,22 +7,21 @@
 //
 
 import UIKit
+import SwiftValidator
 
 class LoginViewController: UIViewController {
     
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
-    @IBOutlet weak var errorLabel: UILabel!
+    @IBOutlet weak var emailErrorLabel: UILabel!
+    @IBOutlet weak var passwordErrorLabel: UILabel!
     
     var provider: LoginProvider!
     var user: LoginViewModel!
+    let validator = Validator()
     
     @IBAction func doLogin(_ sender: Any) {
-        if let error = user.validate() {
-            showError(error)
-            return
-        }
-        provider.login(user);
+        validator.validate(self)
     }
     
     override func viewDidLoad() {
@@ -40,15 +39,11 @@ class LoginViewController: UIViewController {
     }
     
     func setUpView() {
-        errorLabel.alpha = 0
         
-        emailTextField.addTarget(self, action: #selector(emailDidChange), for: .editingChanged)
-        passwordTextField.addTarget(self, action: #selector(passwordDidChange), for: .editingChanged)
-    }
-    
-    func showError(_ message: String) {
-        errorLabel.text = message;
-        errorLabel.alpha = 1
+        hideError()
+        
+        validator.registerField(emailTextField, errorLabel: emailErrorLabel, rules: [RequiredRule(), EmailRule(message: "Invalid email")])
+        validator.registerField(passwordTextField, errorLabel: passwordErrorLabel, rules: [RequiredRule()])
     }
     
     func goToProfile() {
@@ -60,20 +55,19 @@ class LoginViewController: UIViewController {
             viewControllers?.remove(at: 1)
             tabBarController.viewControllers = viewControllers
             
-            if let profileViewController = storyboard?.instantiateViewController(withIdentifier: Constants.Storyboard.profileNavigationViewController) {
-                profileViewController.tabBarItem = tabBarItem
-                tabBarController.viewControllers?.append(profileViewController)
-                tabBarController.selectedViewController = profileViewController
-            }
+            let storyboard = UIStoryboard(name: "Main", bundle: nil)
+            let profileViewController = storyboard.instantiateViewController(withIdentifier: Constants.Storyboard.profileNavigationViewController)
+            profileViewController.tabBarItem = tabBarItem
+            tabBarController.viewControllers?.append(profileViewController)
+            tabBarController.selectedViewController = profileViewController
+        
         }
         
     }
     
-    @objc func emailDidChange() {
-        self.user.setEmailFromView(emailTextField.text)
-    }
-    @objc func passwordDidChange() {
-        self.user.setPasswordFromView(passwordTextField.text)
+    func hideError() {
+        emailErrorLabel.alpha = 0;
+        passwordErrorLabel.alpha = 0;
     }
     
 }
@@ -81,9 +75,30 @@ class LoginViewController: UIViewController {
 extension LoginViewController: LoginProviderProtocol {
     func providerDidLogin(provider of: LoginProvider, error: String?) {
         guard error == nil else {
-            self.showError(error!)
+            let alert = UIAlertController(title: "Error!", message: error, preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "ok", style: .default, handler: nil))
+            self.present(alert, animated: true)
+            
             return
         }
         goToProfile()
+    }
+}
+
+
+extension LoginViewController: ValidationDelegate {
+    func validationSuccessful() {
+        user.setEmailFromView(emailTextField.text)
+        user.setPasswordFromView(passwordTextField.text)
+        
+        provider.login(user);
+    }
+    
+    func validationFailed(_ errors: [(Validatable, ValidationError)]) {
+        hideError()
+        for (_ , error) in errors {
+            error.errorLabel?.text = error.errorMessage
+            error.errorLabel?.alpha = 1
+        }
     }
 }

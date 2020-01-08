@@ -17,13 +17,10 @@ class BandTableViewCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
     }
     
     override func prepareForReuse() {
@@ -31,10 +28,11 @@ class BandTableViewCell: UITableViewCell {
     }
     
     func bandCellFormat(band: BandListViewModel) {
-        self.bandNameLabel.text = band.name
-        self.bandImage.load(url: URL(string: band.image)!)
-        self.bandGenreLabel.text = "\(band.genre)"
-        self.locationLabel.text = "\(band.location)"
+        bandNameLabel.text = band.name
+        bandImage.image = UIImage(data: band.image)
+        
+        bandGenreLabel.text = band.genre
+        locationLabel.text = band.location
         
         bandImage.layer.cornerRadius = 5.0;
         bandImage.layer.masksToBounds = true;
