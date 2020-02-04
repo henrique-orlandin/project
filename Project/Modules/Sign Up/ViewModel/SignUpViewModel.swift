@@ -10,7 +10,7 @@ import Foundation
 
 class SignUpViewModel {
     
-    var id: Int?
+    var id: String?
     var name: String?
     var email: String?
     var password: String?
@@ -20,7 +20,6 @@ class SignUpViewModel {
     init(_ user: User) {
         self.id = user.id
         self.name = user.name
-        self.email = user.email
     }
     
     func setNameFromView(_ name: String?) {

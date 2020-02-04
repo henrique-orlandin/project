@@ -27,8 +27,8 @@ enum Genre: String, Decodable, CaseIterable {
     case pop = "Pop"
     case punk = "Punk"
     case rap = "Rap"
-    case soul = "Soul"
     case reggae = "Reggae"
     case rock = "Rock"
+    case soul = "Soul"
     case other = "Other"
 }

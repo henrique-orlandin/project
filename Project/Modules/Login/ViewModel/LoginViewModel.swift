@@ -10,7 +10,7 @@ import Foundation
 
 class LoginViewModel {
     
-    var id: Int?
+    var id: String?
     var email: String?
     var password: String?
     
@@ -18,7 +18,6 @@ class LoginViewModel {
     
     init(_ user: User) {
         self.id = user.id
-        self.email = user.email
     }
     
     func setEmailFromView(_ email: String?) {

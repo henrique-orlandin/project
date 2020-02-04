@@ -85,7 +85,9 @@ extension ImagePicker: UIImagePickerControllerDelegate {
         guard let image = info[.editedImage] as? UIImage else {
             return self.pickerController(picker, didSelect: nil)
         }
-        self.pickerController(picker, didSelect: image)
+        let newImage = image.resizeImage(targetSize: CGSize(width: 400, height: 400))
+        self.pickerController(picker, didSelect: newImage)
+        
     }
 }
 

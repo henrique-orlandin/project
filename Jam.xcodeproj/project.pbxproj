@@ -10,9 +10,35 @@
 		7018D7C75CBDC52FFC15A9C1 /* Pods_Jam.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 80FBF20DD3AA248581FB586D /* Pods_Jam.framework */; };
 		84457353236D22EC005486DD /* BandDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84457352236D22EC005486DD /* BandDetailViewModel.swift */; };
 		8448A11B23AC37E4000DFC3D /* BandDetailProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8448A11A23AC37E4000DFC3D /* BandDetailProvider.swift */; };
+		844D305623DFE63C001E5FBC /* MyAdsDetailProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 844D305523DFE63C001E5FBC /* MyAdsDetailProvider.swift */; };
+		844D305823DFE655001E5FBC /* MyAdsDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 844D305723DFE655001E5FBC /* MyAdsDetailViewController.swift */; };
+		844D305A23DFE67D001E5FBC /* MyAdsDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 844D305923DFE67D001E5FBC /* MyAdsDetailViewModel.swift */; };
+		844D305D23DFE798001E5FBC /* MyAdsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 844D305C23DFE798001E5FBC /* MyAdsTableViewCell.swift */; };
+		844D305F23DFE7B2001E5FBC /* MyAdsListProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 844D305E23DFE7B2001E5FBC /* MyAdsListProvider.swift */; };
+		844D306123DFE7DE001E5FBC /* MyAdsListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 844D306023DFE7DE001E5FBC /* MyAdsListViewController.swift */; };
+		844D306323DFE7F0001E5FBC /* MyAdsListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 844D306223DFE7F0001E5FBC /* MyAdsListViewModel.swift */; };
+		844D306523DFE977001E5FBC /* Advertising.swift in Sources */ = {isa = PBXBuildFile; fileRef = 844D306423DFE977001E5FBC /* Advertising.swift */; };
+		844D306723DFFB1D001E5FBC /* Ads.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 844D306623DFFB1D001E5FBC /* Ads.storyboard */; };
+		844DBC0723DBE4EA00B024BE /* MusiciansDetailProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 844DBC0623DBE4EA00B024BE /* MusiciansDetailProvider.swift */; };
+		844DBC0923DBE52000B024BE /* MusiciansDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 844DBC0823DBE52000B024BE /* MusiciansDetailViewController.swift */; };
+		844DBC0B23DBE53700B024BE /* MusiciansDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 844DBC0A23DBE53700B024BE /* MusiciansDetailViewModel.swift */; };
+		844DBC0D23DBE5B500B024BE /* MusiciansTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 844DBC0C23DBE5B500B024BE /* MusiciansTableViewCell.swift */; };
+		844DBC0F23DBE5D200B024BE /* MusiciansListProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 844DBC0E23DBE5D200B024BE /* MusiciansListProvider.swift */; };
+		844DBC1123DBE5F400B024BE /* MusiciansListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 844DBC1023DBE5F400B024BE /* MusiciansListViewController.swift */; };
+		844DBC1323DBE60900B024BE /* MusiciansFilterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 844DBC1223DBE60900B024BE /* MusiciansFilterViewController.swift */; };
+		844DBC1523DBE62F00B024BE /* MusiciansListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 844DBC1423DBE62F00B024BE /* MusiciansListViewModel.swift */; };
+		844DBC1723DBE64600B024BE /* MusiciansFilterViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 844DBC1623DBE64600B024BE /* MusiciansFilterViewModel.swift */; };
+		844DBC1A23DBE89F00B024BE /* Musicians.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 844DBC1823DBE89F00B024BE /* Musicians.storyboard */; };
 		844DC9C223A1E7A70020A262 /* SignUpView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 844DC9C023A1E7A70020A262 /* SignUpView.storyboard */; };
 		844DC9C623A1E7FA0020A262 /* LoginView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 844DC9C423A1E7FA0020A262 /* LoginView.storyboard */; };
 		844E861D239D7E8E005D879B /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 844E861C239D7E8E005D879B /* GoogleService-Info.plist */; };
+		844F6BCB23C6E8D300E4F1DA /* UIImageExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 844F6BCA23C6E8D300E4F1DA /* UIImageExtension.swift */; };
+		8458446623CFB31100F399DB /* BandFilterViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8458446523CFB31100F399DB /* BandFilterViewModel.swift */; };
+		8458446823CFB73A00F399DB /* BandFilterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8458446723CFB73A00F399DB /* BandFilterViewController.swift */; };
+		845871C923D4EA0A00A70B19 /* Profile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 845871C823D4EA0A00A70B19 /* Profile.storyboard */; };
+		845871CB23D50D6800A70B19 /* ProfileEditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 845871CA23D50D6800A70B19 /* ProfileEditViewController.swift */; };
+		845871CE23D5108300A70B19 /* ProfileProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 845871CD23D5108300A70B19 /* ProfileProvider.swift */; };
+		845871D123D5123E00A70B19 /* ProfileEditViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 845871D023D5123E00A70B19 /* ProfileEditViewModel.swift */; };
 		8459566F2394471D00026A89 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8459566E2394471D00026A89 /* Constants.swift */; };
 		84595677239449D200026A89 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84595676239449D200026A89 /* ProfileViewController.swift */; };
 		845BFAA4238BB53600D7DD0E /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 845BFAA3238BB53600D7DD0E /* UIColor.swift */; };
@@ -21,7 +47,6 @@
 		846F17002398C4EF00CE1712 /* LoginProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 846F16FF2398C4EF00CE1712 /* LoginProvider.swift */; };
 		846F17032398C8E800CE1712 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 846F17022398C8E800CE1712 /* LoginViewModel.swift */; };
 		8478A95E23AEF81D0046B60C /* LocationMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8478A95D23AEF81D0046B60C /* LocationMapViewController.swift */; };
-		8485AA4523BA83AF00000C32 /* BandsFilterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8485AA4423BA83AF00000C32 /* BandsFilterViewController.swift */; };
 		84892E7F23939591000CBCE8 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84892E7E23939591000CBCE8 /* SignUpViewController.swift */; };
 		848AE7EB2384BBF50089F515 /* MyBandDetailProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 848AE7EA2384BBF50089F515 /* MyBandDetailProvider.swift */; };
 		848DA666239C85EA00996D04 /* SignUpProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 848DA665239C85EA00996D04 /* SignUpProvider.swift */; };
@@ -62,9 +87,35 @@
 		80FBF20DD3AA248581FB586D /* Pods_Jam.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Jam.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		84457352236D22EC005486DD /* BandDetailViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BandDetailViewModel.swift; sourceTree = "<group>"; };
 		8448A11A23AC37E4000DFC3D /* BandDetailProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BandDetailProvider.swift; sourceTree = "<group>"; };
+		844D305523DFE63C001E5FBC /* MyAdsDetailProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MyAdsDetailProvider.swift; path = "Project/Modules/My Bands/Details/Provider/MyAdsDetailProvider.swift"; sourceTree = SOURCE_ROOT; };
+		844D305723DFE655001E5FBC /* MyAdsDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MyAdsDetailViewController.swift; path = "Project/Modules/My Bands/Details/ViewController/MyAdsDetailViewController.swift"; sourceTree = SOURCE_ROOT; };
+		844D305923DFE67D001E5FBC /* MyAdsDetailViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MyAdsDetailViewModel.swift; path = "Project/Modules/My Bands/Details/ViewModel/MyAdsDetailViewModel.swift"; sourceTree = SOURCE_ROOT; };
+		844D305C23DFE798001E5FBC /* MyAdsTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MyAdsTableViewCell.swift; path = "Project/Modules/My Bands/List/Cell/MyAdsTableViewCell.swift"; sourceTree = SOURCE_ROOT; };
+		844D305E23DFE7B2001E5FBC /* MyAdsListProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MyAdsListProvider.swift; path = "Project/Modules/My Bands/List/Provider/MyAdsListProvider.swift"; sourceTree = SOURCE_ROOT; };
+		844D306023DFE7DE001E5FBC /* MyAdsListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MyAdsListViewController.swift; path = "Project/Modules/My Bands/List/ViewController/MyAdsListViewController.swift"; sourceTree = SOURCE_ROOT; };
+		844D306223DFE7F0001E5FBC /* MyAdsListViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MyAdsListViewModel.swift; path = "Project/Modules/My Bands/List/ViewModel/MyAdsListViewModel.swift"; sourceTree = SOURCE_ROOT; };
+		844D306423DFE977001E5FBC /* Advertising.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Advertising.swift; sourceTree = "<group>"; };
+		844D306623DFFB1D001E5FBC /* Ads.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Ads.storyboard; path = Project/Modules/Profile/View/Ads.storyboard; sourceTree = SOURCE_ROOT; };
+		844DBC0623DBE4EA00B024BE /* MusiciansDetailProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MusiciansDetailProvider.swift; path = Project/Modules/Bands/Details/Provider/MusiciansDetailProvider.swift; sourceTree = SOURCE_ROOT; };
+		844DBC0823DBE52000B024BE /* MusiciansDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MusiciansDetailViewController.swift; path = Project/Modules/Bands/Details/ViewController/MusiciansDetailViewController.swift; sourceTree = SOURCE_ROOT; };
+		844DBC0A23DBE53700B024BE /* MusiciansDetailViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MusiciansDetailViewModel.swift; path = Project/Modules/Bands/Details/ViewModel/MusiciansDetailViewModel.swift; sourceTree = SOURCE_ROOT; };
+		844DBC0C23DBE5B500B024BE /* MusiciansTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MusiciansTableViewCell.swift; path = Project/Modules/Bands/List/Cell/MusiciansTableViewCell.swift; sourceTree = SOURCE_ROOT; };
+		844DBC0E23DBE5D200B024BE /* MusiciansListProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MusiciansListProvider.swift; path = Project/Modules/Bands/List/Provider/MusiciansListProvider.swift; sourceTree = SOURCE_ROOT; };
+		844DBC1023DBE5F400B024BE /* MusiciansListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MusiciansListViewController.swift; path = Project/Modules/Bands/List/ViewController/MusiciansListViewController.swift; sourceTree = SOURCE_ROOT; };
+		844DBC1223DBE60900B024BE /* MusiciansFilterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MusiciansFilterViewController.swift; path = Project/Modules/Musicians/List/ViewController/MusiciansFilterViewController.swift; sourceTree = SOURCE_ROOT; };
+		844DBC1423DBE62F00B024BE /* MusiciansListViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MusiciansListViewModel.swift; path = Project/Modules/Bands/List/ViewModel/MusiciansListViewModel.swift; sourceTree = SOURCE_ROOT; };
+		844DBC1623DBE64600B024BE /* MusiciansFilterViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MusiciansFilterViewModel.swift; path = Project/Modules/Bands/List/ViewModel/MusiciansFilterViewModel.swift; sourceTree = SOURCE_ROOT; };
+		844DBC1923DBE89F00B024BE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Project/View/Base.lproj/Musicians.storyboard; sourceTree = SOURCE_ROOT; };
 		844DC9C123A1E7A70020A262 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Project/View/Base.lproj/SignUpView.storyboard; sourceTree = SOURCE_ROOT; };
 		844DC9C523A1E7FA0020A262 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Project/View/Base.lproj/LoginView.storyboard; sourceTree = SOURCE_ROOT; };
 		844E861C239D7E8E005D879B /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		844F6BCA23C6E8D300E4F1DA /* UIImageExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageExtension.swift; sourceTree = "<group>"; };
+		8458446523CFB31100F399DB /* BandFilterViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BandFilterViewModel.swift; sourceTree = "<group>"; };
+		8458446723CFB73A00F399DB /* BandFilterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BandFilterViewController.swift; sourceTree = SOURCE_ROOT; };
+		845871C823D4EA0A00A70B19 /* Profile.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Profile.storyboard; sourceTree = "<group>"; };
+		845871CA23D50D6800A70B19 /* ProfileEditViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileEditViewController.swift; sourceTree = "<group>"; };
+		845871CD23D5108300A70B19 /* ProfileProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ProfileProvider.swift; path = Project/Modules/Profile/ViewController/ProfileProvider.swift; sourceTree = SOURCE_ROOT; };
+		845871D023D5123E00A70B19 /* ProfileEditViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ProfileEditViewModel.swift; path = "Project/Modules/My Bands/Details/ViewModel/ProfileEditViewModel.swift"; sourceTree = SOURCE_ROOT; };
 		84589F9B2394D83300557446 /* Jam.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Jam.entitlements; sourceTree = "<group>"; };
 		8459566E2394471D00026A89 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Constants.swift; path = "Project/Modules/Sign Up/ViewController/Constants.swift"; sourceTree = SOURCE_ROOT; };
 		84595676239449D200026A89 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
@@ -74,7 +125,6 @@
 		846F16FF2398C4EF00CE1712 /* LoginProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginProvider.swift; sourceTree = "<group>"; };
 		846F17022398C8E800CE1712 /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
 		8478A95D23AEF81D0046B60C /* LocationMapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = LocationMapViewController.swift; path = "Project/Modules/My Bands/Details/ViewController/LocationMapViewController.swift"; sourceTree = SOURCE_ROOT; };
-		8485AA4423BA83AF00000C32 /* BandsFilterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = BandsFilterViewController.swift; path = Project/Modules/Bands/List/ViewController/BandsFilterViewController.swift; sourceTree = SOURCE_ROOT; };
 		84892E7E23939591000CBCE8 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		848AE7EA2384BBF50089F515 /* MyBandDetailProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyBandDetailProvider.swift; sourceTree = "<group>"; };
 		848DA665239C85EA00996D04 /* SignUpProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpProvider.swift; sourceTree = "<group>"; };
@@ -133,6 +183,198 @@
 			path = Provider;
 			sourceTree = "<group>";
 		};
+		844D304B23DFE298001E5FBC /* My Ads */ = {
+			isa = PBXGroup;
+			children = (
+				844D304D23DFE381001E5FBC /* Details */,
+				844D304C23DFE2F5001E5FBC /* List */,
+				844D304E23DFE3A0001E5FBC /* View */,
+			);
+			path = "My Ads";
+			sourceTree = "<group>";
+		};
+		844D304C23DFE2F5001E5FBC /* List */ = {
+			isa = PBXGroup;
+			children = (
+				844D305B23DFE6BE001E5FBC /* Cell */,
+				844D305423DFE5C5001E5FBC /* Provider */,
+				844D305323DFE5B1001E5FBC /* ViewController */,
+				844D305223DFE5A4001E5FBC /* ViewModel */,
+			);
+			path = List;
+			sourceTree = "<group>";
+		};
+		844D304D23DFE381001E5FBC /* Details */ = {
+			isa = PBXGroup;
+			children = (
+				844D304F23DFE407001E5FBC /* Provider */,
+				844D305023DFE412001E5FBC /* ViewController */,
+				844D305123DFE426001E5FBC /* ViewModel */,
+			);
+			path = Details;
+			sourceTree = "<group>";
+		};
+		844D304E23DFE3A0001E5FBC /* View */ = {
+			isa = PBXGroup;
+			children = (
+				844D306623DFFB1D001E5FBC /* Ads.storyboard */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		844D304F23DFE407001E5FBC /* Provider */ = {
+			isa = PBXGroup;
+			children = (
+				844D305523DFE63C001E5FBC /* MyAdsDetailProvider.swift */,
+			);
+			path = Provider;
+			sourceTree = "<group>";
+		};
+		844D305023DFE412001E5FBC /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				844D305723DFE655001E5FBC /* MyAdsDetailViewController.swift */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		844D305123DFE426001E5FBC /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				844D305923DFE67D001E5FBC /* MyAdsDetailViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		844D305223DFE5A4001E5FBC /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				844D306223DFE7F0001E5FBC /* MyAdsListViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		844D305323DFE5B1001E5FBC /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				844D306023DFE7DE001E5FBC /* MyAdsListViewController.swift */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		844D305423DFE5C5001E5FBC /* Provider */ = {
+			isa = PBXGroup;
+			children = (
+				844D305E23DFE7B2001E5FBC /* MyAdsListProvider.swift */,
+			);
+			path = Provider;
+			sourceTree = "<group>";
+		};
+		844D305B23DFE6BE001E5FBC /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				844D305C23DFE798001E5FBC /* MyAdsTableViewCell.swift */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
+		844DBBFB23DBDD5F00B024BE /* Musicians */ = {
+			isa = PBXGroup;
+			children = (
+				844DBBFE23DBDDAA00B024BE /* Details */,
+				844DBBFD23DBDDA100B024BE /* List */,
+				844DBBFC23DBDD9500B024BE /* View */,
+			);
+			path = Musicians;
+			sourceTree = "<group>";
+		};
+		844DBBFC23DBDD9500B024BE /* View */ = {
+			isa = PBXGroup;
+			children = (
+				844DBC1823DBE89F00B024BE /* Musicians.storyboard */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		844DBBFD23DBDDA100B024BE /* List */ = {
+			isa = PBXGroup;
+			children = (
+				844DBC0223DBE1BB00B024BE /* Cell */,
+				844DBC0323DBE1C200B024BE /* Provider */,
+				844DBC0423DBE1CC00B024BE /* ViewController */,
+				844DBC0523DBE1D400B024BE /* ViewModel */,
+			);
+			path = List;
+			sourceTree = "<group>";
+		};
+		844DBBFE23DBDDAA00B024BE /* Details */ = {
+			isa = PBXGroup;
+			children = (
+				844DBBFF23DBE15A00B024BE /* Provider */,
+				844DBC0023DBE17000B024BE /* ViewController */,
+				844DBC0123DBE19000B024BE /* ViewModel */,
+			);
+			path = Details;
+			sourceTree = "<group>";
+		};
+		844DBBFF23DBE15A00B024BE /* Provider */ = {
+			isa = PBXGroup;
+			children = (
+				844DBC0623DBE4EA00B024BE /* MusiciansDetailProvider.swift */,
+			);
+			path = Provider;
+			sourceTree = "<group>";
+		};
+		844DBC0023DBE17000B024BE /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				844DBC0823DBE52000B024BE /* MusiciansDetailViewController.swift */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		844DBC0123DBE19000B024BE /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				844DBC0A23DBE53700B024BE /* MusiciansDetailViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		844DBC0223DBE1BB00B024BE /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				844DBC0C23DBE5B500B024BE /* MusiciansTableViewCell.swift */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
+		844DBC0323DBE1C200B024BE /* Provider */ = {
+			isa = PBXGroup;
+			children = (
+				844DBC0E23DBE5D200B024BE /* MusiciansListProvider.swift */,
+			);
+			path = Provider;
+			sourceTree = "<group>";
+		};
+		844DBC0423DBE1CC00B024BE /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				844DBC1023DBE5F400B024BE /* MusiciansListViewController.swift */,
+				844DBC1223DBE60900B024BE /* MusiciansFilterViewController.swift */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		844DBC0523DBE1D400B024BE /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				844DBC1623DBE64600B024BE /* MusiciansFilterViewModel.swift */,
+				844DBC1423DBE62F00B024BE /* MusiciansListViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
 		844DC9BF23A1E7150020A262 /* View */ = {
 			isa = PBXGroup;
 			children = (
@@ -149,10 +391,37 @@
 			path = View;
 			sourceTree = "<group>";
 		};
+		845871C523D4E93800A70B19 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				845871C823D4EA0A00A70B19 /* Profile.storyboard */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		845871CC23D5105300A70B19 /* Provider */ = {
+			isa = PBXGroup;
+			children = (
+				845871CD23D5108300A70B19 /* ProfileProvider.swift */,
+			);
+			path = Provider;
+			sourceTree = "<group>";
+		};
+		845871CF23D511FB00A70B19 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				845871D023D5123E00A70B19 /* ProfileEditViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
 		845956742394499300026A89 /* Profile */ = {
 			isa = PBXGroup;
 			children = (
+				845871CC23D5105300A70B19 /* Provider */,
+				845871C523D4E93800A70B19 /* View */,
 				845956752394499A00026A89 /* ViewController */,
+				845871CF23D511FB00A70B19 /* ViewModel */,
 			);
 			path = Profile;
 			sourceTree = "<group>";
@@ -161,6 +430,7 @@
 			isa = PBXGroup;
 			children = (
 				84595676239449D200026A89 /* ProfileViewController.swift */,
+				845871CA23D50D6800A70B19 /* ProfileEditViewController.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -219,10 +489,12 @@
 		84756DA9238F88DE0025D426 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				844DBBFB23DBDD5F00B024BE /* Musicians */,
 				845956742394499300026A89 /* Profile */,
 				84756DAD238F89590025D426 /* Bands */,
 				8462E540239337EC00F017CF /* Login */,
 				84756DAA238F88E70025D426 /* My Bands */,
+				844D304B23DFE298001E5FBC /* My Ads */,
 				84892E7C23939523000CBCE8 /* Sign Up */,
 			);
 			path = Modules;
@@ -402,6 +674,7 @@
 			isa = PBXGroup;
 			children = (
 				BB7E5920236936DF005FAADF /* BandListViewModel.swift */,
+				8458446523CFB31100F399DB /* BandFilterViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -409,8 +682,8 @@
 		8495FCF4239226FA0099B635 /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
+				8458446723CFB73A00F399DB /* BandFilterViewController.swift */,
 				BB19BC67235EBD1A00C1098C /* BandListViewController.swift */,
-				8485AA4423BA83AF00000C32 /* BandsFilterViewController.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -452,6 +725,7 @@
 				BB156A1A2362877E00BB1823 /* Review.swift */,
 				BB836E2F2362771D00D4711D /* Location.swift */,
 				BB19BC7B235EC40200C1098C /* Musician.swift */,
+				844D306423DFE977001E5FBC /* Advertising.swift */,
 			);
 			path = DataModel;
 			sourceTree = "<group>";
@@ -524,6 +798,7 @@
 				BB7E59232369381D005FAADF /* ArrayExtension.swift */,
 				BB8E079D2364B20000C0DCB6 /* FileManagerExtension.swift */,
 				BB8E07A02364B2C500C0DCB6 /* UIImageView.swift */,
+				844F6BCA23C6E8D300E4F1DA /* UIImageExtension.swift */,
 				845BFAA3238BB53600D7DD0E /* UIColor.swift */,
 			);
 			path = Extensions;
@@ -602,8 +877,11 @@
 				BB19BC6D235EBD1E00C1098C /* Assets.xcassets in Resources */,
 				8495FCFB239234E90099B635 /* Bands.storyboard in Resources */,
 				BB19BC6B235EBD1A00C1098C /* Main.storyboard in Resources */,
+				844D306723DFFB1D001E5FBC /* Ads.storyboard in Resources */,
 				8495FCF9239234D00099B635 /* MyBands.storyboard in Resources */,
 				844E861D239D7E8E005D879B /* GoogleService-Info.plist in Resources */,
+				845871C923D4EA0A00A70B19 /* Profile.storyboard in Resources */,
+				844DBC1A23DBE89F00B024BE /* Musicians.storyboard in Resources */,
 				844DC9C223A1E7A70020A262 /* SignUpView.storyboard in Resources */,
 				844DC9C623A1E7FA0020A262 /* LoginView.storyboard in Resources */,
 			);
@@ -677,30 +955,47 @@
 			files = (
 				8462E5432393397C00F017CF /* LoginViewController.swift in Sources */,
 				BB836E302362771D00D4711D /* Location.swift in Sources */,
+				845871CE23D5108300A70B19 /* ProfileProvider.swift in Sources */,
 				846F17032398C8E800CE1712 /* LoginViewModel.swift in Sources */,
+				8458446823CFB73A00F399DB /* BandFilterViewController.swift in Sources */,
 				BB8E07A12364B2C500C0DCB6 /* UIImageView.swift in Sources */,
 				848AE7EB2384BBF50089F515 /* MyBandDetailProvider.swift in Sources */,
+				844D306323DFE7F0001E5FBC /* MyAdsListViewModel.swift in Sources */,
+				844DBC1723DBE64600B024BE /* MusiciansFilterViewModel.swift in Sources */,
 				BB19BC68235EBD1A00C1098C /* BandListViewController.swift in Sources */,
 				8459566F2394471D00026A89 /* Constants.swift in Sources */,
-				8485AA4523BA83AF00000C32 /* BandsFilterViewController.swift in Sources */,
 				84A440F32381D89100685924 /* MyBandDetailViewController.swift in Sources */,
 				BB836E2E2362740600D4711D /* Skills.swift in Sources */,
+				844DBC0923DBE52000B024BE /* MusiciansDetailViewController.swift in Sources */,
+				844DBC0B23DBE53700B024BE /* MusiciansDetailViewModel.swift in Sources */,
+				845871CB23D50D6800A70B19 /* ProfileEditViewController.swift in Sources */,
 				BB8E079E2364B20000C0DCB6 /* FileManagerExtension.swift in Sources */,
+				8458446623CFB31100F399DB /* BandFilterViewModel.swift in Sources */,
+				844DBC0723DBE4EA00B024BE /* MusiciansDetailProvider.swift in Sources */,
 				84A440F12381C79700685924 /* MyBandListProvider.swift in Sources */,
 				BBB9BC372363DA7A00DB93BD /* BandTableViewCell.swift in Sources */,
+				844D305823DFE655001E5FBC /* MyAdsDetailViewController.swift in Sources */,
 				BB156A1F23629D2300BB1823 /* BandDetailViewController.swift in Sources */,
 				84595677239449D200026A89 /* ProfileViewController.swift in Sources */,
+				844D306523DFE977001E5FBC /* Advertising.swift in Sources */,
 				8478A95E23AEF81D0046B60C /* LocationMapViewController.swift in Sources */,
 				BB19BC64235EBD1A00C1098C /* AppDelegate.swift in Sources */,
 				84A440F923821CBF00685924 /* MyBandTableViewCell.swift in Sources */,
 				BB0AEB18236A992700B7FA29 /* BandListProvider.swift in Sources */,
+				844D306123DFE7DE001E5FBC /* MyAdsListViewController.swift in Sources */,
 				84A440F52381DC3A00685924 /* MyBandListViewModel.swift in Sources */,
+				844DBC1523DBE62F00B024BE /* MusiciansListViewModel.swift in Sources */,
 				BB19BC7C235EC40200C1098C /* Musician.swift in Sources */,
 				846F17002398C4EF00CE1712 /* LoginProvider.swift in Sources */,
 				84892E7F23939591000CBCE8 /* SignUpViewController.swift in Sources */,
+				844D305A23DFE67D001E5FBC /* MyAdsDetailViewModel.swift in Sources */,
 				84A440EF2381C75100685924 /* MyBandListViewController.swift in Sources */,
 				8448A11B23AC37E4000DFC3D /* BandDetailProvider.swift in Sources */,
+				845871D123D5123E00A70B19 /* ProfileEditViewModel.swift in Sources */,
+				844DBC1123DBE5F400B024BE /* MusiciansListViewController.swift in Sources */,
 				BB7E5921236936DF005FAADF /* BandListViewModel.swift in Sources */,
+				844DBC0D23DBE5B500B024BE /* MusiciansTableViewCell.swift in Sources */,
+				844D305F23DFE7B2001E5FBC /* MyAdsListProvider.swift in Sources */,
 				BB156A1B2362877E00BB1823 /* Review.swift in Sources */,
 				BB7E59242369381D005FAADF /* ArrayExtension.swift in Sources */,
 				BB19BC7A235EC13B00C1098C /* Band.swift in Sources */,
@@ -708,8 +1003,13 @@
 				848DA668239C8E4B00996D04 /* SignUpViewModel.swift in Sources */,
 				BB19BC78235EBF3200C1098C /* Genre.swift in Sources */,
 				845BFAA4238BB53600D7DD0E /* UIColor.swift in Sources */,
+				844DBC0F23DBE5D200B024BE /* MusiciansListProvider.swift in Sources */,
+				844D305623DFE63C001E5FBC /* MyAdsDetailProvider.swift in Sources */,
+				844DBC1323DBE60900B024BE /* MusiciansFilterViewController.swift in Sources */,
 				845EB4032383608A003A7F6A /* ImagePicker.swift in Sources */,
 				84457353236D22EC005486DD /* BandDetailViewModel.swift in Sources */,
+				844F6BCB23C6E8D300E4F1DA /* UIImageExtension.swift in Sources */,
+				844D305D23DFE798001E5FBC /* MyAdsTableViewCell.swift in Sources */,
 				BB156A1D2362882A00BB1823 /* User.swift in Sources */,
 				848DA666239C85EA00996D04 /* SignUpProvider.swift in Sources */,
 				84A440F72381DC4C00685924 /* MyBandDetailViewModel.swift in Sources */,
@@ -719,6 +1019,14 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
+		844DBC1823DBE89F00B024BE /* Musicians.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				844DBC1923DBE89F00B024BE /* Base */,
+			);
+			name = Musicians.storyboard;
+			sourceTree = "<group>";
+		};
 		844DC9C023A1E7A70020A262 /* SignUpView.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (

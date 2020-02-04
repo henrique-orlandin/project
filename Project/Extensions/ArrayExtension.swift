@@ -8,9 +8,9 @@
 
 import Foundation
 
-extension Array where Element == Band {
-    init(jsonData data: Data) throws {
-        let decoder = JSONDecoder()
-        self = try decoder.decode([Band].self, from: data)
-    }
-}
+//extension Array where Element == Band {
+//    init(jsonData data: Data) throws {
+//        let decoder = JSONDecoder()
+//        self = try decoder.decode([Band].self, from: data)
+//    }
+//}

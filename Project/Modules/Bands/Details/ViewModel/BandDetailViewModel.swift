@@ -12,13 +12,13 @@ struct BandDetailViewModel {
     
     var name: String
     var genre: String
-    var image: Data
+    var image: String
     var location: String
     var description: String
     
     init(_ band: Band) {
         
-        self.image = Data(base64Encoded: band.image, options: .ignoreUnknownCharacters)!
+        self.image = band.image
         
         self.genre = band.genres.map {$0.rawValue}.joined(separator: ", ")
         self.name = band.name

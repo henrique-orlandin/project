@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15702" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="rJb-Zi-Abv">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="rJb-Zi-Abv">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15704"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="Stack View standard spacing" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -45,7 +45,7 @@
                                                         <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="lWs-HA-RtF">
                                                             <rect key="frame" x="0.0" y="29" width="196" height="24"/>
                                                             <subviews>
-                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Genres:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Aw3-lR-qd1">
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="251" horizontalCompressionResistancePriority="751" text="Genres:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Aw3-lR-qd1">
                                                                     <rect key="frame" x="0.0" y="2" width="59.5" height="20.5"/>
                                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                     <nil key="textColor"/>
@@ -93,10 +93,14 @@
                     </tableView>
                     <navigationItem key="navigationItem" title="Bands" id="Ly7-0D-mnd">
                         <rightBarButtonItems>
-                            <barButtonItem title="Item" image="arrow.up.arrow.down.square" catalog="system" id="GUo-5P-BRR"/>
+                            <barButtonItem title="Item" image="arrow.up.arrow.down.square" catalog="system" id="GUo-5P-BRR">
+                                <connections>
+                                    <action selector="order:" destination="rJb-Zi-Abv" id="Mz3-A6-nw7"/>
+                                </connections>
+                            </barButtonItem>
                             <barButtonItem title="Item" image="slider.horizontal.3" catalog="system" id="S4B-JA-Zcb">
                                 <connections>
-                                    <segue destination="q4L-QH-Sdx" kind="presentation" id="jog-x1-dcc"/>
+                                    <segue destination="q4L-QH-Sdx" kind="presentation" identifier="showFilters" id="jog-x1-dcc"/>
                                 </connections>
                             </barButtonItem>
                         </rightBarButtonItems>
@@ -110,7 +114,7 @@
         <!--Band Detail View Controller-->
         <scene sceneID="ncb-42-XJE">
             <objects>
-                <viewController id="CZP-GR-CeS" customClass="BandDetailViewController" customModule="Jam" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="bandDetailVC" id="CZP-GR-CeS" customClass="BandDetailViewController" customModule="Jam" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="OCc-RU-9C4">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -133,7 +137,7 @@
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Band Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eur-nk-qwF">
                                                         <rect key="frame" x="129.5" y="229" width="115.5" height="26.5"/>
                                                         <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="22"/>
-                                                        <color key="textColor" white="0.20000000000000001" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                 </subviews>
@@ -147,13 +151,13 @@
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="Genres:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="R0W-Fp-Wnj">
                                                                 <rect key="frame" x="0.0" y="0.0" width="68" height="24"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                                                <color key="textColor" white="0.20000000000000001" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                <nil key="textColor"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="Genre1, Genre2" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="l3D-n5-py4">
                                                                 <rect key="frame" x="73" y="3" width="301" height="20.5"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                                <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                <nil key="textColor"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
                                                         </subviews>
@@ -164,13 +168,13 @@
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="Location" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Xsh-3N-XmU">
                                                                 <rect key="frame" x="0.0" y="0.0" width="374" height="24"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                                                <color key="textColor" white="0.20000000000000001" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                <nil key="textColor"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="City - State - Country" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rYa-sx-HmN">
                                                                 <rect key="frame" x="0.0" y="29" width="374" height="20.5"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                                <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                <nil key="textColor"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
                                                         </subviews>
@@ -181,13 +185,13 @@
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="Description" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zFu-Df-Mq3">
                                                                 <rect key="frame" x="0.0" y="0.0" width="374" height="24"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                                                <color key="textColor" white="0.20000000000000001" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                <nil key="textColor"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
                                                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" editable="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="oUo-1F-y41">
                                                                 <rect key="frame" x="0.0" y="24" width="374" height="166.5"/>
                                                                 <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</string>
-                                                                <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                <color key="textColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                                             </textView>
@@ -232,17 +236,10 @@
             </objects>
             <point key="canvasLocation" x="1513.0434782608697" y="138.61607142857142"/>
         </scene>
-        <!--Bands Filter View Controller-->
+        <!--Band Filter View Controller-->
         <scene sceneID="n34-PX-kyI">
             <objects>
-                <exit id="ZnY-Yg-AiA" userLabel="Exit" sceneMemberID="exit"/>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Xsj-N4-ByT" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-                <tapGestureRecognizer id="xKt-4v-l5j">
-                    <connections>
-                        <action selector="tapLocation:" destination="6eV-P9-bGp" id="47W-qr-KYY"/>
-                    </connections>
-                </tapGestureRecognizer>
-                <viewController id="6eV-P9-bGp" customClass="BandsFilterViewController" customModule="Jam" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="6eV-P9-bGp" customClass="BandFilterViewController" customModule="Jam" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="nQw-kQ-zzT">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -348,11 +345,19 @@
                     </navigationItem>
                     <connections>
                         <outlet property="distanceLabel" destination="7xo-kJ-SYb" id="GPu-wZ-RBa"/>
+                        <outlet property="distanceSlider" destination="2dX-Nn-Whm" id="QuB-y1-oRo"/>
                         <outlet property="genreTextField" destination="XRX-yd-fSZ" id="R2g-59-XcL"/>
                         <outlet property="locationTextField" destination="BSo-2L-ITZ" id="LFT-K5-db8"/>
                         <outlet property="nameTextField" destination="lLb-4l-mSj" id="tJs-oG-PNr"/>
                     </connections>
                 </viewController>
+                <exit id="ZnY-Yg-AiA" userLabel="Exit" sceneMemberID="exit"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Xsj-N4-ByT" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="xKt-4v-l5j">
+                    <connections>
+                        <action selector="tapLocation:" destination="6eV-P9-bGp" id="47W-qr-KYY"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="2421.739130434783" y="868.52678571428567"/>
         </scene>

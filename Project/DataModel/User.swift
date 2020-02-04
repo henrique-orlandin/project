@@ -8,16 +8,18 @@
 
 import Foundation
 
-class User: Decodable {
-    var id: Int
+class User {
+    var id: String
     var name: String
-    var email: String
+    var image: String?
     var location: Location?
-    var reviews: [Review]?
+    var musician: Musician?
     
-    init(id: Int, name: String, email: String) {
+    init(id: String, name: String, image: String?, location: Location?, musician: Musician?) {
         self.id = id
         self.name = name
-        self.email = email
+        self.image = image
+        self.location = location
+        self.musician = musician
     }
 }

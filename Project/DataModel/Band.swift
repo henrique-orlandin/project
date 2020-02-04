@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct Band: Equatable, Decodable {
+struct Band: Equatable {
     static func == (lhs: Band, rhs: Band) -> Bool {
         return lhs.id == rhs.id
     }

@@ -7,24 +7,43 @@
 //
 
 import UIKit
+import RSSelectionMenu
 
 class BandListViewController: UITableViewController {
     
     var provider: BandListProvider! = nil
     
+    private var orderOption:[BandListProvider.Order]? = nil
+    private var selectedOrder = [String]()
+    private var orderSelection: RSSelectionMenu<String>?
+    
+   
+    @IBAction func order(_ sender: Any) {
+        orderSelection!.show(style: .alert(title: "Select", action: nil, height: nil), from: self)
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.provider = BandListProvider()
         self.provider.delegate = self
-        do {
-            try self.provider.updateBandList()
-        } catch {
-            print(error)
-        }
+        self.provider.updateBandList()
+        orderOption = self.provider.orderOptions
         
         let refreshControl = UIRefreshControl()
         refreshControl.addTarget(self, action:  #selector(refreshData), for: .valueChanged)
         self.refreshControl = refreshControl
+        
+        var selectionValues = [String]()
+        for option in orderOption! {
+            selectionValues.append(option.rawValue)
+        }
+        orderSelection = RSSelectionMenu(dataSource: selectionValues) { (cell, order, indexPath) in
+            cell.textLabel?.text = order
+        }
+        orderSelection!.setSelectedItems(items: selectedOrder) { [weak self] (item, index, isSelected, selectedItems) in
+            self!.selectedOrder = selectedItems
+            self!.provider.setOrder(order: selectedItems.first!);
+        }
         
     }
     
@@ -63,15 +82,19 @@ class BandListViewController: UITableViewController {
                 }
             }
         }
+        if segue.identifier == "showFilters" {
+            
+            if let navigationController = segue.destination as? UINavigationController {
+                if let bandFilterViewController = navigationController.viewControllers.first as? BandFilterViewController {
+                    bandFilterViewController.delegate = self
+                    bandFilterViewController.filter = self.provider.filters
+                }
+            }
+        }
     }
     
     @objc func refreshData() {
-        do {
-            try self.provider.updateBandList()
-        } catch {
-            print(error)
-            refreshControl?.endRefreshing()
-        }
+        self.provider.updateBandList()
     }
     
 }
@@ -83,3 +106,12 @@ extension BandListViewController: BandListProviderProtocol {
     }
 }
 
+extension BandListViewController: BandFilterViewControllerProtocol {
+    func bandFilterDone(provider of: BandFilterViewController, filters: BandFilterViewModel) {
+        provider.filterBands(filters: filters)
+    }
+    
+    func bandFilterClear(provider of: BandFilterViewController) {
+        provider.clearFilters()
+    }
+}

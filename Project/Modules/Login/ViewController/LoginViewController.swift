@@ -8,6 +8,7 @@
 
 import UIKit
 import SwiftValidator
+import FirebaseAuth
 
 class LoginViewController: UIViewController {
     
@@ -51,8 +52,8 @@ class LoginViewController: UIViewController {
         if let tabBarController = self.tabBarController {
             
             var viewControllers = tabBarController.viewControllers
-            let tabBarItem = viewControllers?[1].tabBarItem
-            viewControllers?.remove(at: 1)
+            let tabBarItem = viewControllers?[2].tabBarItem
+            viewControllers?.remove(at: 2)
             tabBarController.viewControllers = viewControllers
             
             let storyboard = UIStoryboard(name: "Main", bundle: nil)
@@ -60,7 +61,7 @@ class LoginViewController: UIViewController {
             profileViewController.tabBarItem = tabBarItem
             tabBarController.viewControllers?.append(profileViewController)
             tabBarController.selectedViewController = profileViewController
-        
+            
         }
         
     }

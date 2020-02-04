@@ -1,108 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15702" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="pWT-QF-806">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="pWT-QF-806">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15704"/>
-        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Profile-->
-        <scene sceneID="cad-vG-vaa">
-            <objects>
-                <viewController storyboardIdentifier="ProfileVC" id="KgE-yD-xCf" customClass="ProfileViewController" customModule="Jam" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="edY-MP-HOA">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fom-Om-iBo">
-                                <rect key="frame" x="0.0" y="88" width="414" height="725"/>
-                                <subviews>
-                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="60" translatesAutoresizingMaskIntoConstraints="NO" id="wJM-8N-4hp" userLabel="Content">
-                                        <rect key="frame" x="20" y="20" width="374" height="355.5"/>
-                                        <subviews>
-                                            <stackView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="252" verticalCompressionResistancePriority="749" axis="vertical" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="MIh-JL-Pfq" userLabel="Profile View">
-                                                <rect key="frame" x="0.0" y="0.0" width="374" height="207.5"/>
-                                                <subviews>
-                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" image="person.crop.circle" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="RmS-Hz-QDl">
-                                                        <rect key="frame" x="99" y="0.5" width="176" height="152"/>
-                                                        <constraints>
-                                                            <constraint firstAttribute="height" constant="153" id="Kef-Jj-Kac"/>
-                                                            <constraint firstAttribute="width" constant="176" id="t1J-6X-i6B"/>
-                                                        </constraints>
-                                                    </imageView>
-                                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="7rM-7H-deV" userLabel="Name and Email">
-                                                        <rect key="frame" x="73.5" y="161" width="227" height="46.5"/>
-                                                        <subviews>
-                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Henrique Orlandin" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="B4f-WT-jl1">
-                                                                <rect key="frame" x="34.5" y="0.0" width="158.5" height="24"/>
-                                                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                                                <nil key="textColor"/>
-                                                                <nil key="highlightedColor"/>
-                                                            </label>
-                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="henrique.orlandin@gmail.com" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sYE-Iy-ZAb">
-                                                                <rect key="frame" x="0.0" y="26" width="227" height="20.5"/>
-                                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                                <nil key="textColor"/>
-                                                                <nil key="highlightedColor"/>
-                                                            </label>
-                                                        </subviews>
-                                                    </stackView>
-                                                </subviews>
-                                            </stackView>
-                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="iON-I3-1fn" userLabel="My registers">
-                                                <rect key="frame" x="0.0" y="267.5" width="374" height="88"/>
-                                                <subviews>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BaS-Hh-1VS">
-                                                        <rect key="frame" x="0.0" y="0.0" width="374" height="29"/>
-                                                        <fontDescription key="fontDescription" type="system" pointSize="24"/>
-                                                        <inset key="titleEdgeInsets" minX="10" minY="0.0" maxX="0.0" maxY="0.0"/>
-                                                        <state key="normal" title="My Bands" image="music.note" catalog="system">
-                                                            <preferredSymbolConfiguration key="preferredSymbolConfiguration" scale="large" weight="semibold"/>
-                                                        </state>
-                                                        <connections>
-                                                            <segue destination="qYq-qX-oyM" kind="show" id="Dq2-mw-NYD"/>
-                                                        </connections>
-                                                    </button>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="f1T-ve-jxF" userLabel="MyPlaces">
-                                                        <rect key="frame" x="0.0" y="59" width="374" height="29"/>
-                                                        <fontDescription key="fontDescription" type="system" pointSize="24"/>
-                                                        <inset key="titleEdgeInsets" minX="10" minY="0.0" maxX="0.0" maxY="0.0"/>
-                                                        <state key="normal" title="My Places" image="music.house" catalog="system">
-                                                            <preferredSymbolConfiguration key="preferredSymbolConfiguration" scale="large" weight="semibold"/>
-                                                        </state>
-                                                    </button>
-                                                </subviews>
-                                            </stackView>
-                                        </subviews>
-                                    </stackView>
-                                </subviews>
-                                <constraints>
-                                    <constraint firstItem="wJM-8N-4hp" firstAttribute="leading" secondItem="fom-Om-iBo" secondAttribute="leading" constant="20" id="5AY-LO-jok"/>
-                                    <constraint firstAttribute="bottom" secondItem="wJM-8N-4hp" secondAttribute="bottom" id="C6h-Nw-kwm"/>
-                                    <constraint firstAttribute="trailing" secondItem="wJM-8N-4hp" secondAttribute="trailing" constant="20" id="CYt-6P-aDf"/>
-                                    <constraint firstItem="wJM-8N-4hp" firstAttribute="width" secondItem="fom-Om-iBo" secondAttribute="width" constant="-40" id="gAf-5K-d27"/>
-                                    <constraint firstItem="wJM-8N-4hp" firstAttribute="top" secondItem="fom-Om-iBo" secondAttribute="top" constant="20" id="mRx-uc-Bac"/>
-                                </constraints>
-                            </scrollView>
-                        </subviews>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                        <constraints>
-                            <constraint firstItem="fom-Om-iBo" firstAttribute="top" secondItem="XRV-YY-m0I" secondAttribute="top" id="0aW-Ze-a9k"/>
-                            <constraint firstItem="fom-Om-iBo" firstAttribute="bottom" secondItem="XRV-YY-m0I" secondAttribute="bottom" id="BWc-Ow-B24"/>
-                            <constraint firstItem="fom-Om-iBo" firstAttribute="trailing" secondItem="XRV-YY-m0I" secondAttribute="trailing" id="h5Y-BV-5iA"/>
-                            <constraint firstItem="fom-Om-iBo" firstAttribute="leading" secondItem="XRV-YY-m0I" secondAttribute="leading" id="sIZ-Xt-4tX"/>
-                        </constraints>
-                        <viewLayoutGuide key="safeArea" id="XRV-YY-m0I"/>
-                    </view>
-                    <toolbarItems/>
-                    <navigationItem key="navigationItem" title="Profile" id="wFP-Bx-3y0"/>
-                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="PZX-Yd-7kA" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="522" y="1589"/>
-        </scene>
         <!--Bands-->
         <scene sceneID="1lK-7B-GIS">
             <objects>
@@ -133,34 +36,13 @@
                     </tabBar>
                     <connections>
                         <segue destination="jqn-eo-Q9L" kind="relationship" relationship="viewControllers" id="XCj-Xb-Jqe"/>
+                        <segue destination="GYO-9d-sxK" kind="relationship" relationship="viewControllers" id="sdP-m0-V5u"/>
                         <segue destination="uej-Lo-Z7p" kind="relationship" relationship="viewControllers" id="bgO-b0-mLA"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="W9b-qn-i7b" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-1612" y="473"/>
-        </scene>
-        <!--Profile-->
-        <scene sceneID="8zU-Yy-8B2">
-            <objects>
-                <navigationController storyboardIdentifier="ProfileNavVC" automaticallyAdjustsScrollViewInsets="NO" id="YQZ-er-5WA" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Profile" image="person.circle" catalog="system" selectedImage="person.circle" id="5Id-Xf-EBp"/>
-                    <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="4gL-Tp-apC">
-                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <toolbar key="toolbar" opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Czw-ga-7VL">
-                        <autoresizingMask key="autoresizingMask"/>
-                    </toolbar>
-                    <connections>
-                        <segue destination="KgE-yD-xCf" kind="relationship" relationship="rootViewController" id="6j6-6y-iZc"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="VmR-fR-qef" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-388" y="1589"/>
         </scene>
         <!--MyBands-->
         <scene sceneID="4Du-if-MCG">
@@ -220,12 +102,35 @@
             </objects>
             <point key="canvasLocation" x="523" y="861"/>
         </scene>
+        <!--ProfileNavVC-->
+        <scene sceneID="iS8-do-3Pg">
+            <objects>
+                <viewControllerPlaceholder storyboardIdentifier="ProfileNavVC" storyboardName="Profile" referencedIdentifier="ProfileNavVC" id="FJt-Qg-rnB" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ovc-kC-nyK" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-388" y="1589"/>
+        </scene>
+        <!--ProfileVC-->
+        <scene sceneID="l1d-2S-qQY">
+            <objects>
+                <viewControllerPlaceholder storyboardIdentifier="ProfileVC" storyboardName="Profile" referencedIdentifier="ProfileVC" id="fHG-Rc-GOu" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="olX-uS-7d9" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="522" y="1589"/>
+        </scene>
+        <!--Musicians-->
+        <scene sceneID="Ule-Ep-hBO">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Musicians" id="GYO-9d-sxK" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Item" id="GWY-1b-Afe"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="lEz-Lh-3yI" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-621" y="-381"/>
+        </scene>
     </scenes>
     <resources>
         <image name="guitars" catalog="system" width="64" height="52"/>
-        <image name="music.house" catalog="system" width="64" height="52"/>
-        <image name="music.note" catalog="system" width="48" height="64"/>
         <image name="person.circle" catalog="system" width="64" height="60"/>
-        <image name="person.crop.circle" catalog="system" width="64" height="60"/>
     </resources>
 </document>

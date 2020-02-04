@@ -11,7 +11,7 @@ import Foundation
 struct BandListViewModel {
     
     var id: String
-    var image: Data
+    var image: String
     var name: String
     var genre: String
     var location: String
@@ -20,7 +20,7 @@ struct BandListViewModel {
         
         self.id = band.id
         
-        self.image = Data(base64Encoded: band.image, options: .ignoreUnknownCharacters)!
+        self.image = band.image
         
         self.name = band.name
         self.genre = band.genres.map {$0.rawValue}.joined(separator: ", ")

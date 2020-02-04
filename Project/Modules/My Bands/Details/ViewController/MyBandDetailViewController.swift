@@ -163,7 +163,7 @@ class MyBandDetailViewController: UIViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         if let band = self.band, let image = band.getPicturesForView() {
-            imageView.image = UIImage(data: image)
+            provider.loadImage(image: image, to:imageView)
         }
     }
 }
@@ -176,6 +176,7 @@ extension MyBandDetailViewController: UITextFieldDelegate {
     func textFieldDidBeginEditing(_ textField: UITextField) {
         if textField == genreTextField {
             genreSelection!.show(style: .popover(sourceView: genreTextField, size: nil), from: self)
+            textField.resignFirstResponder()
         }
     }
 }
@@ -217,6 +218,11 @@ extension MyBandDetailViewController: MyBandDetailProviderProtocol {
             editConfig()
         } else if let error = provider.error {
             print(error.localizedDescription)
+        }
+    }
+    func providerDidLoadImage(provider of: MyBandDetailProvider, imageView: UIImageView, data: Data?) {
+        if let data = data {
+            imageView.image = UIImage(data: data)
         }
     }
 }

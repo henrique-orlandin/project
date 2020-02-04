@@ -9,6 +9,7 @@
 import Foundation
 import FirebaseFirestore
 import FirebaseAuth
+import FirebaseStorage
 
 class MyBandListProvider {
     
@@ -60,12 +61,36 @@ class MyBandListProvider {
         bands?.append(band)
     }
     
+    func loadImage(image: String, to imageView: UIImageView) {
+        
+        let storage = Storage.storage()
+        let storageRef = storage.reference()
+        let imagesRef = storageRef.child("bands/\(image)")
+        imagesRef.getData(maxSize: 1 * 1024 * 1024) { data, error in
+            if let error = error {
+                print(error)
+            } else if let data = data {
+                imageView.image = UIImage(data: data)
+            }
+        }
+    }
+    
     public func deleteBand(at index: Int) {
         if let band = bands?[index] {
+            
             let db = Firestore.firestore()
             db.collection("bands").document(band.id).delete() { err in
                 if let err = err {
                     print("Error removing document: \(err)")
+                } else {
+                    let storage = Storage.storage()
+                    let storageRef = storage.reference()
+                    let imagesRef = storageRef.child("bands/\(band.image)")
+                    imagesRef.delete { error in
+                        if let error = error {
+                            print(error)
+                        }
+                    }
                 }
             }
             bands?.remove(at: index)
@@ -133,5 +158,5 @@ class MyBandListProvider {
 }
 
 protocol MyBandListProviderProtocol:class{
-    func providerDidFinishUpdatedDataset(provider of: MyBandListProvider);
+    func providerDidFinishUpdatedDataset(provider of: MyBandListProvider)
 }

@@ -45,7 +45,6 @@ class LocationMapViewController: UIViewController {
                 return
             }
             
-            print(lines.joined(separator: "\n"))
             self.locationLabel.text = lines.joined(separator: "\n")
             self.adjustLabelHeight()
             self.location = Location(city: address.locality, state: address.administrativeArea, country: address.country, postalCode: address.postalCode, lat: address.coordinate.latitude, lng: address.coordinate.longitude)

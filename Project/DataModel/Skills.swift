@@ -8,7 +8,7 @@
 
 import Foundation
 
-enum Skills: String {
+enum Skills: String, CaseIterable {
     case accordion = "Accordion"
     case banjo = "Banjo"
     case bass = "Bass"

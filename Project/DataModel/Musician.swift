@@ -8,11 +8,11 @@
 
 import Foundation
 
-struct Musician: Decodable {
-    var name: String
+struct Musician {
     var description: String
-    var pictures: [String]?
-    var genres: [Genre]?
+    var genres: [Genre]
+    var skills: [Skills]
+    var gallery: [String]?
     var reviews: [Review]?
     var contact: [String]?
     var videos: [String]?

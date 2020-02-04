@@ -8,6 +8,7 @@
 
 import Foundation
 import FirebaseFirestore
+import FirebaseStorage
 
 class BandDetailProvider {
     
@@ -25,6 +26,25 @@ class BandDetailProvider {
             return nil
         }
         return item
+    }
+    
+    func loadImage(image: String, to imageView: UIImageView) {
+        
+        guard let band = band else {
+            return
+        }
+        
+        let storage = Storage.storage()
+        let storageRef = storage.reference()
+        let imagesRef = storageRef.child("bands/\(band.image)")
+        imagesRef.getData(maxSize: 1 * 1024 * 1024) { data, error in
+            if let error = error {
+                print(error)
+                self.delegate?.providerDidLoadImage(provider: self, imageView: imageView, data: nil)
+            } else {
+                self.delegate?.providerDidLoadImage(provider: self, imageView: imageView, data: data)
+            }
+        }
     }
     
     public func loadBand(_ id: String) throws {
@@ -79,9 +99,10 @@ class BandDetailProvider {
             
         return band
     }
-}
+} 
 
 protocol BandDetailProviderProtocol:class{
-    func providerDidFinishLoading(provider of: BandDetailProvider, band: BandDetailViewModel?);
+    func providerDidFinishLoading(provider of: BandDetailProvider, band: BandDetailViewModel?)
+    func providerDidLoadImage(provider of: BandDetailProvider, imageView: UIImageView, data: Data?)
 }
 

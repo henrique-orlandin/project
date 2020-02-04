@@ -3,4 +3,102 @@
    uuid = "2632ACEB-09A7-457E-913F-EDD1EF12B33F"
    type = "0"
    version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "076914D8-926D-46D5-B75C-C0808665BDBB"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Project/Modules/Profile/ViewController/ProfileProvider.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "75"
+            endingLineNumber = "75"
+            landmarkName = "saveData(_:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "076914D8-926D-46D5-B75C-C0808665BDBB - 1085316e8b173f99"
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Jam.ProfileProvider.saveData(Jam.ProfileEditViewModel) -&gt; ()"
+                  moduleName = "Jam"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/admin/Documents/cornerstone/project/Project/Modules/Profile/ViewController/ProfileProvider.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "75"
+                  endingLineNumber = "75"
+                  offsetFromSymbolStart = "1749">
+               </Location>
+               <Location
+                  uuid = "076914D8-926D-46D5-B75C-C0808665BDBB - dc06d85dd73328c1"
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Swift.Optional&lt;__C.FIRStorageMetadata&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in Jam.ProfileProvider.saveData(Jam.ProfileEditViewModel) -&gt; ()"
+                  moduleName = "Jam"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/admin/Documents/cornerstone/project/Project/Modules/Profile/ViewController/ProfileProvider.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "76"
+                  endingLineNumber = "76"
+                  offsetFromSymbolStart = "367">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "AB87139F-9594-4FF3-BCF0-C47F0B03F3DF"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "BandFilterViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "119"
+            endingLineNumber = "119"
+            landmarkName = "editConfig()"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "AB87139F-9594-4FF3-BCF0-C47F0B03F3DF - ff62974dd5f80b78"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Jam.BandFilterViewController.editConfig() -&gt; ()"
+                  moduleName = "Jam"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/admin/Documents/cornerstone/project/BandFilterViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "119"
+                  endingLineNumber = "119"
+                  offsetFromSymbolStart = "1072">
+               </Location>
+               <Location
+                  uuid = "AB87139F-9594-4FF3-BCF0-C47F0B03F3DF - d18898c540f53c9d"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Swift.Optional&lt;Swift.String&gt;, Swift.Int, Swift.Bool, Swift.Array&lt;Swift.String&gt;) -&gt; () in Jam.BandFilterViewController.editConfig() -&gt; ()"
+                  moduleName = "Jam"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/admin/Documents/cornerstone/project/BandFilterViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "119"
+                  endingLineNumber = "119"
+                  offsetFromSymbolStart = "228">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
 </Bucket>

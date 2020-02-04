@@ -9,6 +9,8 @@
 import UIKit
 
 class MyBandTableViewCell: UITableViewCell {
+    
+    var provider: MyBandListProvider! = nil
 
     @IBOutlet weak var bandImage: UIImageView!
     @IBOutlet weak var bandNameLabel: UILabel!
@@ -17,7 +19,7 @@ class MyBandTableViewCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
+        self.provider = MyBandListProvider()
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
@@ -32,11 +34,12 @@ class MyBandTableViewCell: UITableViewCell {
     
     func bandCellFormat(band: MyBandListViewModel) {
         self.bandNameLabel.text = band.name
-        self.bandImage.image = UIImage(data: band.image)
         self.bandGenreLabel.text = "\(band.genre)"
         self.locationLabel.text = "\(band.location)"
         
         bandImage.layer.cornerRadius = 5.0;
         bandImage.layer.masksToBounds = true;
+        
+        provider.loadImage(image: band.image, to: bandImage)
     }
 }

@@ -69,13 +69,8 @@ class MyBandDetailViewModel: Decodable {
     func getGenreForView() -> [String]? {
         return self.genre != nil ? self.genre!.map { $0.rawValue } : nil
     }
-    func getPicturesForView() -> Data? {
-        guard let image = self.image else {
-            return nil
-        }
-        
-        return Data(base64Encoded: image, options: .ignoreUnknownCharacters)
-        
+    func getPicturesForView() -> String? {
+        return self.image
     }
     func getLocationForView() -> String? {        
         guard let location = self.location else {

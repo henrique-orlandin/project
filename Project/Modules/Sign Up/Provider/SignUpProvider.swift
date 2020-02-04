@@ -9,6 +9,7 @@
 import Foundation
 import FirebaseAuth
 import FirebaseFirestore
+import FirebaseMessaging
 
 class SignUpProvider {
     
@@ -30,11 +31,18 @@ class SignUpProvider {
                 self.delegate?.providerDidCreate(provider: self, error: error.localizedDescription)
             }
             else {
+                
                 let db = Firestore.firestore()
-                let data = [
+                var data = [
+                    "id": result!.user.uid,
                     "name": name,
                     "email": email
                 ]
+                
+                if let fcmToken = Messaging.messaging().fcmToken {
+                    data["token"] = fcmToken
+                }
+                
                 db.collection("users").document(result!.user.uid).setData(data, completion: {
                     (error) in
                     if let error = error {

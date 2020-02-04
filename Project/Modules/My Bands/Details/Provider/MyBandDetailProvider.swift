@@ -9,11 +9,13 @@
 import Foundation
 import FirebaseFirestore
 import FirebaseAuth
+import FirebaseStorage
 
 class MyBandDetailProvider {
     
     weak var delegate : MyBandDetailProviderProtocol?
     public var error: Error?
+    private var band: Band?
     
     enum ProviderError: Error {
         case decodeError
@@ -31,7 +33,8 @@ class MyBandDetailProvider {
                 let document = document,
                 let data = document.data(),
                 let band = self.decode(id: document.documentID, data: data) {
-                    bandDetail = MyBandDetailViewModel(band)
+                bandDetail = MyBandDetailViewModel(band)
+                self.band = band
             } else {
                 self.error = ProviderError.decodeError
             }
@@ -39,33 +42,69 @@ class MyBandDetailProvider {
         })
     }
     
+    func loadImage(image: String, to imageView: UIImageView) {
+        
+        guard let band = band else {
+            return
+        }
+        
+        let storage = Storage.storage()
+        let storageRef = storage.reference()
+        let imagesRef = storageRef.child("bands/\(band.image)")
+        imagesRef.getData(maxSize: 1 * 1024 * 1024) { data, error in
+            if let error = error {
+                print(error)
+                self.delegate?.providerDidLoadImage(provider: self, imageView: imageView, data: nil)
+            } else {
+                self.delegate?.providerDidLoadImage(provider: self, imageView: imageView, data: data)
+            }
+        }
+    }
+    
     func saveBand(_ band: MyBandDetailViewModel) {
         
-        let data = encode(band: band)
-        
-        let db = Firestore.firestore()
         let uid = band.id ?? UUID().uuidString
-        db.collection("bands").document(uid).setData(data, completion: {
-            (error) in
-            if let error = error {
-                self.delegate?.providerDidFinishSavingBand(provider: self, error: error.localizedDescription)
-            }
-            else {
-                db.collection("bands").document(uid).getDocument(completion: {
-                    snapshot, error in
-                    if let error = error {
-                        self.delegate?.providerDidFinishSavingBand(provider: self, error: error.localizedDescription)
-                    } else {
-                        if let snapshot = snapshot {
-                            if let response = snapshot.data(),
-                                let newBand = self.decode(id: uid, data: response) {
-                                self.delegate?.providerDidFinishSavingBand(provider: self, band: newBand)
-                            }
+        
+        let storage = Storage.storage()
+        let storageRef = storage.reference()
+        let imageName = "\(uid).png"
+        let imagesRef = storageRef.child("bands/\(imageName)")
+        
+        if let decodedData = Data(base64Encoded: band.image!, options: .ignoreUnknownCharacters) {
+            imagesRef.putData(decodedData, metadata: nil) { metadata, error in
+                if let error = error {
+                    print(error)
+                } else {
+                    band.image = imageName
+                    var data = self.encode(band: band)
+                    let db = Firestore.firestore()
+                    data["id"] = uid
+                    
+                    db.collection("bands").document(uid).setData(data, completion: {
+                        (error) in
+                        if let error = error {
+                            self.delegate?.providerDidFinishSavingBand(provider: self, error: error.localizedDescription)
                         }
-                    }
-                })
+                        else {
+                            db.collection("bands").document(uid).getDocument(completion: {
+                                snapshot, error in
+                                if let error = error {
+                                    self.delegate?.providerDidFinishSavingBand(provider: self, error: error.localizedDescription)
+                                } else {
+                                    if let snapshot = snapshot {
+                                        if let response = snapshot.data(),
+                                            let newBand = self.decode(id: uid, data: response) {
+                                            self.delegate?.providerDidFinishSavingBand(provider: self, band: newBand)
+                                        }
+                                    }
+                                }
+                            })
+                        }
+                    })
+                }
             }
-        })
+            
+        }
         
     }
     
@@ -77,8 +116,8 @@ class MyBandDetailProvider {
             let description = data["description"] as? String,
             let genres = data["genre"] as? [String],
             let location = data["location"] as? [String: Any]
-        else {
-            return nil
+            else {
+                return nil
         }
         
         guard let lat_lng = location["lat_lng"] as? GeoPoint else {
@@ -95,7 +134,7 @@ class MyBandDetailProvider {
         }
         
         let band = Band(id: id, name: name, image: image, description: description, genres: genreList, location: loc, gallery: nil, reviews: nil, contact: nil, videos: nil, audios: nil, links: nil, musicians: nil)
-            
+        
         return band
     }
     
@@ -140,7 +179,8 @@ class MyBandDetailProvider {
 
 
 protocol MyBandDetailProviderProtocol:class {
-    func providerDidFinishSavingBand(provider of: MyBandDetailProvider, error: String);
-    func providerDidFinishSavingBand(provider of: MyBandDetailProvider, band: Band);
-    func providerDidLoadBand(provider of: MyBandDetailProvider, band: MyBandDetailViewModel?);
+    func providerDidFinishSavingBand(provider of: MyBandDetailProvider, error: String)
+    func providerDidFinishSavingBand(provider of: MyBandDetailProvider, band: Band)
+    func providerDidLoadBand(provider of: MyBandDetailProvider, band: MyBandDetailViewModel?)
+    func providerDidLoadImage(provider of: MyBandDetailProvider, imageView: UIImageView, data: Data?)
 }

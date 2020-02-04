@@ -8,6 +8,8 @@
 
 import Foundation
 import FirebaseAuth
+import FirebaseFirestore
+import FirebaseMessaging
 
 class LoginProvider {
     
@@ -28,6 +30,12 @@ class LoginProvider {
             if error != nil {
                 self.delegate?.providerDidLogin(provider: self, error: "Invalid email or password!")
             } else {
+                
+                if let fcmToken = Messaging.messaging().fcmToken {
+                    let db = Firestore.firestore()
+                    db.collection("users").document(result!.user.uid).updateData(["token": fcmToken])
+                }
+                
                 self.delegate?.providerDidLogin(provider: self, error: nil)
             }
         })

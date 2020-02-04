@@ -18,6 +18,8 @@ let googleApiKey = "AIzaSyCI6b0NuKk9RNplRLRquPd0BC4CwT-jFWM"
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
     
+    var window: UIWindow?
+    
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         GMSServices.provideAPIKey(googleApiKey)
@@ -59,15 +61,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func application(_ application: UIApplication, didReceiveRemoteNotification userInfo: [AnyHashable: Any]) {
 
-        // Print full message.
-        print(userInfo,3)
     }
     
     func application(_ application: UIApplication, didReceiveRemoteNotification userInfo: [AnyHashable: Any], fetchCompletionHandler completionHandler: @escaping (UIBackgroundFetchResult) -> Void) {
 
-        // Print full message.
-        print(userInfo,4)
-        
         completionHandler(UIBackgroundFetchResult.newData)
     }
     
@@ -80,39 +77,48 @@ extension AppDelegate : UNUserNotificationCenterDelegate {
     func userNotificationCenter(_ center: UNUserNotificationCenter,
                                 willPresent notification: UNNotification,
                                 withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
-        let userInfo = notification.request.content.userInfo
-
-        // Print full message.
-        print(userInfo,1)
-        
-        // Change this to your preferred presentation option
+      
         completionHandler([.alert])
     }
     
     func userNotificationCenter(_ center: UNUserNotificationCenter,
                                 didReceive response: UNNotificationResponse,
                                 withCompletionHandler completionHandler: @escaping () -> Void) {
-        let userInfo = response.notification.request.content.userInfo
- 
-        // Print full message.
-        print(userInfo,2)
         
-        completionHandler()
+        defer { completionHandler() }
+        
+        guard response.actionIdentifier == UNNotificationDefaultActionIdentifier else { return }
+        let payload = response.notification.request.content
+        guard let type = payload.userInfo["type"] as? String, let id = payload.userInfo["id"] as? String
+          else { return }
+        
+        if type == "band" {
+            let storyboard = UIStoryboard(name: "Bands", bundle: nil)
+            let vc = storyboard.instantiateViewController(withIdentifier: "bandDetailVC") as! BandDetailViewController
+            vc.id = id
+            self.window?.rootViewController?.present(vc, animated: false)
+        } else {
+            let storyboard = UIStoryboard(name: "Musicians", bundle: nil)
+            let vc = storyboard.instantiateViewController(withIdentifier: "musicianDetailVC") as! MusiciansDetailViewController
+            vc.id = id
+            self.window?.rootViewController?.present(vc, animated: false)
+        }
     }
+    
 }
 
 
 extension AppDelegate: MessagingDelegate {
     func messaging(_ messaging: Messaging, didReceiveRegistrationToken fcmToken: String) {
-
+        
         if let user = Auth.auth().currentUser {
+            print(fcmToken)
             let db = Firestore.firestore()
             db.collection("users").document(user.uid).updateData(["token": fcmToken])
         }
         
         let dataDict:[String: String] = ["token": fcmToken]
         NotificationCenter.default.post(name: Notification.Name("FCMToken"), object: nil, userInfo: dataDict)
-        // TODO: If necessary send token to application server.
-        // Note: This callback is fired at each app startup and whenever a new token is generated.
+
     }
 }

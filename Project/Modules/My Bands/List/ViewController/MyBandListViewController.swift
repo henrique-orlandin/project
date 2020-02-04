@@ -107,4 +107,3 @@ extension MyBandListViewController: MyBandDetailViewControllerDelegate {
         navigationController?.popViewController(animated: true)
     }
 }
-

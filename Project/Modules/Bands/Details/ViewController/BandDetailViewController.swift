@@ -12,7 +12,7 @@ class BandDetailViewController: UIViewController {
     
     var id: String?
     var provider: BandDetailProvider!
-    
+     
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var genreLabel: UILabel!
     @IBOutlet weak var locationLabel: UILabel!
@@ -34,19 +34,26 @@ class BandDetailViewController: UIViewController {
 }
 
 extension BandDetailViewController: BandDetailProviderProtocol {
+    func providerDidLoadImage(provider of: BandDetailProvider, imageView: UIImageView, data: Data?) {
+        if let data = data {
+            imageView.image = UIImage(data: data)
+        }
+    }
+    
     func providerDidFinishLoading(provider of: BandDetailProvider, band: BandDetailViewModel?) {
         
         if let band = band {
             title = band.name
             self.nameLabel.text = band.name
-            imageView.image = UIImage(data: band.image)
-            
+             
             genreLabel.text = "\(band.genre)"
             descriptionText.text = "\(band.description)"
             locationLabel.text = "\(band.location)"
             
             imageView.layer.cornerRadius = 5.0;
             imageView.layer.masksToBounds = true;
+            
+            provider.loadImage(image: band.image, to: imageView)
         }
     }
-}
+} 
