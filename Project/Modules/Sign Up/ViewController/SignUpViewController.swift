@@ -72,6 +72,7 @@ class SignUpViewController: UIViewController {
             profileViewController.tabBarItem = tabBarItem
             tabBarController.viewControllers?.append(profileViewController)
             tabBarController.selectedViewController = profileViewController
+            
         }
         
     }

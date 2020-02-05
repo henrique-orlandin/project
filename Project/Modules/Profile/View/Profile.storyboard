@@ -59,7 +59,6 @@
                                                         <fontDescription key="fontDescription" type="system" pointSize="24"/>
                                                         <inset key="titleEdgeInsets" minX="10" minY="0.0" maxX="0.0" maxY="0.0"/>
                                                         <state key="normal" title="My Bands" image="music.note" catalog="system">
-                                                            <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             <preferredSymbolConfiguration key="preferredSymbolConfiguration" scale="large" weight="semibold"/>
                                                         </state>
                                                         <connections>
@@ -71,7 +70,6 @@
                                                         <fontDescription key="fontDescription" type="system" pointSize="24"/>
                                                         <inset key="titleEdgeInsets" minX="10" minY="0.0" maxX="0.0" maxY="0.0"/>
                                                         <state key="normal" title="My Ads" image="quote.bubble.fill" catalog="system">
-                                                            <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             <preferredSymbolConfiguration key="preferredSymbolConfiguration" scale="large" weight="semibold"/>
                                                         </state>
                                                         <connections>
@@ -123,7 +121,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="PZX-Yd-7kA" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="522" y="1589"/>
+            <point key="canvasLocation" x="521.73913043478262" y="1588.3928571428571"/>
         </scene>
         <!--Profile-->
         <scene sceneID="8zU-Yy-8B2">
@@ -369,7 +367,7 @@
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="31J-7f-jyK" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1952" y="1897"/>
+            <point key="canvasLocation" x="1409" y="1854"/>
         </scene>
     </scenes>
     <resources>

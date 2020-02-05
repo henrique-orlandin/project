@@ -33,6 +33,7 @@ class BandListViewController: UITableViewController {
         refreshControl.addTarget(self, action:  #selector(refreshData), for: .valueChanged)
         self.refreshControl = refreshControl
         
+        //self.tabBarController?.selectedViewController = self
         var selectionValues = [String]()
         for option in orderOption! {
             selectionValues.append(option.rawValue)

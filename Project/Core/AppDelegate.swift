@@ -18,13 +18,17 @@ let googleApiKey = "AIzaSyCI6b0NuKk9RNplRLRquPd0BC4CwT-jFWM"
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
     
-    var window: UIWindow?
+    //var window: UIWindow?
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         GMSServices.provideAPIKey(googleApiKey)
         FirebaseApp.configure()
         Messaging.messaging().delegate = self
+        
+//        self.window
+//        self.window = UIWindow(frame: UIScreen.main.bounds)
+        
         
         if #available(iOS 10.0, *) {
             // For iOS 10 display notification (sent via APNS)
@@ -92,17 +96,32 @@ extension AppDelegate : UNUserNotificationCenterDelegate {
         guard let type = payload.userInfo["type"] as? String, let id = payload.userInfo["id"] as? String
           else { return }
         
-        if type == "band" {
-            let storyboard = UIStoryboard(name: "Bands", bundle: nil)
-            let vc = storyboard.instantiateViewController(withIdentifier: "bandDetailVC") as! BandDetailViewController
-            vc.id = id
-            self.window?.rootViewController?.present(vc, animated: false)
-        } else {
-            let storyboard = UIStoryboard(name: "Musicians", bundle: nil)
-            let vc = storyboard.instantiateViewController(withIdentifier: "musicianDetailVC") as! MusiciansDetailViewController
-            vc.id = id
-            self.window?.rootViewController?.present(vc, animated: false)
+        let scene = UIApplication.shared.connectedScenes.first
+        if let sd : SceneDelegate = (scene?.delegate as? SceneDelegate) {
+            
+            if type == "band" {
+                let storyboard = UIStoryboard(name: "Bands", bundle: nil)
+                let vc = storyboard.instantiateViewController(withIdentifier: "bandDetailVC") as! BandDetailViewController
+                vc.id = id
+                
+                if let tab = sd.window?.rootViewController as? UITabBarController,
+                   let nav = tab.selectedViewController as? UINavigationController {
+                    
+                    nav.pushViewController(vc, animated: true)
+                }
+                
+            } else {
+                let storyboard = UIStoryboard(name: "Musicians", bundle: nil)
+                let vc = storyboard.instantiateViewController(withIdentifier: "musicianDetailVC") as! MusiciansDetailViewController
+                vc.id = id
+                if let tab = sd.window?.rootViewController as? UITabBarController,
+                   let nav = tab.selectedViewController as? UINavigationController {
+                    
+                    nav.pushViewController(vc, animated: true)
+                }
+            }
         }
+        
     }
     
 }
