@@ -16,6 +16,7 @@ class BandFilterViewController: UIViewController {
     @IBOutlet weak var locationTextField: UITextField!
     @IBOutlet weak var distanceLabel: UILabel!
     @IBOutlet weak var distanceSlider: UISlider!
+    @IBOutlet weak var advertisingSwitch: UISwitch!
     
     private let genres = Genre.allCases
     private var selectedGenres = [String]()
@@ -55,6 +56,11 @@ class BandFilterViewController: UIViewController {
         locationTextField.text = ""
         distanceLabel.text = "50Km"
         distanceSlider.value = 50.0
+        advertisingSwitch.isOn = false
+    }
+    
+    @IBAction func advertising(_ sender: Any) {
+        filter?.setAdvertisingFromView(advertising: advertisingSwitch.isOn)
     }
     
     @IBAction func changeDistance(_ sender: Any) {
@@ -127,6 +133,8 @@ class BandFilterViewController: UIViewController {
                 distanceLabel.text = "\(distance)Km"
                 distanceSlider.value = Float(distance)
             }
+            
+            advertisingSwitch.isOn = filter.getAdvertisingForView()
         }
     }
 }

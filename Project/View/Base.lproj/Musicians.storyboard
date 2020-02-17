@@ -281,7 +281,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="3mi-zM-dBG">
-                                <rect key="frame" x="20" y="76" width="374" height="407.5"/>
+                                <rect key="frame" x="20" y="76" width="374" height="458.5"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="s8A-4R-GZn" userLabel="Name">
                                         <rect key="frame" x="0.0" y="0.0" width="374" height="58.5"/>
@@ -364,8 +364,25 @@
                                             </label>
                                         </subviews>
                                     </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="IGf-5R-rL5">
+                                        <rect key="frame" x="0.0" y="377.5" width="374" height="31"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Only musicians looking for bands" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Chf-rV-14s">
+                                                <rect key="frame" x="0.0" y="0.0" width="325" height="31"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="SfR-yM-gtt">
+                                                <rect key="frame" x="325" y="0.0" width="51" height="31"/>
+                                                <connections>
+                                                    <action selector="advertising:" destination="fuB-Db-q7e" eventType="valueChanged" id="dtP-Yx-JhS"/>
+                                                </connections>
+                                            </switch>
+                                        </subviews>
+                                    </stackView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0iw-v0-dIc">
-                                        <rect key="frame" x="0.0" y="377.5" width="374" height="30"/>
+                                        <rect key="frame" x="0.0" y="428.5" width="374" height="30"/>
                                         <state key="normal" title="Clean"/>
                                         <connections>
                                             <action selector="clean:" destination="fuB-Db-q7e" eventType="touchUpInside" id="MAX-9Q-F1Q"/>
@@ -396,6 +413,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="advertisingSwitch" destination="SfR-yM-gtt" id="6P0-oF-iO3"/>
                         <outlet property="distanceLabel" destination="dvB-Ed-2k6" id="NKb-5K-Lnc"/>
                         <outlet property="distanceSlider" destination="Fql-Gz-i81" id="6Xd-6G-0SQ"/>
                         <outlet property="genreTextField" destination="sy5-fO-rIJ" id="tLR-09-TZg"/>
@@ -412,7 +430,7 @@
                     </connections>
                 </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="2871" y="119"/>
+            <point key="canvasLocation" x="2874" y="120"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="x5S-mp-OLO">
@@ -430,7 +448,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pus-0L-5Kl" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1961" y="119"/>
+            <point key="canvasLocation" x="1884" y="120"/>
         </scene>
         <!--Musicians-->
         <scene sceneID="bfZ-Jh-AuP">

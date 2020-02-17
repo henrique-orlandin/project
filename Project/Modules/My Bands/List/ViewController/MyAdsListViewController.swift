@@ -23,6 +23,10 @@ class MyAdsListViewController: UITableViewController, MyAdsListProviderProtocol 
     func providerDidFinishUpdatedDataset(provider of: MyAdsListProvider) {
         self.tableView.reloadData()
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        tabBarController?.tabBar.isHidden = false
+    }
         
     override func viewDidLoad() {
         super.viewDidLoad()

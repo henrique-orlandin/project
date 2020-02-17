@@ -135,6 +135,12 @@ class BandListProvider {
                     return band.name.contains(name)
                 })
             }
+            let advertising = filters.advertising
+            if advertising {
+                bands = bands.filter({(band:Band) -> Bool in
+                    return band.advertising == advertising
+                })
+            }
             for band in bands {
                 bandList.append(BandListViewModel(band))
             }
@@ -209,7 +215,12 @@ class BandListProvider {
             }
         }
         
-        let band = Band(id: id, name: name, image: image, description: description, genres: genreList, location: loc, gallery: nil, reviews: nil, contact: nil, videos: nil, audios: nil, links: nil, musicians: nil)
+        var advertising = false
+        if let ad = data["advertising"] as? Bool {
+            advertising = ad
+        }
+        
+        let band = Band(id: id, name: name, image: image, description: description, genres: genreList, location: loc, gallery: nil, reviews: nil, contact: nil, videos: nil, audios: nil, links: nil, musicians: nil, advertising: advertising)
         
         return band
     }

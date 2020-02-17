@@ -143,6 +143,12 @@ class MusiciansListProvider {
                     return musician.name.contains(name)
                 })
             }
+            let advertising = filters.advertising
+            if advertising {
+                musicians = musicians.filter({(user:User) -> Bool in
+                    return user.musician!.advertising == advertising
+                })
+            }
             for musician in musicians {
                 musiciansList.append(MusiciansListViewModel(musician))
             }
@@ -222,10 +228,15 @@ class MusiciansListProvider {
                   }
               }
           }
+        
+        var advertising = false
+        if let ad = data["advertising"] as? Bool {
+            advertising = ad
+        }
           
           var musician: Musician? = nil
           if isMusician != nil, isMusician == true, let desc = description {
-              musician = Musician(description: desc, genres: genreList, skills: skillList, gallery: nil, reviews: nil, contact: nil, videos: nil, audios: nil, links: nil)
+              musician = Musician(description: desc, genres: genreList, skills: skillList, gallery: nil, reviews: nil, contact: nil, videos: nil, audios: nil, links: nil, advertising: advertising)
           }
           let user = User(id: id, name: name, image: image, location: loc, musician: musician)
         

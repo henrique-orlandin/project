@@ -245,7 +245,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="vvF-wB-5Ul">
-                                <rect key="frame" x="20" y="76" width="374" height="328"/>
+                                <rect key="frame" x="20" y="76" width="374" height="379"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="EWP-cB-G1l" userLabel="Name">
                                         <rect key="frame" x="0.0" y="0.0" width="374" height="58.5"/>
@@ -312,8 +312,25 @@
                                             </label>
                                         </subviews>
                                     </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="f0c-FJ-CPf">
+                                        <rect key="frame" x="0.0" y="298" width="374" height="31"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Only bands looking for musicians" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rE5-hx-xAY">
+                                                <rect key="frame" x="0.0" y="0.0" width="325" height="31"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="4Kf-oJ-C4W">
+                                                <rect key="frame" x="325" y="0.0" width="51" height="31"/>
+                                                <connections>
+                                                    <action selector="advertising:" destination="6eV-P9-bGp" eventType="valueChanged" id="utI-kO-SW4"/>
+                                                </connections>
+                                            </switch>
+                                        </subviews>
+                                    </stackView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Sdr-Cg-cMQ">
-                                        <rect key="frame" x="0.0" y="298" width="374" height="30"/>
+                                        <rect key="frame" x="0.0" y="349" width="374" height="30"/>
                                         <state key="normal" title="Clean"/>
                                         <connections>
                                             <action selector="clean:" destination="6eV-P9-bGp" eventType="touchUpInside" id="714-eK-2Sp"/>
@@ -344,6 +361,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="advertisingSwitch" destination="4Kf-oJ-C4W" id="h5A-5a-6xE"/>
                         <outlet property="distanceLabel" destination="7xo-kJ-SYb" id="GPu-wZ-RBa"/>
                         <outlet property="distanceSlider" destination="2dX-Nn-Whm" id="QuB-y1-oRo"/>
                         <outlet property="genreTextField" destination="XRX-yd-fSZ" id="R2g-59-XcL"/>

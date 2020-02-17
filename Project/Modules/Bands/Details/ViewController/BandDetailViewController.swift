@@ -31,6 +31,10 @@ class BandDetailViewController: UIViewController {
         
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        tabBarController?.tabBar.isHidden = false
+    }
+    
 }
 
 extension BandDetailViewController: BandDetailProviderProtocol {

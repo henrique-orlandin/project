@@ -33,10 +33,17 @@ class SignUpProvider {
             else {
                 
                 let db = Firestore.firestore()
-                var data = [
+                var data: [String: Any] = [
                     "id": result!.user.uid,
                     "name": name,
                     "email": email
+                ]
+                
+                let settings: [String: Any] = [
+                    "id": result!.user.uid,
+                    "notificationBandsMusicians": true,
+                    "notificationMessages": true,
+                    "privacyContactInfo": true,
                 ]
                 
                 if let fcmToken = Messaging.messaging().fcmToken {
@@ -49,6 +56,7 @@ class SignUpProvider {
                         self.delegate?.providerDidCreate(provider: self, error: error.localizedDescription)
                     }
                     else {
+                        db.collection("settings").document(result!.user.uid).setData(settings)
                         self.delegate?.providerDidCreate(provider: self, error: nil)
                     }
                 })

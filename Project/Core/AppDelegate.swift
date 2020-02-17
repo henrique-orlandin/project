@@ -12,23 +12,20 @@ import FirebaseMessaging
 import FirebaseAuth
 import FirebaseFirestore
 import GoogleMaps
+import CoreData
 
 let googleApiKey = "AIzaSyCI6b0NuKk9RNplRLRquPd0BC4CwT-jFWM"
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
     
-    //var window: UIWindow?
+    private var settings: NSFetchedResultsController<Settings>!
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         GMSServices.provideAPIKey(googleApiKey)
         FirebaseApp.configure()
         Messaging.messaging().delegate = self
-        
-//        self.window
-//        self.window = UIWindow(frame: UIScreen.main.bounds)
-        
         
         if #available(iOS 10.0, *) {
             // For iOS 10 display notification (sent via APNS)
@@ -72,6 +69,35 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         completionHandler(UIBackgroundFetchResult.newData)
     }
     
+    
+    // MARK: - Core Data stack
+
+    lazy var persistentContainer: NSPersistentContainer = {
+        let container = NSPersistentContainer(name: "Jam")
+        container.loadPersistentStores(completionHandler: { (storeDescription, error) in
+            if let error = error as NSError? {
+                fatalError("Unresolved error \(error), \(error.userInfo)")
+            } else {
+                print("asdasd")
+            }
+        })
+        return container
+    }()
+
+    // MARK: - Core Data Saving support
+
+    func saveContext () {
+        let context = persistentContainer.viewContext
+        if context.hasChanges {
+            do {
+                try context.save()
+            } catch {
+                let nserror = error as NSError
+                fatalError("Unresolved error \(nserror), \(nserror.userInfo)")
+            }
+        }
+    }
+    
 }
 
 @available(iOS 10, *)
@@ -81,8 +107,17 @@ extension AppDelegate : UNUserNotificationCenterDelegate {
     func userNotificationCenter(_ center: UNUserNotificationCenter,
                                 willPresent notification: UNNotification,
                                 withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
-      
-        completionHandler([.alert])
+        
+        let payload = notification.request.content
+        guard let type = payload.userInfo["type"] as? String else { return }
+        
+        
+        if UIApplication.shared.applicationState == .active && type == "message" {
+            completionHandler([])
+        } else {
+            completionHandler([.alert])
+        }
+        
     }
     
     func userNotificationCenter(_ center: UNUserNotificationCenter,
@@ -110,7 +145,7 @@ extension AppDelegate : UNUserNotificationCenterDelegate {
                     nav.pushViewController(vc, animated: true)
                 }
                 
-            } else {
+            } else if type == "musician" {
                 let storyboard = UIStoryboard(name: "Musicians", bundle: nil)
                 let vc = storyboard.instantiateViewController(withIdentifier: "musicianDetailVC") as! MusiciansDetailViewController
                 vc.id = id
@@ -119,7 +154,15 @@ extension AppDelegate : UNUserNotificationCenterDelegate {
                     
                     nav.pushViewController(vc, animated: true)
                 }
-            }
+            } else if type == "message" {
+               let storyboard = UIStoryboard(name: "Messages", bundle: nil)
+               let vc = storyboard.instantiateViewController(withIdentifier: "messageListVC") as! MessageListViewController
+               vc.chat_id = id
+               if let tab = sd.window?.rootViewController as? UITabBarController,
+                  let nav = tab.selectedViewController as? UINavigationController {
+                   nav.pushViewController(vc, animated: true)
+               }
+           }
         }
         
     }
@@ -131,7 +174,6 @@ extension AppDelegate: MessagingDelegate {
     func messaging(_ messaging: Messaging, didReceiveRegistrationToken fcmToken: String) {
         
         if let user = Auth.auth().currentUser {
-            print(fcmToken)
             let db = Firestore.firestore()
             db.collection("users").document(user.uid).updateData(["token": fcmToken])
         }

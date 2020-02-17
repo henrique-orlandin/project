@@ -32,6 +32,10 @@ class SignUpViewController: UIViewController {
         self.navigationController?.popViewController(animated: true)
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        tabBarController?.tabBar.isHidden = false
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -60,17 +64,30 @@ class SignUpViewController: UIViewController {
     
     func goToProfile() {
         
-        if let tabBarController = self.tabBarController {
+        if let tabBarController = self.tabBarController, var viewControllers = tabBarController.viewControllers {
             
-            var viewControllers = tabBarController.viewControllers
-            let tabBarItem = viewControllers?[1].tabBarItem
-            viewControllers?.remove(at: 1)
-            tabBarController.viewControllers = viewControllers
+            let tabBarItem = viewControllers[2].tabBarItem
             
             let storyboard = UIStoryboard(name: "Main", bundle: nil)
             let profileViewController = storyboard.instantiateViewController(withIdentifier: Constants.Storyboard.profileNavigationViewController)
             profileViewController.tabBarItem = tabBarItem
-            tabBarController.viewControllers?.append(profileViewController)
+            
+            viewControllers[2] = profileViewController
+            
+            let messagesStoryboard = UIStoryboard(name: "Messages", bundle: nil)
+            let messagesViewController = messagesStoryboard.instantiateViewController(withIdentifier: Constants.Storyboard.chatNavigationViewController)
+            
+            let item = UITabBarItem()
+            item.title = "Chat"
+            item.image = UIImage(systemName: "message")
+            
+            messagesViewController.tabBarItem = item
+            let settings = viewControllers[3]
+            viewControllers[3] = messagesViewController
+            
+            viewControllers.append(settings)
+            
+            tabBarController.viewControllers = viewControllers
             tabBarController.selectedViewController = profileViewController
             
         }

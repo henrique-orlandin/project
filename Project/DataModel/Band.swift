@@ -26,5 +26,6 @@ struct Band: Equatable {
     var audios: [String]?
     var links: [String]?
     var musicians: [Musician]?
+    var advertising: Bool = false
     
 }

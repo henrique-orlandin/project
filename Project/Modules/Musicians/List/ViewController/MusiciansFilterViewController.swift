@@ -17,6 +17,7 @@ class MusiciansFilterViewController: UIViewController {
     @IBOutlet weak var locationTextField: UITextField!
     @IBOutlet weak var distanceLabel: UILabel!
     @IBOutlet weak var distanceSlider: UISlider!
+    @IBOutlet weak var advertisingSwitch: UISwitch!
     
     private let genres = Genre.allCases
     private var selectedGenres = [String]()
@@ -60,6 +61,7 @@ class MusiciansFilterViewController: UIViewController {
         locationTextField.text = ""
         distanceLabel.text = "50Km"
         distanceSlider.value = 50.0
+        advertisingSwitch.isOn = false
     }
     
     @IBAction func changeDistance(_ sender: Any) {
@@ -67,6 +69,10 @@ class MusiciansFilterViewController: UIViewController {
             distanceLabel.text = "\(Int(slider.value))km"
             filter?.setLocationDistanceFromView(distance: Int(slider.value))
         }
+    }
+    
+    @IBAction func advertising(_ sender: Any) {
+        filter?.setAdvertisingFromView(advertising: advertisingSwitch.isOn)
     }
     
     @IBAction func tapLocation(_ gestureRecognizer : UITapGestureRecognizer ) {
@@ -157,6 +163,7 @@ class MusiciansFilterViewController: UIViewController {
                 distanceLabel.text = "\(distance)Km"
                 distanceSlider.value = Float(distance)
             }
+            advertisingSwitch.isOn = filter.getAdvertisingForView()
         }
     }
 }

@@ -22,6 +22,10 @@ class BandListViewController: UITableViewController {
         orderSelection!.show(style: .alert(title: "Select", action: nil, height: nil), from: self)
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        tabBarController?.tabBar.isHidden = false
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.provider = BandListProvider()

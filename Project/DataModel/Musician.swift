@@ -18,4 +18,5 @@ struct Musician {
     var videos: [String]?
     var audios: [String]?
     var links: [String]?
+    var advertising: Bool = false
 }

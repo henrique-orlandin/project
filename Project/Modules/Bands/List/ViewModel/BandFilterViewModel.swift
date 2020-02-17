@@ -14,6 +14,7 @@ class BandFilterViewModel {
     var genre: [Genre]?
     var location: Location?
     var locationDistance: Int?
+    var advertising: Bool = false
     
     init() {
         
@@ -46,10 +47,13 @@ class BandFilterViewModel {
         
         self.location = Location(city: city, state: state, country: country, postalCode: postalCode, lat: lat, lng: lng)
     }
-    
     func setLocationDistanceFromView(distance: Int?) {
         guard let distance = distance else { return }
         self.locationDistance = distance
+    }
+    func setAdvertisingFromView(advertising: Bool?) {
+        guard let advertising = advertising else { return }
+        self.advertising = advertising
     }
     
     func getNameForView() -> String? {
@@ -79,5 +83,8 @@ class BandFilterViewModel {
     }
     func getLocationDistanceForView() -> Int? {
         return self.locationDistance
+    }
+    func getAdvertisingForView() -> Bool {
+        return self.advertising
     }
 }

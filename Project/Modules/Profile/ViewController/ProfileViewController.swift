@@ -18,6 +18,10 @@ class ProfileViewController: UIViewController {
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var emailLabel: UILabel!
     
+    override func viewWillAppear(_ animated: Bool) {
+        tabBarController?.tabBar.isHidden = false
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.provider = ProfileProvider()
@@ -57,17 +61,16 @@ class ProfileViewController: UIViewController {
     
     func goToLogin() {
         
-        if let tabBarController = self.tabBarController {
+        if let tabBarController = self.tabBarController, var viewControllers = tabBarController.viewControllers {
             
-            var viewControllers = tabBarController.viewControllers
-            let tabBarItem = viewControllers?[1].tabBarItem
-            viewControllers?.remove(at: 1)
-            tabBarController.viewControllers = viewControllers
+            let tabBarItem = viewControllers[2].tabBarItem
             
             let storyboard = UIStoryboard(name: "Main", bundle: nil)
             let loginViewController = storyboard.instantiateViewController(withIdentifier: Constants.Storyboard.loginNavigationViewController)
             loginViewController.tabBarItem = tabBarItem
-            tabBarController.viewControllers?.append(loginViewController)
+            viewControllers[2] = loginViewController
+            viewControllers.remove(at: 3)
+            tabBarController.viewControllers = viewControllers
             tabBarController.selectedViewController = loginViewController
         
         }

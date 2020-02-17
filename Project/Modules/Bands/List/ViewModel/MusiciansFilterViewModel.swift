@@ -15,6 +15,7 @@ class MusiciansFilterViewModel {
     var skills: [Skills]?
     var location: Location?
     var locationDistance: Int?
+    var advertising: Bool = false
     
     init() {
         
@@ -63,6 +64,10 @@ class MusiciansFilterViewModel {
         guard let distance = distance else { return }
         self.locationDistance = distance
     }
+    func setAdvertisingFromView(advertising: Bool?) {
+        guard let advertising = advertising else { return }
+        self.advertising = advertising
+    }
     
     func getNameForView() -> String? {
         return self.name
@@ -94,5 +99,8 @@ class MusiciansFilterViewModel {
     }
     func getLocationDistanceForView() -> Int? {
         return self.locationDistance
+    }
+    func getAdvertisingForView() -> Bool {
+        return self.advertising
     }
 }

@@ -23,6 +23,10 @@ class MyBandListViewController: UITableViewController, MyBandListProviderProtoco
     func providerDidFinishUpdatedDataset(provider of: MyBandListProvider) {
         self.tableView.reloadData()
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        tabBarController?.tabBar.isHidden = false
+    }
         
     override func viewDidLoad() {
         super.viewDidLoad()
