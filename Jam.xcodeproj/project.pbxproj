@@ -135,24 +135,24 @@
 		84494EB723EBD5FF00AE2FD0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Project/View/Base.lproj/Messages.storyboard; sourceTree = SOURCE_ROOT; };
 		84494EB923EBD79F00AE2FD0 /* MessageListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageListViewController.swift; sourceTree = "<group>"; };
 		84494EBB23EBD8FA00AE2FD0 /* MessageListProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessageListProvider.swift; sourceTree = "<group>"; };
-		844D305523DFE63C001E5FBC /* MyAdsDetailProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MyAdsDetailProvider.swift; path = "Project/Modules/My Bands/Details/Provider/MyAdsDetailProvider.swift"; sourceTree = SOURCE_ROOT; };
-		844D305723DFE655001E5FBC /* MyAdsDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MyAdsDetailViewController.swift; path = "Project/Modules/My Bands/Details/ViewController/MyAdsDetailViewController.swift"; sourceTree = SOURCE_ROOT; };
-		844D305923DFE67D001E5FBC /* MyAdsDetailViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MyAdsDetailViewModel.swift; path = "Project/Modules/My Bands/Details/ViewModel/MyAdsDetailViewModel.swift"; sourceTree = SOURCE_ROOT; };
-		844D305C23DFE798001E5FBC /* MyAdsTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MyAdsTableViewCell.swift; path = "Project/Modules/My Bands/List/Cell/MyAdsTableViewCell.swift"; sourceTree = SOURCE_ROOT; };
-		844D305E23DFE7B2001E5FBC /* MyAdsListProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MyAdsListProvider.swift; path = "Project/Modules/My Bands/List/Provider/MyAdsListProvider.swift"; sourceTree = SOURCE_ROOT; };
-		844D306023DFE7DE001E5FBC /* MyAdsListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MyAdsListViewController.swift; path = "Project/Modules/My Bands/List/ViewController/MyAdsListViewController.swift"; sourceTree = SOURCE_ROOT; };
-		844D306223DFE7F0001E5FBC /* MyAdsListViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MyAdsListViewModel.swift; path = "Project/Modules/My Bands/List/ViewModel/MyAdsListViewModel.swift"; sourceTree = SOURCE_ROOT; };
+		844D305523DFE63C001E5FBC /* MyAdsDetailProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MyAdsDetailProvider.swift; path = "Project/Modules/My Ads/Provider/MyAdsDetailProvider.swift"; sourceTree = SOURCE_ROOT; };
+		844D305723DFE655001E5FBC /* MyAdsDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MyAdsDetailViewController.swift; path = "Project/Modules/My Ads/View Controller/MyAdsDetailViewController.swift"; sourceTree = SOURCE_ROOT; };
+		844D305923DFE67D001E5FBC /* MyAdsDetailViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MyAdsDetailViewModel.swift; path = "Project/Modules/My Ads/View Model/MyAdsDetailViewModel.swift"; sourceTree = SOURCE_ROOT; };
+		844D305C23DFE798001E5FBC /* MyAdsTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MyAdsTableViewCell.swift; path = "Project/Modules/My Ads/View Controller/MyAdsTableViewCell.swift"; sourceTree = SOURCE_ROOT; };
+		844D305E23DFE7B2001E5FBC /* MyAdsListProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MyAdsListProvider.swift; path = "Project/Modules/My Ads/Provider/MyAdsListProvider.swift"; sourceTree = SOURCE_ROOT; };
+		844D306023DFE7DE001E5FBC /* MyAdsListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MyAdsListViewController.swift; path = "Project/Modules/My Ads/View Controller/MyAdsListViewController.swift"; sourceTree = SOURCE_ROOT; };
+		844D306223DFE7F0001E5FBC /* MyAdsListViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MyAdsListViewModel.swift; path = "Project/Modules/My Ads/View Model/MyAdsListViewModel.swift"; sourceTree = SOURCE_ROOT; };
 		844D306423DFE977001E5FBC /* Advertising.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Advertising.swift; sourceTree = "<group>"; };
 		844D306623DFFB1D001E5FBC /* Ads.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Ads.storyboard; path = Project/Modules/Profile/View/Ads.storyboard; sourceTree = SOURCE_ROOT; };
-		844DBC0623DBE4EA00B024BE /* MusiciansDetailProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MusiciansDetailProvider.swift; path = Project/Modules/Bands/Details/Provider/MusiciansDetailProvider.swift; sourceTree = SOURCE_ROOT; };
-		844DBC0823DBE52000B024BE /* MusiciansDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MusiciansDetailViewController.swift; path = Project/Modules/Bands/Details/ViewController/MusiciansDetailViewController.swift; sourceTree = SOURCE_ROOT; };
-		844DBC0A23DBE53700B024BE /* MusiciansDetailViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MusiciansDetailViewModel.swift; path = Project/Modules/Bands/Details/ViewModel/MusiciansDetailViewModel.swift; sourceTree = SOURCE_ROOT; };
-		844DBC0C23DBE5B500B024BE /* MusiciansTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MusiciansTableViewCell.swift; path = Project/Modules/Bands/List/Cell/MusiciansTableViewCell.swift; sourceTree = SOURCE_ROOT; };
-		844DBC0E23DBE5D200B024BE /* MusiciansListProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MusiciansListProvider.swift; path = Project/Modules/Bands/List/Provider/MusiciansListProvider.swift; sourceTree = SOURCE_ROOT; };
-		844DBC1023DBE5F400B024BE /* MusiciansListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MusiciansListViewController.swift; path = Project/Modules/Bands/List/ViewController/MusiciansListViewController.swift; sourceTree = SOURCE_ROOT; };
-		844DBC1223DBE60900B024BE /* MusiciansFilterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MusiciansFilterViewController.swift; path = Project/Modules/Musicians/List/ViewController/MusiciansFilterViewController.swift; sourceTree = SOURCE_ROOT; };
-		844DBC1423DBE62F00B024BE /* MusiciansListViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MusiciansListViewModel.swift; path = Project/Modules/Bands/List/ViewModel/MusiciansListViewModel.swift; sourceTree = SOURCE_ROOT; };
-		844DBC1623DBE64600B024BE /* MusiciansFilterViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MusiciansFilterViewModel.swift; path = Project/Modules/Bands/List/ViewModel/MusiciansFilterViewModel.swift; sourceTree = SOURCE_ROOT; };
+		844DBC0623DBE4EA00B024BE /* MusiciansDetailProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MusiciansDetailProvider.swift; path = Project/Modules/Musicians/Provider/MusiciansDetailProvider.swift; sourceTree = SOURCE_ROOT; };
+		844DBC0823DBE52000B024BE /* MusiciansDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MusiciansDetailViewController.swift; path = "Project/Modules/Musicians/View Controller/MusiciansDetailViewController.swift"; sourceTree = SOURCE_ROOT; };
+		844DBC0A23DBE53700B024BE /* MusiciansDetailViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MusiciansDetailViewModel.swift; path = "Project/Modules/Musicians/View Model/MusiciansDetailViewModel.swift"; sourceTree = SOURCE_ROOT; };
+		844DBC0C23DBE5B500B024BE /* MusiciansTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MusiciansTableViewCell.swift; path = "Project/Modules/Musicians/View Controller/MusiciansTableViewCell.swift"; sourceTree = SOURCE_ROOT; };
+		844DBC0E23DBE5D200B024BE /* MusiciansListProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MusiciansListProvider.swift; path = Project/Modules/Musicians/Provider/MusiciansListProvider.swift; sourceTree = SOURCE_ROOT; };
+		844DBC1023DBE5F400B024BE /* MusiciansListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MusiciansListViewController.swift; path = "Project/Modules/Musicians/View Controller/MusiciansListViewController.swift"; sourceTree = SOURCE_ROOT; };
+		844DBC1223DBE60900B024BE /* MusiciansFilterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MusiciansFilterViewController.swift; path = "Project/Modules/Musicians/View Controller/MusiciansFilterViewController.swift"; sourceTree = SOURCE_ROOT; };
+		844DBC1423DBE62F00B024BE /* MusiciansListViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MusiciansListViewModel.swift; path = "Project/Modules/Musicians/View Model/MusiciansListViewModel.swift"; sourceTree = SOURCE_ROOT; };
+		844DBC1623DBE64600B024BE /* MusiciansFilterViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MusiciansFilterViewModel.swift; path = "Project/Modules/Musicians/View Model/MusiciansFilterViewModel.swift"; sourceTree = SOURCE_ROOT; };
 		844DBC1923DBE89F00B024BE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Project/View/Base.lproj/Musicians.storyboard; sourceTree = SOURCE_ROOT; };
 		844E861C239D7E8E005D879B /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		844F451023F11BDB002B0897 /* Date.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Date.swift; sourceTree = "<group>"; };
@@ -168,7 +168,7 @@
 		8457AB0823EB907E00E72450 /* UIImage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIImage.swift; sourceTree = "<group>"; };
 		8457AB0A23EB908200E72450 /* UIView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIView.swift; sourceTree = "<group>"; };
 		8458446523CFB31100F399DB /* BandFilterViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BandFilterViewModel.swift; sourceTree = "<group>"; };
-		8458446723CFB73A00F399DB /* BandFilterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BandFilterViewController.swift; sourceTree = SOURCE_ROOT; };
+		8458446723CFB73A00F399DB /* BandFilterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = BandFilterViewController.swift; path = "Project/Modules/Bands/View Controller/BandFilterViewController.swift"; sourceTree = SOURCE_ROOT; };
 		845871C823D4EA0A00A70B19 /* Profile.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Profile.storyboard; sourceTree = "<group>"; };
 		845871CA23D50D6800A70B19 /* ProfileEditViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileEditViewController.swift; sourceTree = "<group>"; };
 		845871CD23D5108300A70B19 /* ProfileProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ProfileProvider.swift; path = Project/Modules/Profile/ViewController/ProfileProvider.swift; sourceTree = SOURCE_ROOT; };
@@ -183,7 +183,7 @@
 		8462E5422393397C00F017CF /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		846F16FF2398C4EF00CE1712 /* LoginProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginProvider.swift; sourceTree = "<group>"; };
 		846F17022398C8E800CE1712 /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
-		8478A95D23AEF81D0046B60C /* LocationMapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = LocationMapViewController.swift; path = "Project/Modules/My Bands/Details/ViewController/LocationMapViewController.swift"; sourceTree = SOURCE_ROOT; };
+		8478A95D23AEF81D0046B60C /* LocationMapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = LocationMapViewController.swift; path = "Project/Modules/Main/View Controller/LocationMapViewController.swift"; sourceTree = SOURCE_ROOT; };
 		84892E7E23939591000CBCE8 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		848AE7EA2384BBF50089F515 /* MyBandDetailProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyBandDetailProvider.swift; sourceTree = "<group>"; };
 		848DA665239C85EA00996D04 /* SignUpProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpProvider.swift; sourceTree = "<group>"; };
@@ -233,6 +233,131 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		841617BF23FCA9B2002A6517 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				BB19BC69235EBD1A00C1098C /* Main.storyboard */,
+				BB19BC6E235EBD1E00C1098C /* LaunchScreen.storyboard */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		841617C023FCAA3D002A6517 /* Provider */ = {
+			isa = PBXGroup;
+			children = (
+				844DBC0E23DBE5D200B024BE /* MusiciansListProvider.swift */,
+				844DBC0623DBE4EA00B024BE /* MusiciansDetailProvider.swift */,
+			);
+			path = Provider;
+			sourceTree = "<group>";
+		};
+		841617C123FCAA44002A6517 /* View Controller */ = {
+			isa = PBXGroup;
+			children = (
+				844DBC0823DBE52000B024BE /* MusiciansDetailViewController.swift */,
+				844DBC0C23DBE5B500B024BE /* MusiciansTableViewCell.swift */,
+				844DBC1023DBE5F400B024BE /* MusiciansListViewController.swift */,
+				844DBC1223DBE60900B024BE /* MusiciansFilterViewController.swift */,
+			);
+			path = "View Controller";
+			sourceTree = "<group>";
+		};
+		841617C223FCAA55002A6517 /* View Model */ = {
+			isa = PBXGroup;
+			children = (
+				844DBC0A23DBE53700B024BE /* MusiciansDetailViewModel.swift */,
+				844DBC1623DBE64600B024BE /* MusiciansFilterViewModel.swift */,
+				844DBC1423DBE62F00B024BE /* MusiciansListViewModel.swift */,
+			);
+			path = "View Model";
+			sourceTree = "<group>";
+		};
+		841617C323FCAAC0002A6517 /* Provider */ = {
+			isa = PBXGroup;
+			children = (
+				8448A11A23AC37E4000DFC3D /* BandDetailProvider.swift */,
+				BB0AEB17236A992700B7FA29 /* BandListProvider.swift */,
+			);
+			path = Provider;
+			sourceTree = "<group>";
+		};
+		841617C423FCAAC6002A6517 /* View Controller */ = {
+			isa = PBXGroup;
+			children = (
+				BB156A1E23629D2300BB1823 /* BandDetailViewController.swift */,
+				BBB9BC362363DA7A00DB93BD /* BandTableViewCell.swift */,
+				8458446723CFB73A00F399DB /* BandFilterViewController.swift */,
+				BB19BC67235EBD1A00C1098C /* BandListViewController.swift */,
+			);
+			path = "View Controller";
+			sourceTree = "<group>";
+		};
+		841617C523FCAAD1002A6517 /* View Model */ = {
+			isa = PBXGroup;
+			children = (
+				84457352236D22EC005486DD /* BandDetailViewModel.swift */,
+				BB7E5920236936DF005FAADF /* BandListViewModel.swift */,
+				8458446523CFB31100F399DB /* BandFilterViewModel.swift */,
+			);
+			path = "View Model";
+			sourceTree = "<group>";
+		};
+		841617C623FCAB29002A6517 /* Provider */ = {
+			isa = PBXGroup;
+			children = (
+				848AE7EA2384BBF50089F515 /* MyBandDetailProvider.swift */,
+				84A440F02381C79700685924 /* MyBandListProvider.swift */,
+			);
+			path = Provider;
+			sourceTree = "<group>";
+		};
+		841617C723FCAB30002A6517 /* View Controller */ = {
+			isa = PBXGroup;
+			children = (
+				84A440F22381D89100685924 /* MyBandDetailViewController.swift */,
+				84A440F823821CBF00685924 /* MyBandTableViewCell.swift */,
+				84A440EE2381C75100685924 /* MyBandListViewController.swift */,
+			);
+			path = "View Controller";
+			sourceTree = "<group>";
+		};
+		841617C823FCAB3A002A6517 /* View Model */ = {
+			isa = PBXGroup;
+			children = (
+				84A440F62381DC4C00685924 /* MyBandDetailViewModel.swift */,
+				84A440F42381DC3A00685924 /* MyBandListViewModel.swift */,
+			);
+			path = "View Model";
+			sourceTree = "<group>";
+		};
+		841617C923FCAB82002A6517 /* Provider */ = {
+			isa = PBXGroup;
+			children = (
+				844D305E23DFE7B2001E5FBC /* MyAdsListProvider.swift */,
+				844D305523DFE63C001E5FBC /* MyAdsDetailProvider.swift */,
+			);
+			path = Provider;
+			sourceTree = "<group>";
+		};
+		841617CA23FCAB88002A6517 /* View Controller */ = {
+			isa = PBXGroup;
+			children = (
+				844D305723DFE655001E5FBC /* MyAdsDetailViewController.swift */,
+				844D305C23DFE798001E5FBC /* MyAdsTableViewCell.swift */,
+				844D306023DFE7DE001E5FBC /* MyAdsListViewController.swift */,
+			);
+			path = "View Controller";
+			sourceTree = "<group>";
+		};
+		841617CB23FCAB90002A6517 /* View Model */ = {
+			isa = PBXGroup;
+			children = (
+				844D305923DFE67D001E5FBC /* MyAdsDetailViewModel.swift */,
+				844D306223DFE7F0001E5FBC /* MyAdsListViewModel.swift */,
+			);
+			path = "View Model";
+			sourceTree = "<group>";
+		};
 		8442D55123F26ACA009DCB18 /* Core Data */ = {
 			isa = PBXGroup;
 			children = (
@@ -259,14 +384,6 @@
 			path = Provider;
 			sourceTree = "<group>";
 		};
-		8448A11923AC37AA000DFC3D /* Provider */ = {
-			isa = PBXGroup;
-			children = (
-				8448A11A23AC37E4000DFC3D /* BandDetailProvider.swift */,
-			);
-			path = Provider;
-			sourceTree = "<group>";
-		};
 		84494EA823EBB8CD00AE2FD0 /* Provider */ = {
 			isa = PBXGroup;
 			children = (
@@ -288,32 +405,12 @@
 		844D304B23DFE298001E5FBC /* My Ads */ = {
 			isa = PBXGroup;
 			children = (
-				844D304D23DFE381001E5FBC /* Details */,
-				844D304C23DFE2F5001E5FBC /* List */,
+				841617C923FCAB82002A6517 /* Provider */,
+				841617CA23FCAB88002A6517 /* View Controller */,
+				841617CB23FCAB90002A6517 /* View Model */,
 				844D304E23DFE3A0001E5FBC /* View */,
 			);
 			path = "My Ads";
-			sourceTree = "<group>";
-		};
-		844D304C23DFE2F5001E5FBC /* List */ = {
-			isa = PBXGroup;
-			children = (
-				844D305B23DFE6BE001E5FBC /* Cell */,
-				844D305423DFE5C5001E5FBC /* Provider */,
-				844D305323DFE5B1001E5FBC /* ViewController */,
-				844D305223DFE5A4001E5FBC /* ViewModel */,
-			);
-			path = List;
-			sourceTree = "<group>";
-		};
-		844D304D23DFE381001E5FBC /* Details */ = {
-			isa = PBXGroup;
-			children = (
-				844D304F23DFE407001E5FBC /* Provider */,
-				844D305023DFE412001E5FBC /* ViewController */,
-				844D305123DFE426001E5FBC /* ViewModel */,
-			);
-			path = Details;
 			sourceTree = "<group>";
 		};
 		844D304E23DFE3A0001E5FBC /* View */ = {
@@ -324,67 +421,12 @@
 			path = View;
 			sourceTree = "<group>";
 		};
-		844D304F23DFE407001E5FBC /* Provider */ = {
-			isa = PBXGroup;
-			children = (
-				844D305523DFE63C001E5FBC /* MyAdsDetailProvider.swift */,
-			);
-			path = Provider;
-			sourceTree = "<group>";
-		};
-		844D305023DFE412001E5FBC /* ViewController */ = {
-			isa = PBXGroup;
-			children = (
-				844D305723DFE655001E5FBC /* MyAdsDetailViewController.swift */,
-			);
-			path = ViewController;
-			sourceTree = "<group>";
-		};
-		844D305123DFE426001E5FBC /* ViewModel */ = {
-			isa = PBXGroup;
-			children = (
-				844D305923DFE67D001E5FBC /* MyAdsDetailViewModel.swift */,
-			);
-			path = ViewModel;
-			sourceTree = "<group>";
-		};
-		844D305223DFE5A4001E5FBC /* ViewModel */ = {
-			isa = PBXGroup;
-			children = (
-				844D306223DFE7F0001E5FBC /* MyAdsListViewModel.swift */,
-			);
-			path = ViewModel;
-			sourceTree = "<group>";
-		};
-		844D305323DFE5B1001E5FBC /* ViewController */ = {
-			isa = PBXGroup;
-			children = (
-				844D306023DFE7DE001E5FBC /* MyAdsListViewController.swift */,
-			);
-			path = ViewController;
-			sourceTree = "<group>";
-		};
-		844D305423DFE5C5001E5FBC /* Provider */ = {
-			isa = PBXGroup;
-			children = (
-				844D305E23DFE7B2001E5FBC /* MyAdsListProvider.swift */,
-			);
-			path = Provider;
-			sourceTree = "<group>";
-		};
-		844D305B23DFE6BE001E5FBC /* Cell */ = {
-			isa = PBXGroup;
-			children = (
-				844D305C23DFE798001E5FBC /* MyAdsTableViewCell.swift */,
-			);
-			path = Cell;
-			sourceTree = "<group>";
-		};
 		844DBBFB23DBDD5F00B024BE /* Musicians */ = {
 			isa = PBXGroup;
 			children = (
-				844DBBFE23DBDDAA00B024BE /* Details */,
-				844DBBFD23DBDDA100B024BE /* List */,
+				841617C023FCAA3D002A6517 /* Provider */,
+				841617C123FCAA44002A6517 /* View Controller */,
+				841617C223FCAA55002A6517 /* View Model */,
 				844DBBFC23DBDD9500B024BE /* View */,
 			);
 			path = Musicians;
@@ -398,85 +440,6 @@
 			path = View;
 			sourceTree = "<group>";
 		};
-		844DBBFD23DBDDA100B024BE /* List */ = {
-			isa = PBXGroup;
-			children = (
-				844DBC0223DBE1BB00B024BE /* Cell */,
-				844DBC0323DBE1C200B024BE /* Provider */,
-				844DBC0423DBE1CC00B024BE /* ViewController */,
-				844DBC0523DBE1D400B024BE /* ViewModel */,
-			);
-			path = List;
-			sourceTree = "<group>";
-		};
-		844DBBFE23DBDDAA00B024BE /* Details */ = {
-			isa = PBXGroup;
-			children = (
-				844DBBFF23DBE15A00B024BE /* Provider */,
-				844DBC0023DBE17000B024BE /* ViewController */,
-				844DBC0123DBE19000B024BE /* ViewModel */,
-			);
-			path = Details;
-			sourceTree = "<group>";
-		};
-		844DBBFF23DBE15A00B024BE /* Provider */ = {
-			isa = PBXGroup;
-			children = (
-				844DBC0623DBE4EA00B024BE /* MusiciansDetailProvider.swift */,
-			);
-			path = Provider;
-			sourceTree = "<group>";
-		};
-		844DBC0023DBE17000B024BE /* ViewController */ = {
-			isa = PBXGroup;
-			children = (
-				844DBC0823DBE52000B024BE /* MusiciansDetailViewController.swift */,
-			);
-			path = ViewController;
-			sourceTree = "<group>";
-		};
-		844DBC0123DBE19000B024BE /* ViewModel */ = {
-			isa = PBXGroup;
-			children = (
-				844DBC0A23DBE53700B024BE /* MusiciansDetailViewModel.swift */,
-			);
-			path = ViewModel;
-			sourceTree = "<group>";
-		};
-		844DBC0223DBE1BB00B024BE /* Cell */ = {
-			isa = PBXGroup;
-			children = (
-				844DBC0C23DBE5B500B024BE /* MusiciansTableViewCell.swift */,
-			);
-			path = Cell;
-			sourceTree = "<group>";
-		};
-		844DBC0323DBE1C200B024BE /* Provider */ = {
-			isa = PBXGroup;
-			children = (
-				844DBC0E23DBE5D200B024BE /* MusiciansListProvider.swift */,
-			);
-			path = Provider;
-			sourceTree = "<group>";
-		};
-		844DBC0423DBE1CC00B024BE /* ViewController */ = {
-			isa = PBXGroup;
-			children = (
-				844DBC1023DBE5F400B024BE /* MusiciansListViewController.swift */,
-				844DBC1223DBE60900B024BE /* MusiciansFilterViewController.swift */,
-			);
-			path = ViewController;
-			sourceTree = "<group>";
-		};
-		844DBC0523DBE1D400B024BE /* ViewModel */ = {
-			isa = PBXGroup;
-			children = (
-				844DBC1623DBE64600B024BE /* MusiciansFilterViewModel.swift */,
-				844DBC1423DBE62F00B024BE /* MusiciansListViewModel.swift */,
-			);
-			path = ViewModel;
-			sourceTree = "<group>";
-		};
 		844DC9C323A1E7DC0020A262 /* View */ = {
 			isa = PBXGroup;
 			children = (
@@ -485,13 +448,14 @@
 			path = View;
 			sourceTree = "<group>";
 		};
-		845097AB23F1D2AA00EEAE8D /* Tab Bar */ = {
+		845097AB23F1D2AA00EEAE8D /* Main */ = {
 			isa = PBXGroup;
 			children = (
 				845097AC23F1D2D700EEAE8D /* Provider */,
 				845097AD23F1D2DE00EEAE8D /* View Controller */,
+				841617BF23FCA9B2002A6517 /* View */,
 			);
-			path = "Tab Bar";
+			path = Main;
 			sourceTree = "<group>";
 		};
 		845097AC23F1D2D700EEAE8D /* Provider */ = {
@@ -505,6 +469,7 @@
 		845097AD23F1D2DE00EEAE8D /* View Controller */ = {
 			isa = PBXGroup;
 			children = (
+				8478A95D23AEF81D0046B60C /* LocationMapViewController.swift */,
 				845097B023F1D37500EEAE8D /* TabBarController.swift */,
 			);
 			path = "View Controller";
@@ -617,29 +582,13 @@
 			path = ViewController;
 			sourceTree = "<group>";
 		};
-		8462E53E239303E400F017CF /* Cell */ = {
-			isa = PBXGroup;
-			children = (
-				BBB9BC362363DA7A00DB93BD /* BandTableViewCell.swift */,
-			);
-			path = Cell;
-			sourceTree = "<group>";
-		};
-		8462E53F239303FC00F017CF /* Cell */ = {
-			isa = PBXGroup;
-			children = (
-				84A440F823821CBF00685924 /* MyBandTableViewCell.swift */,
-			);
-			path = Cell;
-			sourceTree = "<group>";
-		};
 		8462E540239337EC00F017CF /* Login */ = {
 			isa = PBXGroup;
 			children = (
-				844DC9C323A1E7DC0020A262 /* View */,
 				846F16FE2398C4AC00CE1712 /* Provider */,
 				8462E541239338F600F017CF /* ViewController */,
 				846F17012398C60F00CE1712 /* ViewModel */,
+				844DC9C323A1E7DC0020A262 /* View */,
 			);
 			path = Login;
 			sourceTree = "<group>";
@@ -647,6 +596,7 @@
 		8462E541239338F600F017CF /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
+				84892E7E23939591000CBCE8 /* SignUpViewController.swift */,
 				8462E5422393397C00F017CF /* LoginViewController.swift */,
 			);
 			path = ViewController;
@@ -655,6 +605,7 @@
 		846F16FE2398C4AC00CE1712 /* Provider */ = {
 			isa = PBXGroup;
 			children = (
+				848DA665239C85EA00996D04 /* SignUpProvider.swift */,
 				846F16FF2398C4EF00CE1712 /* LoginProvider.swift */,
 			);
 			path = Provider;
@@ -663,6 +614,7 @@
 		846F17012398C60F00CE1712 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				848DA667239C8E4B00996D04 /* SignUpViewModel.swift */,
 				846F17022398C8E800CE1712 /* LoginViewModel.swift */,
 			);
 			path = ViewModel;
@@ -671,16 +623,15 @@
 		84756DA9238F88DE0025D426 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
-				845097AB23F1D2AA00EEAE8D /* Tab Bar */,
-				8457AAF823EB893D00E72450 /* Messages */,
-				8457AAF323EB728700E72450 /* Settings */,
-				844DBBFB23DBDD5F00B024BE /* Musicians */,
-				845956742394499300026A89 /* Profile */,
 				84756DAD238F89590025D426 /* Bands */,
 				8462E540239337EC00F017CF /* Login */,
-				84756DAA238F88E70025D426 /* My Bands */,
+				845097AB23F1D2AA00EEAE8D /* Main */,
+				8457AAF823EB893D00E72450 /* Messages */,
+				844DBBFB23DBDD5F00B024BE /* Musicians */,
 				844D304B23DFE298001E5FBC /* My Ads */,
-				84892E7C23939523000CBCE8 /* Sign Up */,
+				84756DAA238F88E70025D426 /* My Bands */,
+				845956742394499300026A89 /* Profile */,
+				8457AAF323EB728700E72450 /* Settings */,
 			);
 			path = Modules;
 			sourceTree = "<group>";
@@ -688,97 +639,23 @@
 		84756DAA238F88E70025D426 /* My Bands */ = {
 			isa = PBXGroup;
 			children = (
+				841617C623FCAB29002A6517 /* Provider */,
+				841617C723FCAB30002A6517 /* View Controller */,
+				841617C823FCAB3A002A6517 /* View Model */,
 				8495FCEB239226230099B635 /* View */,
-				84756DAC238F89060025D426 /* Details */,
-				84756DAB238F88FF0025D426 /* List */,
 			);
 			path = "My Bands";
-			sourceTree = "<group>";
-		};
-		84756DAB238F88FF0025D426 /* List */ = {
-			isa = PBXGroup;
-			children = (
-				8462E53F239303FC00F017CF /* Cell */,
-				8495FCEE2392269E0099B635 /* Provider */,
-				8495FCEC239226850099B635 /* ViewController */,
-				8495FCED239226920099B635 /* ViewModel */,
-			);
-			path = List;
-			sourceTree = "<group>";
-		};
-		84756DAC238F89060025D426 /* Details */ = {
-			isa = PBXGroup;
-			children = (
-				8495FCEF239226BB0099B635 /* Provider */,
-				8495FCF1239226D30099B635 /* ViewController */,
-				8495FCF0239226C60099B635 /* ViewModel */,
-			);
-			path = Details;
 			sourceTree = "<group>";
 		};
 		84756DAD238F89590025D426 /* Bands */ = {
 			isa = PBXGroup;
 			children = (
+				841617C323FCAAC0002A6517 /* Provider */,
+				841617C423FCAAC6002A6517 /* View Controller */,
+				841617C523FCAAD1002A6517 /* View Model */,
 				8495FCEA239225F80099B635 /* View */,
-				84756DAF238F89710025D426 /* Details */,
-				84756DAE238F89690025D426 /* List */,
 			);
 			path = Bands;
-			sourceTree = "<group>";
-		};
-		84756DAE238F89690025D426 /* List */ = {
-			isa = PBXGroup;
-			children = (
-				8462E53E239303E400F017CF /* Cell */,
-				8495FCF2239226EB0099B635 /* Provider */,
-				8495FCF4239226FA0099B635 /* ViewController */,
-				8495FCF3239226F30099B635 /* ViewModel */,
-			);
-			path = List;
-			sourceTree = "<group>";
-		};
-		84756DAF238F89710025D426 /* Details */ = {
-			isa = PBXGroup;
-			children = (
-				8448A11923AC37AA000DFC3D /* Provider */,
-				8495FCF6239227250099B635 /* ViewController */,
-				8495FCF5239227130099B635 /* ViewModel */,
-			);
-			path = Details;
-			sourceTree = "<group>";
-		};
-		84892E7C23939523000CBCE8 /* Sign Up */ = {
-			isa = PBXGroup;
-			children = (
-				848DA661239C84B000996D04 /* Provider */,
-				84892E7D2393955E000CBCE8 /* ViewController */,
-				848DA662239C84C600996D04 /* ViewModel */,
-			);
-			path = "Sign Up";
-			sourceTree = "<group>";
-		};
-		84892E7D2393955E000CBCE8 /* ViewController */ = {
-			isa = PBXGroup;
-			children = (
-				84892E7E23939591000CBCE8 /* SignUpViewController.swift */,
-			);
-			path = ViewController;
-			sourceTree = "<group>";
-		};
-		848DA661239C84B000996D04 /* Provider */ = {
-			isa = PBXGroup;
-			children = (
-				848DA665239C85EA00996D04 /* SignUpProvider.swift */,
-			);
-			path = Provider;
-			sourceTree = "<group>";
-		};
-		848DA662239C84C600996D04 /* ViewModel */ = {
-			isa = PBXGroup;
-			children = (
-				848DA667239C8E4B00996D04 /* SignUpViewModel.swift */,
-			);
-			path = ViewModel;
 			sourceTree = "<group>";
 		};
 		8495FCEA239225F80099B635 /* View */ = {
@@ -795,97 +672,6 @@
 				8495FCF7239234D00099B635 /* MyBands.storyboard */,
 			);
 			path = View;
-			sourceTree = "<group>";
-		};
-		8495FCEC239226850099B635 /* ViewController */ = {
-			isa = PBXGroup;
-			children = (
-				84A440EE2381C75100685924 /* MyBandListViewController.swift */,
-			);
-			path = ViewController;
-			sourceTree = "<group>";
-		};
-		8495FCED239226920099B635 /* ViewModel */ = {
-			isa = PBXGroup;
-			children = (
-				84A440F42381DC3A00685924 /* MyBandListViewModel.swift */,
-			);
-			path = ViewModel;
-			sourceTree = "<group>";
-		};
-		8495FCEE2392269E0099B635 /* Provider */ = {
-			isa = PBXGroup;
-			children = (
-				84A440F02381C79700685924 /* MyBandListProvider.swift */,
-			);
-			path = Provider;
-			sourceTree = "<group>";
-		};
-		8495FCEF239226BB0099B635 /* Provider */ = {
-			isa = PBXGroup;
-			children = (
-				848AE7EA2384BBF50089F515 /* MyBandDetailProvider.swift */,
-			);
-			path = Provider;
-			sourceTree = "<group>";
-		};
-		8495FCF0239226C60099B635 /* ViewModel */ = {
-			isa = PBXGroup;
-			children = (
-				84A440F62381DC4C00685924 /* MyBandDetailViewModel.swift */,
-			);
-			path = ViewModel;
-			sourceTree = "<group>";
-		};
-		8495FCF1239226D30099B635 /* ViewController */ = {
-			isa = PBXGroup;
-			children = (
-				8478A95D23AEF81D0046B60C /* LocationMapViewController.swift */,
-				84A440F22381D89100685924 /* MyBandDetailViewController.swift */,
-			);
-			path = ViewController;
-			sourceTree = "<group>";
-		};
-		8495FCF2239226EB0099B635 /* Provider */ = {
-			isa = PBXGroup;
-			children = (
-				BB0AEB17236A992700B7FA29 /* BandListProvider.swift */,
-			);
-			path = Provider;
-			sourceTree = "<group>";
-		};
-		8495FCF3239226F30099B635 /* ViewModel */ = {
-			isa = PBXGroup;
-			children = (
-				BB7E5920236936DF005FAADF /* BandListViewModel.swift */,
-				8458446523CFB31100F399DB /* BandFilterViewModel.swift */,
-			);
-			path = ViewModel;
-			sourceTree = "<group>";
-		};
-		8495FCF4239226FA0099B635 /* ViewController */ = {
-			isa = PBXGroup;
-			children = (
-				8458446723CFB73A00F399DB /* BandFilterViewController.swift */,
-				BB19BC67235EBD1A00C1098C /* BandListViewController.swift */,
-			);
-			path = ViewController;
-			sourceTree = "<group>";
-		};
-		8495FCF5239227130099B635 /* ViewModel */ = {
-			isa = PBXGroup;
-			children = (
-				84457352236D22EC005486DD /* BandDetailViewModel.swift */,
-			);
-			path = ViewModel;
-			sourceTree = "<group>";
-		};
-		8495FCF6239227250099B635 /* ViewController */ = {
-			isa = PBXGroup;
-			children = (
-				BB156A1E23629D2300BB1823 /* BandDetailViewController.swift */,
-			);
-			path = ViewController;
 			sourceTree = "<group>";
 		};
 		95295A8DE999DAA4F896C533 /* Pods */ = {
@@ -914,15 +700,6 @@
 				84494EAB23EBBA1F00AE2FD0 /* Chat.swift */,
 			);
 			path = DataModel;
-			sourceTree = "<group>";
-		};
-		BB02CCE023616113000D53FF /* View */ = {
-			isa = PBXGroup;
-			children = (
-				BB19BC69235EBD1A00C1098C /* Main.storyboard */,
-				BB19BC6E235EBD1E00C1098C /* LaunchScreen.storyboard */,
-			);
-			path = View;
 			sourceTree = "<group>";
 		};
 		BB02CCE12361627D000D53FF /* Helpers */ = {
@@ -971,7 +748,6 @@
 				BB8E079F2364B20A00C0DCB6 /* Extensions */,
 				BB02CCE12361627D000D53FF /* Helpers */,
 				84756DA9238F88DE0025D426 /* Modules */,
-				BB02CCE023616113000D53FF /* View */,
 				BB19BC6C235EBD1E00C1098C /* Assets.xcassets */,
 				BB19BC71235EBD1E00C1098C /* Info.plist */,
 				844E861C239D7E8E005D879B /* GoogleService-Info.plist */,
