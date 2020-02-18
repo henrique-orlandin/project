@@ -8,6 +8,12 @@
 
 /* Begin PBXBuildFile section */
 		7018D7C75CBDC52FFC15A9C1 /* Pods_Jam.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 80FBF20DD3AA248581FB586D /* Pods_Jam.framework */; };
+		841C981B23FB5C070055EB14 /* ProfileMusicianViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 841C981A23FB5C070055EB14 /* ProfileMusicianViewController.swift */; };
+		841C981D23FB5D400055EB14 /* ProfileMusicianViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 841C981C23FB5D400055EB14 /* ProfileMusicianViewModel.swift */; };
+		841C981F23FB5E4B0055EB14 /* ProfileMusicianProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 841C981E23FB5E4B0055EB14 /* ProfileMusicianProvider.swift */; };
+		841C982123FB7D3B0055EB14 /* ProfileCredentialsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 841C982023FB7D3B0055EB14 /* ProfileCredentialsViewController.swift */; };
+		841C982323FB7EDD0055EB14 /* ProfileCredentialsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 841C982223FB7EDD0055EB14 /* ProfileCredentialsViewModel.swift */; };
+		841C982523FB7F930055EB14 /* ProfileCredentialsProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 841C982423FB7F930055EB14 /* ProfileCredentialsProvider.swift */; };
 		8442D54C23F268E0009DCB18 /* Jam.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 8442D54A23F268E0009DCB18 /* Jam.xcdatamodeld */; };
 		8442D55823F26D78009DCB18 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8442D55723F26D78009DCB18 /* SettingsViewController.swift */; };
 		8442D55B23F26DE8009DCB18 /* SettingsProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8442D55A23F26DE8009DCB18 /* SettingsProvider.swift */; };
@@ -109,6 +115,12 @@
 		40ECC85689383E7E64D440B5 /* Pods-Project.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Project.release.xcconfig"; path = "Target Support Files/Pods-Project/Pods-Project.release.xcconfig"; sourceTree = "<group>"; };
 		6B249B78380B0E2EDE210C5D /* Pods-Project.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Project.debug.xcconfig"; path = "Target Support Files/Pods-Project/Pods-Project.debug.xcconfig"; sourceTree = "<group>"; };
 		80FBF20DD3AA248581FB586D /* Pods_Jam.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Jam.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		841C981A23FB5C070055EB14 /* ProfileMusicianViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileMusicianViewController.swift; sourceTree = "<group>"; };
+		841C981C23FB5D400055EB14 /* ProfileMusicianViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ProfileMusicianViewModel.swift; path = "Project/Modules/My Bands/Details/ViewModel/ProfileMusicianViewModel.swift"; sourceTree = SOURCE_ROOT; };
+		841C981E23FB5E4B0055EB14 /* ProfileMusicianProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ProfileMusicianProvider.swift; path = Project/Modules/Profile/ViewController/ProfileMusicianProvider.swift; sourceTree = SOURCE_ROOT; };
+		841C982023FB7D3B0055EB14 /* ProfileCredentialsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ProfileCredentialsViewController.swift; path = "Project/Modules/Sign Up/ViewController/ProfileCredentialsViewController.swift"; sourceTree = SOURCE_ROOT; };
+		841C982223FB7EDD0055EB14 /* ProfileCredentialsViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ProfileCredentialsViewModel.swift; path = "Project/Modules/Sign Up/ViewModel/ProfileCredentialsViewModel.swift"; sourceTree = SOURCE_ROOT; };
+		841C982423FB7F930055EB14 /* ProfileCredentialsProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileCredentialsProvider.swift; sourceTree = "<group>"; };
 		8442D54B23F268E0009DCB18 /* Settings.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Settings.xcdatamodel; sourceTree = "<group>"; };
 		8442D55723F26D78009DCB18 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		8442D55A23F26DE8009DCB18 /* SettingsProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsProvider.swift; sourceTree = "<group>"; };
@@ -577,6 +589,8 @@
 			isa = PBXGroup;
 			children = (
 				845871CD23D5108300A70B19 /* ProfileProvider.swift */,
+				841C981E23FB5E4B0055EB14 /* ProfileMusicianProvider.swift */,
+				841C982423FB7F930055EB14 /* ProfileCredentialsProvider.swift */,
 			);
 			path = Provider;
 			sourceTree = "<group>";
@@ -584,7 +598,9 @@
 		845871CF23D511FB00A70B19 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				841C982223FB7EDD0055EB14 /* ProfileCredentialsViewModel.swift */,
 				845871D023D5123E00A70B19 /* ProfileEditViewModel.swift */,
+				841C981C23FB5D400055EB14 /* ProfileMusicianViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -593,9 +609,9 @@
 			isa = PBXGroup;
 			children = (
 				845871CC23D5105300A70B19 /* Provider */,
-				845871C523D4E93800A70B19 /* View */,
 				845956752394499A00026A89 /* ViewController */,
 				845871CF23D511FB00A70B19 /* ViewModel */,
+				845871C523D4E93800A70B19 /* View */,
 			);
 			path = Profile;
 			sourceTree = "<group>";
@@ -603,8 +619,10 @@
 		845956752394499A00026A89 /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
+				841C982023FB7D3B0055EB14 /* ProfileCredentialsViewController.swift */,
 				84595676239449D200026A89 /* ProfileViewController.swift */,
 				845871CA23D50D6800A70B19 /* ProfileEditViewController.swift */,
+				841C981A23FB5C070055EB14 /* ProfileMusicianViewController.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -1153,6 +1171,7 @@
 				8459566F2394471D00026A89 /* Constants.swift in Sources */,
 				84A440F32381D89100685924 /* MyBandDetailViewController.swift in Sources */,
 				84494EBA23EBD79F00AE2FD0 /* MessageListViewController.swift in Sources */,
+				841C982323FB7EDD0055EB14 /* ProfileCredentialsViewModel.swift in Sources */,
 				BB836E2E2362740600D4711D /* Skills.swift in Sources */,
 				844DBC0923DBE52000B024BE /* MusiciansDetailViewController.swift in Sources */,
 				844DBC0B23DBE53700B024BE /* MusiciansDetailViewModel.swift in Sources */,
@@ -1164,15 +1183,18 @@
 				BBB9BC372363DA7A00DB93BD /* BandTableViewCell.swift in Sources */,
 				844D305823DFE655001E5FBC /* MyAdsDetailViewController.swift in Sources */,
 				BB156A1F23629D2300BB1823 /* BandDetailViewController.swift in Sources */,
+				841C982123FB7D3B0055EB14 /* ProfileCredentialsViewController.swift in Sources */,
 				84595677239449D200026A89 /* ProfileViewController.swift in Sources */,
 				8442D55823F26D78009DCB18 /* SettingsViewController.swift in Sources */,
 				844D306523DFE977001E5FBC /* Advertising.swift in Sources */,
 				8478A95E23AEF81D0046B60C /* LocationMapViewController.swift in Sources */,
 				BB19BC64235EBD1A00C1098C /* AppDelegate.swift in Sources */,
 				84A440F923821CBF00685924 /* MyBandTableViewCell.swift in Sources */,
+				841C981D23FB5D400055EB14 /* ProfileMusicianViewModel.swift in Sources */,
 				845097B123F1D37500EEAE8D /* TabBarController.swift in Sources */,
 				84519B0A23F4C8BA00A4D9DF /* Settings+CoreDataProperties.swift in Sources */,
 				8457AB0C23EB908200E72450 /* UIImage.swift in Sources */,
+				841C981B23FB5C070055EB14 /* ProfileMusicianViewController.swift in Sources */,
 				8457AB0E23EB908200E72450 /* UIView.swift in Sources */,
 				845097AF23F1D30600EEAE8D /* TabBarProvider.swift in Sources */,
 				844F451123F11BDB002B0897 /* Date.swift in Sources */,
@@ -1188,6 +1210,7 @@
 				84A440EF2381C75100685924 /* MyBandListViewController.swift in Sources */,
 				8448A11B23AC37E4000DFC3D /* BandDetailProvider.swift in Sources */,
 				84494EAA23EBB95000AE2FD0 /* ChatListProvider.swift in Sources */,
+				841C981F23FB5E4B0055EB14 /* ProfileMusicianProvider.swift in Sources */,
 				845871D123D5123E00A70B19 /* ProfileEditViewModel.swift in Sources */,
 				844DBC1123DBE5F400B024BE /* MusiciansListViewController.swift in Sources */,
 				BB7E5921236936DF005FAADF /* BandListViewModel.swift in Sources */,
@@ -1208,6 +1231,7 @@
 				845BFAA4238BB53600D7DD0E /* UIColor.swift in Sources */,
 				845C17B323ECD13E00EC1960 /* MessageCollectionViewCell.swift in Sources */,
 				844DBC0F23DBE5D200B024BE /* MusiciansListProvider.swift in Sources */,
+				841C982523FB7F930055EB14 /* ProfileCredentialsProvider.swift in Sources */,
 				844D305623DFE63C001E5FBC /* MyAdsDetailProvider.swift in Sources */,
 				84494EAE23EBC9D800AE2FD0 /* ChatListViewController.swift in Sources */,
 				84494EBC23EBD8FA00AE2FD0 /* MessageListProvider.swift in Sources */,

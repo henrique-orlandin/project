@@ -57,6 +57,7 @@ class ProfileViewController: UIViewController {
             provider.loadImage(image: image, to: profileImageView)
         }
         nameLabel.text = profile.name
+        profileImageView.rounded()
     }
     
     func goToLogin() {
@@ -88,7 +89,6 @@ extension ProfileViewController: ProfileEditViewControllerDelegate {
         self.editConfig()
         navigationController?.popViewController(animated: true)
     }
-    
 }
 
 extension ProfileViewController: ProfileProviderProtocol {

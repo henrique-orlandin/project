@@ -15,10 +15,6 @@ class ProfileEditViewModel {
     var name: String?
     var image: String?
     var location: Location?
-    var isMusician: Bool = false
-    var musicianDescription: String?
-    var musicianSkills: [Skills]?
-    var musicianGenres: [Genre]?
     
     init() { }
     
@@ -27,17 +23,10 @@ class ProfileEditViewModel {
         self.name = user.name
         self.image = user.image
         self.location = user.location
-        self.isMusician = user.musician == nil ? false : true
-        self.musicianSkills = user.musician?.skills
-        self.musicianGenres = user.musician?.genres
-        self.musicianDescription = user.musician?.description
     }
     
     func setNameFromView(_ name: String?) {
         self.name = name
-    }
-    func setMusicianFromView(_ isMusician: Bool) {
-        self.isMusician = isMusician
     }
     func setPicturesFromView(_ picture: UIImage?) {
         guard let picture = picture else { return }
@@ -52,29 +41,6 @@ class ProfileEditViewModel {
             else { return }
         
         self.location = Location(city: city, state: state, country: country, postalCode: postalCode, lat: lat, lng: lng)
-    }
-    func setGenreFromView(_ genres: [String]?) {
-        guard let genres = genres else { return }
-        var genreList = [Genre]()
-        for genre in genres {
-            if let newGenre = Genre.init(rawValue: genre) {
-                genreList.append(newGenre)
-            }
-        }
-        self.musicianGenres = genreList
-    }
-    func setSkillFromView(_ skills: [String]?) {
-        guard let skills = skills else { return }
-        var skillList = [Skills]()
-        for skill in skills {
-            if let newSkill = Skills.init(rawValue: skill) {
-                skillList.append(newSkill)
-            }
-        }
-        self.musicianSkills = skillList
-    }
-    func setDescriptionFromView(_ description: String?) {
-        self.musicianDescription = description
     }
     
     
@@ -103,18 +69,7 @@ class ProfileEditViewModel {
         }
         return string.joined(separator: ", ")
     }
-    func getGenreForView() -> [String]? {
-        return self.musicianGenres != nil ? self.musicianGenres!.map { $0.rawValue } : nil
-    }
-    func getSkillForView() -> [String]? {
-        return self.musicianSkills != nil ? self.musicianSkills!.map { $0.rawValue } : nil
-    }
-    func getDescriptionForView() -> String? {
-        return self.musicianDescription
-    }
-    func getIsMusicianForView() -> Bool {
-        return self.isMusician
-    }
+
     
     func isFullFilled() -> Bool {
         return self.name != nil &&

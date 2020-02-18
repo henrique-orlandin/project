@@ -88,7 +88,7 @@ class ProfileProvider {
     func saveProfileData (id: String, profile: ProfileEditViewModel) {
         let data = self.encode(profile: profile)
         let db = Firestore.firestore()
-        db.collection("users").document(id).setData(data, completion: {
+        db.collection("users").document(id).updateData(data, completion: {
             (error) in
             if let error = error {
                 self.delegate?.providerDidFinishSavingProfile(provider: self, error: error.localizedDescription)
@@ -159,7 +159,6 @@ class ProfileProvider {
         
         var data:[String: Any] = [
             "name": profile.name!,
-            "is_musician": profile.isMusician
         ]
         
         if let image = profile.image {
@@ -182,24 +181,6 @@ class ProfileProvider {
             location["postal_code"] = postalCode
         }
         data["location"] = location
-        
-        if profile.isMusician {
-            if let description = profile.musicianDescription {
-                data["description"] = description
-            }
-            
-            var genres = [String]()
-            for genre in profile.musicianGenres! {
-                genres.append(genre.rawValue)
-            }
-            data["genre"] = genres
-            
-            var skills = [String]()
-            for skill in profile.musicianSkills! {
-                skills.append(skill.rawValue)
-            }
-            data["skills"] = skills
-        }
         
         return data
     }
