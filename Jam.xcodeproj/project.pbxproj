@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		7018D7C75CBDC52FFC15A9C1 /* Pods_Jam.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 80FBF20DD3AA248581FB586D /* Pods_Jam.framework */; };
+		841617BB23FCA40A002A6517 /* Bands.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 841617B923FCA40A002A6517 /* Bands.storyboard */; };
+		841617BD23FCA539002A6517 /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 841617BC23FCA539002A6517 /* Login.storyboard */; };
 		841C981B23FB5C070055EB14 /* ProfileMusicianViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 841C981A23FB5C070055EB14 /* ProfileMusicianViewController.swift */; };
 		841C981D23FB5D400055EB14 /* ProfileMusicianViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 841C981C23FB5D400055EB14 /* ProfileMusicianViewModel.swift */; };
 		841C981F23FB5E4B0055EB14 /* ProfileMusicianProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 841C981E23FB5E4B0055EB14 /* ProfileMusicianProvider.swift */; };
@@ -46,8 +48,6 @@
 		844DBC1523DBE62F00B024BE /* MusiciansListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 844DBC1423DBE62F00B024BE /* MusiciansListViewModel.swift */; };
 		844DBC1723DBE64600B024BE /* MusiciansFilterViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 844DBC1623DBE64600B024BE /* MusiciansFilterViewModel.swift */; };
 		844DBC1A23DBE89F00B024BE /* Musicians.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 844DBC1823DBE89F00B024BE /* Musicians.storyboard */; };
-		844DC9C223A1E7A70020A262 /* SignUpView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 844DC9C023A1E7A70020A262 /* SignUpView.storyboard */; };
-		844DC9C623A1E7FA0020A262 /* LoginView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 844DC9C423A1E7FA0020A262 /* LoginView.storyboard */; };
 		844E861D239D7E8E005D879B /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 844E861C239D7E8E005D879B /* GoogleService-Info.plist */; };
 		844F451123F11BDB002B0897 /* Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = 844F451023F11BDB002B0897 /* Date.swift */; };
 		844F6BCB23C6E8D300E4F1DA /* UIImageExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 844F6BCA23C6E8D300E4F1DA /* UIImageExtension.swift */; };
@@ -82,7 +82,6 @@
 		848DA666239C85EA00996D04 /* SignUpProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 848DA665239C85EA00996D04 /* SignUpProvider.swift */; };
 		848DA668239C8E4B00996D04 /* SignUpViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 848DA667239C8E4B00996D04 /* SignUpViewModel.swift */; };
 		8495FCF9239234D00099B635 /* MyBands.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8495FCF7239234D00099B635 /* MyBands.storyboard */; };
-		8495FCFB239234E90099B635 /* Bands.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8495FCFA239234E90099B635 /* Bands.storyboard */; };
 		84A440EF2381C75100685924 /* MyBandListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84A440EE2381C75100685924 /* MyBandListViewController.swift */; };
 		84A440F12381C79700685924 /* MyBandListProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84A440F02381C79700685924 /* MyBandListProvider.swift */; };
 		84A440F32381D89100685924 /* MyBandDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84A440F22381D89100685924 /* MyBandDetailViewController.swift */; };
@@ -115,6 +114,8 @@
 		40ECC85689383E7E64D440B5 /* Pods-Project.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Project.release.xcconfig"; path = "Target Support Files/Pods-Project/Pods-Project.release.xcconfig"; sourceTree = "<group>"; };
 		6B249B78380B0E2EDE210C5D /* Pods-Project.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Project.debug.xcconfig"; path = "Target Support Files/Pods-Project/Pods-Project.debug.xcconfig"; sourceTree = "<group>"; };
 		80FBF20DD3AA248581FB586D /* Pods_Jam.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Jam.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		841617BA23FCA40A002A6517 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Project/View/Base.lproj/Bands.storyboard; sourceTree = SOURCE_ROOT; };
+		841617BC23FCA539002A6517 /* Login.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Login.storyboard; sourceTree = SOURCE_ROOT; };
 		841C981A23FB5C070055EB14 /* ProfileMusicianViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileMusicianViewController.swift; sourceTree = "<group>"; };
 		841C981C23FB5D400055EB14 /* ProfileMusicianViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ProfileMusicianViewModel.swift; path = "Project/Modules/My Bands/Details/ViewModel/ProfileMusicianViewModel.swift"; sourceTree = SOURCE_ROOT; };
 		841C981E23FB5E4B0055EB14 /* ProfileMusicianProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ProfileMusicianProvider.swift; path = Project/Modules/Profile/ViewController/ProfileMusicianProvider.swift; sourceTree = SOURCE_ROOT; };
@@ -153,8 +154,6 @@
 		844DBC1423DBE62F00B024BE /* MusiciansListViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MusiciansListViewModel.swift; path = Project/Modules/Bands/List/ViewModel/MusiciansListViewModel.swift; sourceTree = SOURCE_ROOT; };
 		844DBC1623DBE64600B024BE /* MusiciansFilterViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MusiciansFilterViewModel.swift; path = Project/Modules/Bands/List/ViewModel/MusiciansFilterViewModel.swift; sourceTree = SOURCE_ROOT; };
 		844DBC1923DBE89F00B024BE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Project/View/Base.lproj/Musicians.storyboard; sourceTree = SOURCE_ROOT; };
-		844DC9C123A1E7A70020A262 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Project/View/Base.lproj/SignUpView.storyboard; sourceTree = SOURCE_ROOT; };
-		844DC9C523A1E7FA0020A262 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Project/View/Base.lproj/LoginView.storyboard; sourceTree = SOURCE_ROOT; };
 		844E861C239D7E8E005D879B /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		844F451023F11BDB002B0897 /* Date.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Date.swift; sourceTree = "<group>"; };
 		844F6BCA23C6E8D300E4F1DA /* UIImageExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageExtension.swift; sourceTree = "<group>"; };
@@ -190,7 +189,6 @@
 		848DA665239C85EA00996D04 /* SignUpProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpProvider.swift; sourceTree = "<group>"; };
 		848DA667239C8E4B00996D04 /* SignUpViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewModel.swift; sourceTree = "<group>"; };
 		8495FCF8239234D00099B635 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Project/View/Base.lproj/MyBands.storyboard; sourceTree = SOURCE_ROOT; };
-		8495FCFA239234E90099B635 /* Bands.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Bands.storyboard; sourceTree = SOURCE_ROOT; };
 		84A440EE2381C75100685924 /* MyBandListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyBandListViewController.swift; sourceTree = "<group>"; };
 		84A440F02381C79700685924 /* MyBandListProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyBandListProvider.swift; sourceTree = "<group>"; };
 		84A440F22381D89100685924 /* MyBandDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyBandDetailViewController.swift; sourceTree = "<group>"; };
@@ -479,18 +477,10 @@
 			path = ViewModel;
 			sourceTree = "<group>";
 		};
-		844DC9BF23A1E7150020A262 /* View */ = {
-			isa = PBXGroup;
-			children = (
-				844DC9C023A1E7A70020A262 /* SignUpView.storyboard */,
-			);
-			path = View;
-			sourceTree = "<group>";
-		};
 		844DC9C323A1E7DC0020A262 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				844DC9C423A1E7FA0020A262 /* LoginView.storyboard */,
+				841617BC23FCA539002A6517 /* Login.storyboard */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -760,7 +750,6 @@
 		84892E7C23939523000CBCE8 /* Sign Up */ = {
 			isa = PBXGroup;
 			children = (
-				844DC9BF23A1E7150020A262 /* View */,
 				848DA661239C84B000996D04 /* Provider */,
 				84892E7D2393955E000CBCE8 /* ViewController */,
 				848DA662239C84C600996D04 /* ViewModel */,
@@ -795,7 +784,7 @@
 		8495FCEA239225F80099B635 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				8495FCFA239234E90099B635 /* Bands.storyboard */,
+				841617B923FCA40A002A6517 /* Bands.storyboard */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1077,7 +1066,8 @@
 			files = (
 				BB19BC70235EBD1E00C1098C /* LaunchScreen.storyboard in Resources */,
 				BB19BC6D235EBD1E00C1098C /* Assets.xcassets in Resources */,
-				8495FCFB239234E90099B635 /* Bands.storyboard in Resources */,
+				841617BD23FCA539002A6517 /* Login.storyboard in Resources */,
+				841617BB23FCA40A002A6517 /* Bands.storyboard in Resources */,
 				8457AAF723EB72D200E72450 /* Settings.storyboard in Resources */,
 				BB19BC6B235EBD1A00C1098C /* Main.storyboard in Resources */,
 				84494EB823EBD5FF00AE2FD0 /* Messages.storyboard in Resources */,
@@ -1086,8 +1076,6 @@
 				844E861D239D7E8E005D879B /* GoogleService-Info.plist in Resources */,
 				845871C923D4EA0A00A70B19 /* Profile.storyboard in Resources */,
 				844DBC1A23DBE89F00B024BE /* Musicians.storyboard in Resources */,
-				844DC9C223A1E7A70020A262 /* SignUpView.storyboard in Resources */,
-				844DC9C623A1E7FA0020A262 /* LoginView.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1251,6 +1239,14 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
+		841617B923FCA40A002A6517 /* Bands.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				841617BA23FCA40A002A6517 /* Base */,
+			);
+			name = Bands.storyboard;
+			sourceTree = "<group>";
+		};
 		84494EB623EBD5FF00AE2FD0 /* Messages.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -1265,22 +1261,6 @@
 				844DBC1923DBE89F00B024BE /* Base */,
 			);
 			name = Musicians.storyboard;
-			sourceTree = "<group>";
-		};
-		844DC9C023A1E7A70020A262 /* SignUpView.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				844DC9C123A1E7A70020A262 /* Base */,
-			);
-			name = SignUpView.storyboard;
-			sourceTree = "<group>";
-		};
-		844DC9C423A1E7FA0020A262 /* LoginView.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				844DC9C523A1E7FA0020A262 /* Base */,
-			);
-			name = LoginView.storyboard;
 			sourceTree = "<group>";
 		};
 		8457AAF523EB72D200E72450 /* Settings.storyboard */ = {

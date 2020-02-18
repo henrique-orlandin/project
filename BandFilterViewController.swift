@@ -75,7 +75,7 @@ class BandFilterViewController: UIViewController {
         
         if gestureRecognizer.state == .ended {
             locationTextField.becomeFirstResponder()
-            let storyboard = UIStoryboard.init(name: "MyBands", bundle: nil)
+            let storyboard = UIStoryboard.init(name: "Main", bundle: nil)
             let locationViewController = storyboard.instantiateViewController(withIdentifier: "locationVC") as! LocationMapViewController
             locationViewController.delegate = self
             self.navigationController?.pushViewController(locationViewController, animated: true)

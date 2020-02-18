@@ -171,68 +171,6 @@
             </objects>
             <point key="canvasLocation" x="2436" y="867"/>
         </scene>
-        <!--Location Map View Controller-->
-        <scene sceneID="2Rq-G1-N84">
-            <objects>
-                <viewController storyboardIdentifier="locationVC" id="QQh-Zu-oc9" customClass="LocationMapViewController" customModule="Jam" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="idG-oz-15P">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ikp-xC-JVt" customClass="GMSMapView">
-                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                            </view>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="pin" translatesAutoresizingMaskIntoConstraints="NO" id="P4c-vc-6Nq">
-                                <rect key="frame" x="-49" y="398" width="512" height="50"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="50" id="lcY-jA-8KM"/>
-                                </constraints>
-                            </imageView>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Location" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="A1u-I6-GEG">
-                                <rect key="frame" x="0.0" y="822" width="414" height="40"/>
-                                <color key="backgroundColor" white="1" alpha="0.75050834760273977" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="40" id="AO0-nY-ETN"/>
-                                </constraints>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                            </textView>
-                        </subviews>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                        <constraints>
-                            <constraint firstItem="P4c-vc-6Nq" firstAttribute="centerX" secondItem="idG-oz-15P" secondAttribute="centerX" id="9dP-XE-zK9"/>
-                            <constraint firstItem="P4c-vc-6Nq" firstAttribute="bottom" secondItem="idG-oz-15P" secondAttribute="centerY" id="FMQ-5m-OOA"/>
-                            <constraint firstItem="A1u-I6-GEG" firstAttribute="leading" secondItem="EUE-5b-vLh" secondAttribute="leading" id="X7o-o4-NML"/>
-                            <constraint firstItem="Ikp-xC-JVt" firstAttribute="leading" secondItem="EUE-5b-vLh" secondAttribute="leading" id="cSH-xC-6bg"/>
-                            <constraint firstItem="Ikp-xC-JVt" firstAttribute="bottom" secondItem="EUE-5b-vLh" secondAttribute="bottom" id="edq-yU-fxM"/>
-                            <constraint firstItem="Ikp-xC-JVt" firstAttribute="trailing" secondItem="EUE-5b-vLh" secondAttribute="trailing" id="jTx-Zn-eOi"/>
-                            <constraint firstItem="EUE-5b-vLh" firstAttribute="bottom" secondItem="A1u-I6-GEG" secondAttribute="bottom" id="sP2-jO-ZDf"/>
-                            <constraint firstItem="Ikp-xC-JVt" firstAttribute="top" secondItem="EUE-5b-vLh" secondAttribute="top" id="v7y-r7-XE3"/>
-                            <constraint firstItem="EUE-5b-vLh" firstAttribute="trailing" secondItem="A1u-I6-GEG" secondAttribute="trailing" id="y36-DH-b2E"/>
-                        </constraints>
-                        <viewLayoutGuide key="safeArea" id="EUE-5b-vLh"/>
-                    </view>
-                    <navigationItem key="navigationItem" id="2si-yM-xO2">
-                        <barButtonItem key="rightBarButtonItem" systemItem="done" id="Q62-FB-XsL">
-                            <connections>
-                                <action selector="done:" destination="QQh-Zu-oc9" id="EGX-6c-1Pu"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
-                    <connections>
-                        <outlet property="locationLabel" destination="A1u-I6-GEG" id="udB-Rg-OEN"/>
-                        <outlet property="locationLabelHeightConstraint" destination="AO0-nY-ETN" id="w99-ry-rbm"/>
-                        <outlet property="mapView" destination="Ikp-xC-JVt" id="bMC-Dm-hpl"/>
-                        <outlet property="pinImage" destination="P4c-vc-6Nq" id="si5-lH-h0f"/>
-                        <outlet property="pinImageVerticalConstraint" destination="FMQ-5m-OOA" id="RuJ-Q0-TtT"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="7FS-OX-oVp" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="3400.0000000000005" y="866.51785714285711"/>
-        </scene>
         <!--My Bands-->
         <scene sceneID="uxv-Zt-aRi">
             <objects>
@@ -337,7 +275,6 @@
     <resources>
         <image name="camera" catalog="system" width="64" height="48"/>
         <image name="music.note" catalog="system" width="48" height="64"/>
-        <image name="pin" width="512" height="512"/>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="2Zd-qQ-CoT"/>
