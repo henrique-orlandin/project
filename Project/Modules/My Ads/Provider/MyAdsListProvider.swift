@@ -135,13 +135,13 @@ class MyAdsListProvider {
                         self.error = error
                         self.delegate?.providerDidFinishUpdatedDataset(provider: self)
                     } else  if
-                        let document = document,
-                        let data = document.data() {
+                        let bandDocument = document,
+                        let data = bandDocument.data() {
                         if ad.type == Advertising.AdType.band {
-                            let band = self.decodeBand(id: document.documentID, data: data)
+                            let band = self.decodeBand(id: bandDocument.documentID, data: data)
                             updatedAd.band = band
                         } else {
-                            let user = self.decodeUser(id: document.documentID, data: data)
+                            let user = self.decodeUser(id: bandDocument.documentID, data: data)
                             updatedAd.user = user
                         }
                         self.ads?[index] = updatedAd

@@ -76,36 +76,42 @@ class MyBandDetailProvider {
                     print(error)
                 } else {
                     band.image = imageName
-                    var data = self.encode(band: band)
-                    let db = Firestore.firestore()
-                    data["id"] = uid
-                    
-                    db.collection("bands").document(uid).setData(data, completion: {
-                        (error) in
-                        if let error = error {
-                            self.delegate?.providerDidFinishSavingBand(provider: self, error: error.localizedDescription)
-                        }
-                        else {
-                            db.collection("bands").document(uid).getDocument(completion: {
-                                snapshot, error in
-                                if let error = error {
-                                    self.delegate?.providerDidFinishSavingBand(provider: self, error: error.localizedDescription)
-                                } else {
-                                    if let snapshot = snapshot {
-                                        if let response = snapshot.data(),
-                                            let newBand = self.decode(id: uid, data: response) {
-                                            self.delegate?.providerDidFinishSavingBand(provider: self, band: newBand)
-                                        }
-                                    }
-                                }
-                            })
-                        }
-                    })
+                    self.saveData(band, uid: uid)
                 }
             }
-            
+        } else {
+            saveData(band, uid: uid)
         }
         
+    }
+    
+    func saveData (_ band: MyBandDetailViewModel, uid: String) {
+        
+        var data = self.encode(band: band)
+        data["id"] = uid
+        
+        let db = Firestore.firestore()
+        db.collection("bands").document(uid).setData(data, completion: {
+            (error) in
+            if let error = error {
+                self.delegate?.providerDidFinishSavingBand(provider: self, error: error.localizedDescription)
+            }
+            else {
+                db.collection("bands").document(uid).getDocument(completion: {
+                    snapshot, error in
+                    if let error = error {
+                        self.delegate?.providerDidFinishSavingBand(provider: self, error: error.localizedDescription)
+                    } else {
+                        if let snapshot = snapshot {
+                            if let response = snapshot.data(),
+                                let newBand = self.decode(id: uid, data: response) {
+                                self.delegate?.providerDidFinishSavingBand(provider: self, band: newBand)
+                            }
+                        }
+                    }
+                })
+            }
+        })
     }
     
     func decode(id: String, data:[String: Any]) -> Band? {

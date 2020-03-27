@@ -10,14 +10,17 @@ import Foundation
 
 struct BandDetailViewModel {
     
+    var id: String
     var name: String
     var genre: String
     var image: String
     var location: String
     var description: String
+    var user: User?
     
-    init(_ band: Band) {
+    init(_ band: Band, user: User?) {
         
+        self.id = band.id
         self.image = band.image
         
         self.genre = band.genres.map {$0.rawValue}.joined(separator: ", ")
@@ -37,5 +40,6 @@ struct BandDetailViewModel {
         self.location = location.joined(separator: ", ")
         
         self.description = band.description
+        self.user = user
     }
 }

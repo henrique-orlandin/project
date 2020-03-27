@@ -20,6 +20,11 @@ class ProfileCredentialsViewController: UIViewController {
     @IBOutlet weak var passwordErrorLabel: UILabel!
     @IBOutlet weak var confirmErrorLabel: UILabel!
     
+    private var keyboardShow = false
+    
+    @IBOutlet weak var done: UIBarButtonItem!
+    @IBOutlet weak var scrollView: UIScrollView!
+    
     
     var provider: ProfileCredentialsProvider!
     var user: ProfileCredentialsViewModel!
@@ -77,8 +82,15 @@ class ProfileCredentialsViewController: UIViewController {
         provider.delegate = self
         
         user = ProfileCredentialsViewModel()
+        self.title = "Credentials"
         
         setUpView()
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        emailTextField.loadLine()
+        passwordTextField.loadLine()
+        confirmTextField.loadLine()
     }
     
     func setUpView() {
@@ -88,6 +100,31 @@ class ProfileCredentialsViewController: UIViewController {
         validator.registerField(passwordTextField, errorLabel: passwordErrorLabel, rules: [PasswordRule()])
         validator.registerField(confirmTextField, errorLabel: confirmErrorLabel, rules: [ConfirmationRule(confirmField: passwordTextField)])
         
+        
+        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self.view, action: #selector(UIView.endEditing))
+        view.addGestureRecognizer(tap)
+
+        NotificationCenter.default.addObserver(self, selector: #selector(adjustInsetsForKeyboard(_:)), name: UIResponder.keyboardWillShowNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(adjustInsetsForKeyboard(_:)), name: UIResponder.keyboardWillHideNotification, object: nil)
+        
+        emailTextField.defaultLayout()
+        passwordTextField.defaultLayout()
+        confirmTextField.defaultLayout()
+        
+    }
+    
+    @objc func adjustInsetsForKeyboard(_ notification: Notification) {
+        guard let userInfo = notification.userInfo else { return }
+        
+        let keyboardFrame = (userInfo[UIResponder.keyboardFrameEndUserInfoKey] as! NSValue).cgRectValue
+        let show = (notification.name == UIResponder.keyboardWillShowNotification) ? true : false
+        if show == keyboardShow { return }
+       
+        let adjustmentHeight = (keyboardFrame.height + 20) * (show ? 1 : -1)
+        scrollView.contentInset.bottom += adjustmentHeight
+        scrollView.verticalScrollIndicatorInsets.bottom += adjustmentHeight
+        
+        keyboardShow = show
     }
     
     func hideError() {

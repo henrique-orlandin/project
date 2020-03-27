@@ -19,6 +19,12 @@ class SignUpViewController: UIViewController {
     @IBOutlet weak var nameErrorLabel: UILabel!
     @IBOutlet weak var emailErrorLabel: UILabel!
     @IBOutlet weak var passwordErrorLabel: UILabel!
+    @IBOutlet weak var signUpButton: UIButton!
+    @IBOutlet weak var goBackButton: UIButton!
+    
+    private var keyboardShow = false
+    
+    @IBOutlet weak var scrollView: UIScrollView!
     
     var provider: SignUpProvider!
     var user: SignUpViewModel!
@@ -47,6 +53,12 @@ class SignUpViewController: UIViewController {
         setUpView()
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        nameTextField.loadLine()
+        emailTextField.loadLine()
+        passwordTextField.loadLine()
+    }
+    
     func setUpView() {
         
         hideError()
@@ -54,6 +66,32 @@ class SignUpViewController: UIViewController {
         validator.registerField(emailTextField, errorLabel: emailErrorLabel, rules: [RequiredRule(), EmailRule(message: "Invalid email")])
         validator.registerField(passwordTextField, errorLabel: passwordErrorLabel, rules: [RequiredRule(), PasswordRule()])
         
+        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self.view, action: #selector(UIView.endEditing))
+        view.addGestureRecognizer(tap)
+
+        NotificationCenter.default.addObserver(self, selector: #selector(adjustInsetsForKeyboard(_:)), name: UIResponder.keyboardWillShowNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(adjustInsetsForKeyboard(_:)), name: UIResponder.keyboardWillHideNotification, object: nil)
+        
+        signUpButton.defaultLayout()
+        goBackButton.defaultLinkLayout()
+        
+        nameTextField.defaultLayout()
+        emailTextField.defaultLayout()
+        passwordTextField.defaultLayout()
+    }
+    
+    @objc func adjustInsetsForKeyboard(_ notification: Notification) {
+        guard let userInfo = notification.userInfo else { return }
+        
+        let keyboardFrame = (userInfo[UIResponder.keyboardFrameEndUserInfoKey] as! NSValue).cgRectValue
+        let show = (notification.name == UIResponder.keyboardWillShowNotification) ? true : false
+        if show == keyboardShow { return }
+       
+        let adjustmentHeight = (keyboardFrame.height + 20) * (show ? 1 : -1)
+        scrollView.contentInset.bottom += adjustmentHeight
+        scrollView.verticalScrollIndicatorInsets.bottom += adjustmentHeight
+        
+        keyboardShow = show
     }
     
     func hideError() {
@@ -97,6 +135,7 @@ class SignUpViewController: UIViewController {
 
 extension SignUpViewController: SignUpProviderProtocol {
     func providerDidCreate(provider of: SignUpProvider, error: String?) {
+        self.view.removeSpinner()
         guard error == nil else {
             let alert = UIAlertController(title: "Error!", message: error, preferredStyle: .alert)
             alert.addAction(UIAlertAction(title: "ok", style: .default, handler: nil))
@@ -113,7 +152,7 @@ extension SignUpViewController: ValidationDelegate {
         user.setNameFromView(nameTextField.text)
         user.setEmailFromView(emailTextField.text)
         user.setPasswordFromView(passwordTextField.text)
-        
+        self.view.showSpinner(onView: self.view)
         provider.create(user);
     }
     

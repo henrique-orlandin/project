@@ -39,6 +39,8 @@ class MyAdsDetailViewController: UIViewController {
     @IBOutlet weak var cancelBarButton: UIBarButtonItem!
     @IBOutlet weak var scrollView: UIScrollView!
     
+    @IBOutlet weak var exchangeButton: UIButton!
+    
     @IBOutlet weak var genreTextField: UITextField!
     @IBOutlet weak var skillsTextField: UITextField!
     @IBOutlet weak var locationTextField: UITextField!
@@ -88,11 +90,9 @@ class MyAdsDetailViewController: UIViewController {
         super.viewDidLoad()
         self.provider = MyAdsDetailProvider()
         self.provider.delegate = self
-        self.provider.loadBands()
-        self.provider.loadUser()
-        
         self.bandsPicker.delegate = self
         self.bandsPicker.dataSource = self
+        self.provider.loadBands()
         
         self.configView()
         
@@ -106,6 +106,7 @@ class MyAdsDetailViewController: UIViewController {
             self.ad = MyAdsDetailViewModel()
             ad.setTypeFromView(Advertising.AdType.band)
             ad.setNotifyFromView(true)
+            self.provider.loadUser()
         }
         
         navigationItem.largeTitleDisplayMode = .never
@@ -130,6 +131,12 @@ class MyAdsDetailViewController: UIViewController {
         scrollView.verticalScrollIndicatorInsets.bottom += adjustmentHeight
         
         keyboardShow = show
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        skillsTextField.loadLine()
+        genreTextField.loadLine()
+        locationTextField.loadLine()
     }
     
     func configView () {
@@ -169,6 +176,15 @@ class MyAdsDetailViewController: UIViewController {
             self!.genreTextField.text = self!.selectedGenres.joined(separator: ", ")
             self!.ad?.setGenreFromView(selectedItems)
         }
+        
+        let icon = UIImage.fontAwesomeIcon(name: .exchangeAlt, style: .solid, textColor: .white, size: CGSize(width: 30, height: 30))
+        exchangeButton.setImage(icon, for: .normal)
+        exchangeButton.layer.cornerRadius = exchangeButton.frame.height / 2
+        
+        skillsTextField.defaultLayout()
+        genreTextField.defaultLayout()
+        locationTextField.defaultLayout()
+        exchangeButton.defaultLayout()
         
     }
     
@@ -262,6 +278,7 @@ extension MyAdsDetailViewController: MyAdsDetailProviderProtocol {
     func providerDidFinishLoadingUser(provider of: MyAdsDetailProvider, user: User?) {
         if let user = user {
             self.user = user
+            ad.setMusicianFromView(user)
         }
     }
     
@@ -291,6 +308,7 @@ extension MyAdsDetailViewController: MyAdsDetailProviderProtocol {
     func providerDidLoadAd(provider of: MyAdsDetailProvider, ad: MyAdsDetailViewModel?) {
         if let ad = ad {
             self.ad = ad
+            self.provider.loadUser()
             editConfig()
         } else if let error = provider.error {
             print(error.localizedDescription)

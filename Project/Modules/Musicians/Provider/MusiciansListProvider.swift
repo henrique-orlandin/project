@@ -10,7 +10,7 @@ import Foundation
 import FirebaseFirestore
 import FirebaseStorage
 
-class MusiciansListProvider {
+@objc class MusiciansListProvider: NSObject {
     
     weak var delegate : MusiciansListProviderProtocol?
     
@@ -66,8 +66,8 @@ class MusiciansListProvider {
         imagesRef.getData(maxSize: 1 * 1024 * 1024) { data, error in
             if let error = error {
                 print(error)
-            } else if let data = data {
-                imageView.image = UIImage(data: data)
+            } else if let data = data, let image = UIImage(data: data) {
+                self.delegate?.providerDidLoadImage?(provider: self, image: image, imageView: imageView)
             }
         }
     }
@@ -107,7 +107,7 @@ class MusiciansListProvider {
             }
         }
         self.musiciansList = musiciansList
-        self.delegate?.providerDidFinishUpdatedDataset(provider: self)
+        self.delegate?.providerDidFinishUpdatedDataset?(provider: self)
     }
     
     public func filterMusicians(filters: MusiciansFilterViewModel) {
@@ -154,7 +154,7 @@ class MusiciansListProvider {
             }
         }
         self.musiciansList = musiciansList
-        self.delegate?.providerDidFinishUpdatedDataset(provider: self)
+        self.delegate?.providerDidFinishUpdatedDataset?(provider: self)
     }
     
     public func getMusicianViewModel(row withRID: Int, section withSID: Int) -> MusiciansListViewModel? {
@@ -175,7 +175,7 @@ class MusiciansListProvider {
             querySnapshot, error in
             if let error = error {
                 self.error = error
-                self.delegate?.providerDidFinishUpdatedDataset(provider: self)
+                self.delegate?.providerDidFinishUpdatedDataset?(provider: self)
             } else {
                 for document in querySnapshot!.documents {
                     let data = document.data()
@@ -189,7 +189,7 @@ class MusiciansListProvider {
                 if let filters = self.filters {
                     self.filterMusicians(filters: filters)
                 }
-                self.delegate?.providerDidFinishUpdatedDataset(provider: self)
+                self.delegate?.providerDidFinishUpdatedDataset?(provider: self)
             }
         })
     }
@@ -244,6 +244,7 @@ class MusiciansListProvider {
     }
 }
 
-protocol MusiciansListProviderProtocol:class{
-    func providerDidFinishUpdatedDataset(provider of: MusiciansListProvider);
+@objc protocol MusiciansListProviderProtocol:class{
+    @objc optional func providerDidFinishUpdatedDataset(provider of: MusiciansListProvider);
+    @objc optional func providerDidLoadImage(provider of: MusiciansListProvider, image: UIImage, imageView: UIImageView)
 }

@@ -8,6 +8,7 @@
 
 import UIKit
 import RSSelectionMenu
+import SwiftValidator
 
 protocol ProfileEditViewControllerDelegate: class {
     func profileDetailViewControllerDidCancel(_ controller: ProfileEditViewController)
@@ -21,23 +22,27 @@ class ProfileEditViewController: UIViewController {
     private var provider: ProfileProvider! = nil
     private var imagePicker: ImagePicker!
     private var keyboardShow = false
+    private let validator = Validator()
     
     @IBOutlet weak var addBarButton: UIBarButtonItem!
     @IBOutlet weak var cancelBarButton: UIBarButtonItem!
     @IBOutlet weak var scrollView: UIScrollView!
+    @IBOutlet weak var changeImageButton: UIButton!
     
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var nameTextField: UITextField!
     @IBOutlet weak var locationTextField: UITextField!
+    
+    @IBOutlet weak var nameErrorLabel: UILabel!
+    @IBOutlet weak var locationErrorLabel: UILabel!
+    
     
     @IBAction func showImagePicker(_ sender: UIButton) {
         self.imagePicker.present(from: sender)
     }
     
     @IBAction func done(_ sender: Any) {
-        if let profile = self.profile {
-            provider.saveData(profile)
-        }
+        validator.validate(self)
     }
     
     @IBAction func cancel(_ sender: Any) {
@@ -70,6 +75,7 @@ class ProfileEditViewController: UIViewController {
         self.configView()
 
         do {
+            self.view.showSpinner(onView: self.view)
             try self.provider.loadProfile()
         } catch {
             print(error)
@@ -99,6 +105,11 @@ class ProfileEditViewController: UIViewController {
         keyboardShow = show
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        nameTextField.loadLine()
+        locationTextField.loadLine()
+    }
+    
     func configView () {
         nameTextField.delegate = self
         locationTextField.delegate = self
@@ -108,7 +119,26 @@ class ProfileEditViewController: UIViewController {
         
         nameTextField.addTarget(self, action: #selector(nameDidChange), for: .editingChanged)
         
+        let icon = UIImage.fontAwesomeIcon(name: .camera, style: .solid, textColor: .white, size: CGSize(width: 20, height: 20))
+        changeImageButton.setImage(icon, for: .normal)
+        
+        validator.registerField(nameTextField, errorLabel: nameErrorLabel, rules: [RequiredRule()])
+        validator.registerField(locationTextField, errorLabel: locationErrorLabel, rules: [RequiredRule()])
+        
+        hideError()
+        
+        nameTextField.defaultLayout()
+        locationTextField.defaultLayout()
+        
+        changeImageButton.defaultLayout()
+        changeImageButton.layer.cornerRadius = changeImageButton.frame.height / 2
+        
         imageView.rounded()
+    }
+    
+    func hideError() {
+        nameErrorLabel.alpha = 0;
+        locationErrorLabel.alpha = 0;
     }
     
     @objc func nameDidChange() {
@@ -120,7 +150,12 @@ class ProfileEditViewController: UIViewController {
         addBarButton.isEnabled = true
         
         if let profile = self.profile, let image = profile.getPicturesForView() {
+            imageView.loading()
             provider.loadImage(image: image, to:imageView)
+        } else {
+            let userIcon = UIImage.fontAwesomeIcon(name: .user, style: .solid, textColor: UIColor(rgb: 0x222222), size: CGSize(width: 100, height: 100))
+            imageView.image = userIcon
+            imageView.contentMode = .center
         }
         nameTextField.text = profile.getNameForView()
 
@@ -147,9 +182,11 @@ extension ProfileEditViewController: ImagePickerDelegate {
 extension ProfileEditViewController: ProfileProviderProtocol {
     func providerDidFinishSavingProfile(provider of: ProfileProvider, profile: User) {
         delegate?.profileDetailViewController(self, didFinishEditing: profile)
+        self.view.removeSpinner()
     }
     func providerDidFinishSavingProfile(provider of: ProfileProvider, error: String) {
         print(error)
+        self.view.removeSpinner()
     }
     func providerDidLoadProfile(provider of: ProfileProvider, profile: ProfileEditViewModel?) {
         if let profile = profile {
@@ -158,10 +195,12 @@ extension ProfileEditViewController: ProfileProviderProtocol {
         } else if let error = provider.error {
             print(error.localizedDescription)
         }
+        self.view.removeSpinner()
     }
     func providerDidLoadImage(provider of: ProfileProvider, imageView: UIImageView, data: Data?) {
         if let data = data {
             imageView.image = UIImage(data: data)
+            imageView.loaded()
         }
     }
 }
@@ -172,6 +211,21 @@ extension ProfileEditViewController: LocationMapViewControllerDelegate {
         if let location = location {
             self.profile?.setLocationFromView(city: location.city, state: location.state, country: location.country, postalCode: location.postalCode, lat: location.lat, lng: location.lng)
             locationTextField.text = self.profile?.getLocationForView()
+        }
+    }
+}
+
+extension  ProfileEditViewController: ValidationDelegate {
+    func validationSuccessful() {
+        self.view.showSpinner(onView: self.view)
+        provider.saveData(profile)
+    }
+    
+    func validationFailed(_ errors: [(Validatable, ValidationError)]) {
+        hideError()
+        for (_, error) in errors {
+            error.errorLabel?.text = error.errorMessage
+            error.errorLabel?.alpha = 1
         }
     }
 }

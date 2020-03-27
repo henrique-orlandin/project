@@ -42,6 +42,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
         
         application.registerForRemoteNotifications()
+    
+        UINavigationBar.appearance().barTintColor = UIColor(rgb: 0x222222)
+        UINavigationBar.appearance().tintColor = UIColor.white
+        UINavigationBar.appearance().titleTextAttributes = [
+            NSAttributedString.Key.foregroundColor: UIColor.white,
+            NSAttributedString.Key.font: UIFont(name: "Raleway-Medium", size: 22)!
+        ]
         
         return true
     }

@@ -11,10 +11,10 @@
         <scene sceneID="FRY-u5-ItN">
             <objects>
                 <tabBarController storyboardIdentifier="MainTabBarVC" id="pWT-QF-806" customClass="TabBarController" customModule="Jam" customModuleProvider="target" sceneMemberID="viewController">
-                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="am3-qt-Wlq">
+                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" translucent="NO" id="am3-qt-Wlq">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
-                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" red="0.13333333333333333" green="0.13333333333333333" blue="0.13333333333333333" alpha="0.0" colorSpace="calibratedRGB"/>
                     </tabBar>
                     <connections>
                         <segue destination="PDw-Zf-6MK" kind="relationship" relationship="viewControllers" id="XCj-Xb-Jqe"/>

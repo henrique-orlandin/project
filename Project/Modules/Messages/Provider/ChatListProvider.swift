@@ -11,7 +11,7 @@ import FirebaseFirestore
 import FirebaseAuth
 import FirebaseStorage
 
-class ChatListProvider {
+@objc class ChatListProvider: NSObject {
     
     weak var delegate : ChatListProviderProtocol?
     private var chats: [Chat]?
@@ -19,7 +19,7 @@ class ChatListProvider {
     private var loadingSubcontent: Int? = nil {
         didSet {
             if self.loadingSubcontent == 0 {
-                self.delegate?.providerDidFinishUpdatedDataset(provider: self)
+                self.delegate?.providerDidFinishUpdatedDataset?(provider: self)
                 self.loadingSubcontent = nil
             }
         }
@@ -61,8 +61,8 @@ class ChatListProvider {
         imagesRef.getData(maxSize: 1 * 1024 * 1024) { data, error in
             if let error = error {
                 print(error)
-            } else if let data = data {
-                imageView.image = UIImage(data: data)
+            } else if let data = data, let image = UIImage(data: data) {
+                self.delegate?.providerDidLoadImage?(provider: self, image: image, imageView: imageView)
             }
         }
     }
@@ -91,7 +91,7 @@ class ChatListProvider {
             querySnapshot, error in
             if let error = error {
                 self.error = error
-                self.delegate?.providerDidFinishUpdatedDataset(provider: self)
+                self.delegate?.providerDidFinishUpdatedDataset?(provider: self)
             } else {
                 self.loadingSubcontent = querySnapshot!.documents.count
                 for document in querySnapshot!.documents {
@@ -182,7 +182,12 @@ class ChatListProvider {
             return nil
         }
         
-        let user = User(id: id, name: name, image: nil, location: nil, musician: nil)
+        var image: String?
+        if let userImage = data["image"] as? String {
+            image = userImage
+        }
+        
+        let user = User(id: id, name: name, image: image, location: nil, musician: nil)
         
         return user
     }
@@ -219,6 +224,7 @@ class ChatListProvider {
     
 }
 
-protocol ChatListProviderProtocol:class{
-    func providerDidFinishUpdatedDataset(provider of: ChatListProvider)
+@objc protocol ChatListProviderProtocol:class{
+    @objc optional func providerDidFinishUpdatedDataset(provider of: ChatListProvider)
+    @objc optional func providerDidLoadImage(provider of: ChatListProvider, image: UIImage, imageView: UIImageView)
 }

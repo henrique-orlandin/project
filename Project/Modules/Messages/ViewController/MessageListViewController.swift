@@ -28,7 +28,8 @@ class MessageListViewController: UIViewController, UICollectionViewDataSource, U
             self.provider.delegate = self
         }
         
-        tabBarController?.tabBar.isHidden = true
+        self.view.showSpinner(onView: self.view)
+        
         if let chat = chat {
             self.provider.loadMessages(chat: chat.id)
             
@@ -65,17 +66,13 @@ class MessageListViewController: UIViewController, UICollectionViewDataSource, U
         let show = (notification.name == UIResponder.keyboardWillShowNotification) ? true : false
         if show == keyboardShow { return }
         
-        var safeArea: CGFloat = 0.0
-        if #available(iOS 11.0, *) {
-            safeArea = view.safeAreaInsets.bottom
-        }
-        
         let adjustmentHeight = keyboardFrame.height * (show ? 1 : -1)
         
         keyboardShow = show
         
-        messageSenderConstraint.constant = adjustmentHeight > 0 ? adjustmentHeight - safeArea : 0
-        collectionViewConstraint.constant = adjustmentHeight > 0 ? adjustmentHeight + 48 - safeArea : safeArea + 20
+        let tabHeight = self.tabBarController?.tabBar.frame.height ?? 0
+        messageSenderConstraint.constant = adjustmentHeight > 0 ? adjustmentHeight - tabHeight : 0
+        collectionViewConstraint.constant = adjustmentHeight > 0 ? adjustmentHeight + 48 - tabHeight : 48
         
         
         UIView.animate(withDuration: 0, delay: 0, options: UIView.AnimationOptions.curveEaseOut, animations: {
@@ -159,5 +156,6 @@ extension MessageListViewController: MessageListProviderProtocol {
         let contentSize = collectionView.collectionViewLayout.collectionViewContentSize
         collectionView.scrollRectToVisible(CGRect(x: 0, y: 0, width: 2, height: contentSize.height), animated: true)
         provider.startListeningForChanges(chat: chat!.id)
+        self.view.removeSpinner()
     }
 }

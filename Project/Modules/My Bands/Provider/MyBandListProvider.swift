@@ -11,7 +11,7 @@ import FirebaseFirestore
 import FirebaseAuth
 import FirebaseStorage
 
-class MyBandListProvider {
+@objc class MyBandListProvider: NSObject {
     
     weak var delegate : MyBandListProviderProtocol?
     private var bands: [Band]?
@@ -69,8 +69,8 @@ class MyBandListProvider {
         imagesRef.getData(maxSize: 1 * 1024 * 1024) { data, error in
             if let error = error {
                 print(error)
-            } else if let data = data {
-                imageView.image = UIImage(data: data)
+            } else if let data = data, let image = UIImage(data: data) {
+                self.delegate?.providerDidLoadImage?(provider: self, image: image, imageView: imageView)
             }
         }
     }
@@ -97,6 +97,7 @@ class MyBandListProvider {
         }
     }
     
+    
     public func loadBands() {
         
         var bandList = [Band]()
@@ -106,7 +107,7 @@ class MyBandListProvider {
             querySnapshot, error in
             if let error = error {
                 self.error = error
-                self.delegate?.providerDidFinishUpdatedDataset(provider: self)
+                self.delegate?.providerDidFinishUpdatedDataset?(provider: self)
             } else {
                 for document in querySnapshot!.documents {
                     let data = document.data()
@@ -115,7 +116,7 @@ class MyBandListProvider {
                     }
                 }
                 self.bands = bandList
-                self.delegate?.providerDidFinishUpdatedDataset(provider: self)
+                self.delegate?.providerDidFinishUpdatedDataset?(provider: self)
             }
         })
     }
@@ -157,6 +158,7 @@ class MyBandListProvider {
     
 }
 
-protocol MyBandListProviderProtocol:class{
-    func providerDidFinishUpdatedDataset(provider of: MyBandListProvider)
+@objc protocol MyBandListProviderProtocol:class{
+    @objc optional func providerDidFinishUpdatedDataset(provider of: MyBandListProvider);
+    @objc optional func providerDidLoadImage(provider of: MyBandListProvider, image: UIImage, imageView: UIImageView)
 }

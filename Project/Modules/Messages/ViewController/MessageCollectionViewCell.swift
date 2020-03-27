@@ -19,7 +19,7 @@ class MessageCollectionViewCell: UICollectionViewCell {
     
     override func prepareForReuse() {
         content.text = nil
-        content.backgroundColor = UIColor.link
+        content.backgroundColor = UIColor(rgb: 0x222222)
         content.textColor = UIColor.white
     }
 

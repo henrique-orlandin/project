@@ -14,5 +14,7 @@ target 'Jam' do
   pod 'SwiftValidator', :git => 'https://github.com/jpotts18/SwiftValidator.git', :tag => '4.2.0'
   pod 'RSSelectionMenu'
   pod 'GoogleMaps'
+  pod 'FontAwesome.swift'
+  pod 'Gallery'
  
 end

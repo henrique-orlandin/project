@@ -10,6 +10,7 @@ import Foundation
 
 struct MusiciansDetailViewModel {
     
+    var id: String
     var name: String
     var genre: String
     var skills: String
@@ -19,6 +20,7 @@ struct MusiciansDetailViewModel {
     
     init(_ user: User) {
         
+        self.id = user.id
         self.image = user.image
         
         self.genre = user.musician!.genres.map {$0.rawValue}.joined(separator: ", ")

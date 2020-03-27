@@ -106,6 +106,8 @@ class ProfileMusicianProvider {
     
     func encode(profile: ProfileMusicianViewModel) -> [String:Any] {
         
+        let geopoint = GeoPoint(latitude: profile.location!.lat, longitude: profile.location!.lng)
+        
         var data:[String: Any] = [
             "is_musician": profile.isMusician
         ]
@@ -126,6 +128,23 @@ class ProfileMusicianProvider {
                 skills.append(skill.rawValue)
             }
             data["skills"] = skills
+            
+            var location: [String: Any] = [
+                "lat_lng": geopoint
+            ]
+            if let city = profile.location!.city {
+                location["city"] = city
+            }
+            if let state = profile.location!.state {
+                location["state"] = state
+            }
+            if let country = profile.location!.country {
+                location["country"] = country
+            }
+            if let postalCode = profile.location!.postalCode {
+                location["postal_code"] = postalCode
+            }
+            data["location"] = location
         }
         
         return data

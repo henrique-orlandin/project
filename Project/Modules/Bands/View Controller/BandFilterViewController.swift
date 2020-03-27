@@ -17,6 +17,8 @@ class BandFilterViewController: UIViewController {
     @IBOutlet weak var distanceLabel: UILabel!
     @IBOutlet weak var distanceSlider: UISlider!
     @IBOutlet weak var advertisingSwitch: UISwitch!
+    @IBOutlet weak var cleanButton: UIButton!
+    @IBOutlet weak var distanceStack: UIStackView!
     
     private let genres = Genre.allCases
     private var selectedGenres = [String]()
@@ -82,14 +84,25 @@ class BandFilterViewController: UIViewController {
         }
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        nameTextField.loadLine()
+        genreTextField.loadLine()
+        locationTextField.loadLine()
+    }
+    
     func configView () {
         
         let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self.view, action: #selector(UIView.endEditing))
         view.addGestureRecognizer(tap)
         
         nameTextField.delegate = self
+        nameTextField.defaultLayout()
         genreTextField.delegate = self
+        genreTextField.defaultLayout()
         locationTextField.delegate = self
+        locationTextField.defaultLayout()
+        
+        cleanButton.defaultLayout()
         
         nameTextField.addTarget(self, action: #selector(nameDidChange), for: .editingChanged)
         
@@ -110,6 +123,8 @@ class BandFilterViewController: UIViewController {
             self!.genreTextField.text = self!.selectedGenres.joined(separator: ", ")
             self!.filter?.setGenreFromView(selectedItems)
         }
+        
+        distanceStack.isHidden = true
     }
     
     @objc func nameDidChange() {
@@ -128,7 +143,12 @@ class BandFilterViewController: UIViewController {
                     self!.filter?.setGenreFromView(selectedItems)
                 }
             }
-            locationTextField.text = filter.getLocationForView()
+            
+            if let location = filter.getLocationForView() {
+                locationTextField.text = location
+                distanceStack.isHidden = false
+            }
+            
             if let distance = filter.getLocationDistanceForView() {
                 distanceLabel.text = "\(distance)Km"
                 distanceSlider.value = Float(distance)
@@ -154,6 +174,7 @@ extension BandFilterViewController: LocationMapViewControllerDelegate {
         if let location = location {
             filter.setLocationFromView(city: location.city, state: location.state, country: location.country, postalCode: location.postalCode, lat: location.lat, lng: location.lng)
             locationTextField.text = filter.getLocationForView()
+            distanceStack.isHidden = false
         }
     }
 }

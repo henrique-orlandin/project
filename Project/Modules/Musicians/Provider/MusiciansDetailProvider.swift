@@ -9,6 +9,7 @@
 import Foundation
 import FirebaseFirestore
 import FirebaseStorage
+import FirebaseAuth
 
 class MusiciansDetailProvider {
     
@@ -41,6 +42,44 @@ class MusiciansDetailProvider {
                 self.delegate?.providerDidLoadImage(provider: self, imageView: imageView, data: data)
             }
         }
+    }
+    
+    public func chat(id: String) {
+        let db = Firestore.firestore()
+        let currentUser = Auth.auth().currentUser!.uid
+        db.collection("chats").whereField("id_user", arrayContains: currentUser).getDocuments(completion: {
+            querySnapshot, error in
+            if let error = error {
+                self.error = error
+            } else {
+                var chatId: String?
+                for document in querySnapshot!.documents {
+                    let data = document.data()
+                    if let users = data["id_user"] as? [String], data["id_band"] == nil {
+                        let chat = users.contains(where: { (value) -> Bool in
+                            value == id
+                        })
+                        if chat {
+                            chatId = document.documentID
+                        }
+                    }
+                }
+                
+                if let chatId = chatId {
+                    self.delegate?.providerDidFindChat(provider: self, chatId: chatId)
+                } else {
+                    let newChat = db.collection("chats").document()
+                    newChat.setData(["id_user": [id, currentUser]]) { err in
+                        if let err = err {
+                            print("Error writing document: \(err)")
+                        } else {
+                            self.delegate?.providerDidFindChat(provider: self, chatId: newChat.documentID)
+                        }
+                    }
+                }
+            }
+            
+        })
     }
     
     public func loadUser(_ id: String) throws {
@@ -110,5 +149,6 @@ class MusiciansDetailProvider {
 protocol MusiciansDetailProviderProtocol:class{
     func providerDidFinishLoading(provider of: MusiciansDetailProvider, musician: MusiciansDetailViewModel?)
     func providerDidLoadImage(provider of: MusiciansDetailProvider, imageView: UIImageView, data: Data?)
+    func providerDidFindChat(provider of: MusiciansDetailProvider, chatId: String)
 }
 

@@ -8,14 +8,18 @@
 
 import UIKit
 import RSSelectionMenu
+import FontAwesome_swift
 
-class MusiciansListViewController: UITableViewController {
+class MusiciansListViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout, UIGestureRecognizerDelegate {
     
     var provider: MusiciansListProvider! = nil
     
     private var orderOption:[MusiciansListProvider.Order]? = nil
     private var selectedOrder = [String]()
     private var orderSelection: RSSelectionMenu<String>?
+    @IBOutlet weak var collectionView: UICollectionView!
+    @IBOutlet weak var orderButton: UIBarButtonItem!
+    @IBOutlet weak var filterButton: UIBarButtonItem!
     
     @IBAction func order(_ sender: Any) {
         orderSelection!.show(style: .alert(title: "Select", action: nil, height: nil), from: self)
@@ -32,9 +36,10 @@ class MusiciansListViewController: UITableViewController {
         self.provider.updateBandList()
         orderOption = self.provider.orderOptions
         
-        let refreshControl = UIRefreshControl()
-        refreshControl.addTarget(self, action:  #selector(refreshData), for: .valueChanged)
-        self.refreshControl = refreshControl
+        self.view.showSpinner(onView: self.view)
+        
+        collectionView.delegate = self
+        collectionView.dataSource = self
         
         var selectionValues = [String]()
         for option in orderOption! {
@@ -48,38 +53,41 @@ class MusiciansListViewController: UITableViewController {
             self!.provider.setOrder(order: selectedItems.first!);
         }
         
+        let orderIcon = UIImage.fontAwesomeIcon(name: .sort, style: .solid, textColor: .white, size: CGSize(width: 30, height: 30))
+        orderButton.image = orderIcon
+        
+        let filterIcon = UIImage.fontAwesomeIcon(name: .slidersH, style: .solid, textColor: .white, size: CGSize(width: 25, height: 25))
+        filterButton.image = filterIcon
+        filterButton.imageInsets = UIEdgeInsets(top: 0, left: 10, bottom: 0, right: -10);
+        
     }
     
     //return the number of rows for this table
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return self.provider.numberOfBands
     }
     
     //executed for each cell on the table
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         //get the reusable cell with identifier BandCellItem
-        let cell = tableView.dequeueReusableCell(withIdentifier: "MusicianCellItem", for: indexPath)
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "MusicianCellItem", for: indexPath)
         //get band related to table row position
         let musicianViewModel = self.provider.getMusicianViewModel(row: indexPath.row, section: indexPath.section)
         
-        if let userCell = cell as? MusiciansTableViewCell {
+        if let userCell = cell as? MusiciansCollectionViewCell {
             if let user = musicianViewModel {
                 userCell.musicianCellFormat(user: user)
             }
-            return userCell
+            return userCell 
         }
         
         return cell
     }
     
-    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        tableView.deselectRow(at: indexPath, animated: true)
-    }
-    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "ShowMusicianSegue" {
             if let musicianViewController = segue.destination as? MusiciansDetailViewController {
-                if let cell = sender as? UITableViewCell, let indexPath = tableView.indexPath(for: cell) {
+                if let cell = sender as? UICollectionViewCell, let indexPath = collectionView.indexPath(for: cell) {
                     let item = self.provider.getMusicianViewModel(row: indexPath.row, section: indexPath.section)
                     musicianViewController.id = item!.id
                 }
@@ -96,16 +104,16 @@ class MusiciansListViewController: UITableViewController {
         }
     }
     
-    @objc func refreshData() {
-        self.provider.updateBandList()
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        return CGSize(width: view.frame.width, height: 125)
     }
     
 }
 
 extension MusiciansListViewController: MusiciansListProviderProtocol {
     func providerDidFinishUpdatedDataset(provider of: MusiciansListProvider) {
-        self.tableView.reloadData()
-        refreshControl?.endRefreshing()
+        self.collectionView.reloadData()
+        self.view.removeSpinner()
     }
 }
 

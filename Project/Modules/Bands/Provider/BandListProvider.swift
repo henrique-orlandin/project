@@ -10,7 +10,7 @@ import Foundation
 import FirebaseFirestore
 import FirebaseStorage
 
-class BandListProvider {
+@objc class BandListProvider: NSObject {
     
     weak var delegate : BandListProviderProtocol?
     
@@ -66,8 +66,8 @@ class BandListProvider {
         imagesRef.getData(maxSize: 1 * 1024 * 1024) { data, error in
             if let error = error {
                 print(error)
-            } else if let data = data {
-                imageView.image = UIImage(data: data)
+            } else if let data = data, let image = UIImage(data: data) {
+                self.delegate?.providerDidLoadImage?(provider: self, image: image, imageView: imageView)
             }
         }
     }
@@ -107,7 +107,7 @@ class BandListProvider {
             }
         }
         self.bandList = bandList
-        self.delegate?.providerDidFinishUpdatedDataset(provider: self)
+        self.delegate?.providerDidFinishUpdatedDataset?(provider: self)
     }
     
     public func filterBands(filters: BandFilterViewModel) {
@@ -146,7 +146,7 @@ class BandListProvider {
             }
         }
         self.bandList = bandList
-        self.delegate?.providerDidFinishUpdatedDataset(provider: self)
+        self.delegate?.providerDidFinishUpdatedDataset?(provider: self)
     }
     
     public func getBandViewModel(row withRID: Int, section withSID: Int) -> BandListViewModel? {
@@ -167,7 +167,7 @@ class BandListProvider {
             querySnapshot, error in
             if let error = error {
                 self.error = error
-                self.delegate?.providerDidFinishUpdatedDataset(provider: self)
+                self.delegate?.providerDidFinishUpdatedDataset?(provider: self)
             } else {
                 for document in querySnapshot!.documents {
                     let data = document.data()
@@ -181,7 +181,7 @@ class BandListProvider {
                 if let filters = self.filters {
                     self.filterBands(filters: filters)
                 }
-                self.delegate?.providerDidFinishUpdatedDataset(provider: self)
+                self.delegate?.providerDidFinishUpdatedDataset?(provider: self)
             }
         })
     }
@@ -226,6 +226,7 @@ class BandListProvider {
     }
 }
 
-protocol BandListProviderProtocol:class{
-    func providerDidFinishUpdatedDataset(provider of: BandListProvider);
+@objc protocol BandListProviderProtocol:class{
+    @objc optional func providerDidFinishUpdatedDataset(provider of: BandListProvider);
+    @objc optional func providerDidLoadImage(provider of: BandListProvider, image: UIImage, imageView: UIImageView)
 }

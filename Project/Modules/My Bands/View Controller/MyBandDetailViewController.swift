@@ -8,6 +8,8 @@
 
 import UIKit
 import RSSelectionMenu
+import Gallery
+import SwiftValidator
 
 protocol MyBandDetailViewControllerDelegate: class {
     func bandDetailViewControllerDidCancel(_ controller: MyBandDetailViewController)
@@ -16,21 +18,23 @@ protocol MyBandDetailViewControllerDelegate: class {
 }
 
 class MyBandDetailViewController: UIViewController {
-
+    
     weak var delegate: MyBandDetailViewControllerDelegate?
     public var id: String?
     private var band: MyBandDetailViewModel! = nil
     private var provider: MyBandDetailProvider! = nil
     private var imagePicker: ImagePicker!
     private var keyboardShow = false
+    private var gallery: GalleryController! = nil
+    private let validator = Validator()
     
     private let genres = Genre.allCases
     private var selectedGenres = [String]()
     private var genreSelection: RSSelectionMenu<String>?
     
     @IBOutlet weak var addBarButton: UIBarButtonItem!
-    @IBOutlet weak var cancelBarButton: UIBarButtonItem!
     @IBOutlet weak var scrollView: UIScrollView!
+    @IBOutlet weak var changeImageButton: UIButton!
     
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var nameTextField: UITextField!
@@ -38,13 +42,25 @@ class MyBandDetailViewController: UIViewController {
     @IBOutlet weak var locationTextField: UITextField!
     @IBOutlet weak var descriptionTextView: UITextView!
     
+    @IBOutlet weak var nameErrorLabel: UILabel!
+    @IBOutlet weak var genreErrorLabel: UILabel!
+    @IBOutlet weak var locationErrorLabel: UILabel!
+    @IBOutlet weak var descriptionErrorLabel: UILabel!
+    
     @IBAction func showImagePicker(_ sender: UIButton) {
         self.imagePicker.present(from: sender)
     }
     
     @IBAction func done(_ sender: Any) {
-        if let band = self.band {
-            provider.saveBand(band)
+        
+        if descriptionTextView.textColor == UIColor.lightGray {
+            descriptionTextView.text = ""
+        }
+        
+        validator.validate(self)
+        
+        if descriptionTextView.textColor == UIColor.lightGray {
+            descriptionTextView.text = "Description"
         }
     }
     
@@ -52,9 +68,13 @@ class MyBandDetailViewController: UIViewController {
         delegate?.bandDetailViewControllerDidCancel(self)
     }
     
+    @IBAction func showGallery(_ sender: Any) {
+        present(gallery, animated: true, completion: nil)
+    }
+    
     @IBAction func tapLocation(_ gestureRecognizer : UITapGestureRecognizer ) {
         guard gestureRecognizer.view != nil else { return }
-             
+        
         if gestureRecognizer.state == .ended {
             let storyboard = UIStoryboard.init(name: "Main", bundle: nil)
             let locationViewController = storyboard.instantiateViewController(withIdentifier: "locationVC") as! LocationMapViewController
@@ -74,11 +94,15 @@ class MyBandDetailViewController: UIViewController {
         self.provider = MyBandDetailProvider()
         self.provider.delegate = self
         
+        gallery = GalleryController()
+        gallery.delegate = self
+        
         self.configView()
         
         if let id = self.id {
             do {
                 try self.provider.loadBand(id)
+                self.view.showSpinner(onView: self.view)
             } catch {
                 print(error)
             }
@@ -93,7 +117,7 @@ class MyBandDetailViewController: UIViewController {
         
         NotificationCenter.default.addObserver(self, selector: #selector(adjustInsetsForKeyboard(_:)), name: UIResponder.keyboardWillShowNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(adjustInsetsForKeyboard(_:)), name: UIResponder.keyboardWillHideNotification, object: nil)
-        	
+        
     }
     
     @objc func adjustInsetsForKeyboard(_ notification: Notification) {
@@ -134,15 +158,33 @@ class MyBandDetailViewController: UIViewController {
             self!.band?.setGenreFromView(selectedItems)
         }
         
-        descriptionTextView.layer.borderWidth = 1
-        descriptionTextView.layer.borderColor = UIColor(rgb: 0xCCCCCC).cgColor
-        descriptionTextView.layer.cornerRadius = 5
-        descriptionTextView.contentInset = UIEdgeInsets(top: 8, left: 3, bottom: 8, right: 3)
-        
         nameTextField.addTarget(self, action: #selector(nameDidChange), for: .editingChanged)
         
-        imageView.layer.cornerRadius = 5;
-        imageView.layer.masksToBounds = true;
+        validator.registerField(nameTextField, errorLabel: nameErrorLabel, rules: [RequiredRule()])
+        validator.registerField(genreTextField, errorLabel: genreErrorLabel, rules: [RequiredRule()])
+        validator.registerField(locationTextField, errorLabel: locationErrorLabel, rules: [RequiredRule()])
+        validator.registerField(descriptionTextView, errorLabel: descriptionErrorLabel, rules: [RequiredRule()])
+        
+        let bandIcon = UIImage.fontAwesomeIcon(name: .music, style: .solid, textColor: UIColor(rgb: 0x222222), size: CGSize(width: 100, height: 100))
+        imageView.image = bandIcon
+        imageView.contentMode = .center
+        
+        let icon = UIImage.fontAwesomeIcon(name: .camera, style: .solid, textColor: .white, size: CGSize(width: 20, height: 20))
+        changeImageButton.setImage(icon, for: .normal)
+        
+        imageView.rounded()
+        nameTextField.defaultLayout()
+        genreTextField.defaultLayout()
+        locationTextField.defaultLayout()
+        descriptionTextView.defaultLayout()
+        
+        changeImageButton.defaultLayout()
+        changeImageButton.layer.cornerRadius = changeImageButton.frame.height / 2
+        
+        descriptionTextView.text = "Description"
+        descriptionTextView.textColor = UIColor.lightGray
+        
+        hideError()
     }
     
     @objc func nameDidChange() {
@@ -158,16 +200,38 @@ class MyBandDetailViewController: UIViewController {
         if let selectedGenres = band?.getGenreForView() {
             self.selectedGenres = selectedGenres
             genreTextField.text = selectedGenres.joined(separator: ", ")
+            genreSelection!.setSelectedItems(items: selectedGenres) { [weak self] (item, index, isSelected, selectedItems) in
+                self!.selectedGenres = selectedItems
+                self!.genreTextField.text = self!.selectedGenres.joined(separator: ", ")
+                self!.band?.setGenreFromView(selectedItems)
+            }
         }
         
         locationTextField.text = band?.getLocationForView()
         descriptionTextView.text = band?.getDescriptionForView()
         
+        if !descriptionTextView.text.isEmpty {
+            descriptionTextView.textColor = UIColor.black
+        }
+        
         textViewDidChange(descriptionTextView)
     }
     
+    func hideError() {
+        nameErrorLabel.alpha = 0
+        genreErrorLabel.alpha = 0
+        locationErrorLabel.alpha = 0
+        descriptionErrorLabel.alpha = 0
+    }
+    
     override func viewDidAppear(_ animated: Bool) {
-        if let band = self.band, let image = band.getPicturesForView() {
+        nameTextField.loadLine()
+        genreTextField.loadLine()
+        locationTextField.loadLine()
+        
+        if self.id != nil, let band = self.band, let image = band.getPicturesForView() {
+            imageView.image = nil
+            imageView.loading()
             provider.loadImage(image: image, to:imageView)
         }
     }
@@ -194,13 +258,28 @@ extension MyBandDetailViewController: UITextViewDelegate {
         var newFrame = textView.frame
         newFrame.size = CGSize(width: CGFloat(fmaxf(Float(newSize.width), Float(fixedWidth))), height: newSize.height)
         textView.frame = newFrame
-        
+        textView.relayout()
         self.band?.setDescriptionFromView(descriptionTextView.text)
+    }
+    
+    func textViewDidBeginEditing(_ textView: UITextView) {
+        if textView.textColor == UIColor.lightGray {
+            textView.text = nil
+            textView.textColor = UIColor.black
+        }
+    }
+    
+    func textViewDidEndEditing(_ textView: UITextView) {
+        if textView.text.isEmpty {
+            textView.text = "Description"
+            textView.textColor = UIColor.lightGray
+        }
     }
 }
 
 extension MyBandDetailViewController: ImagePickerDelegate {
     func didSelect(image: UIImage?) {
+        imageView.contentMode = .scaleAspectFill
         self.imageView.image = image
         self.band?.setPicturesFromView(image)
     }
@@ -213,9 +292,11 @@ extension MyBandDetailViewController: MyBandDetailProviderProtocol {
         } else {
             delegate?.bandDetailViewController(self, didFinishEditing: band)
         }
+        self.view.removeSpinner()
     }
     func providerDidFinishSavingBand(provider of: MyBandDetailProvider, error: String) {
         print(error)
+        self.view.removeSpinner()
     }
     func providerDidLoadBand(provider of: MyBandDetailProvider, band: MyBandDetailViewModel?) {
         if let band = band {
@@ -224,10 +305,13 @@ extension MyBandDetailViewController: MyBandDetailProviderProtocol {
         } else if let error = provider.error {
             print(error.localizedDescription)
         }
+        self.view.removeSpinner()
     }
     func providerDidLoadImage(provider of: MyBandDetailProvider, imageView: UIImageView, data: Data?) {
         if let data = data {
+            imageView.contentMode = .scaleAspectFill
             imageView.image = UIImage(data: data)
+            imageView.loaded()
         }
     }
 }
@@ -238,6 +322,39 @@ extension MyBandDetailViewController: LocationMapViewControllerDelegate {
         if let location = location {
             self.band?.setLocationFromView(city: location.city, state: location.state, country: location.country, postalCode: location.postalCode, lat: location.lat, lng: location.lng)
             locationTextField.text = self.band?.getLocationForView()
+        }
+    }
+}
+
+extension MyBandDetailViewController: GalleryControllerDelegate {
+    func galleryController(_ controller: GalleryController, didSelectImages images: [Image]) {
+        
+    }
+    
+    func galleryController(_ controller: GalleryController, didSelectVideo video: Video) {
+        
+    }
+    
+    func galleryController(_ controller: GalleryController, requestLightbox images: [Image]) {
+        
+    }
+    
+    func galleryControllerDidCancel(_ controller: GalleryController) {
+        
+    }
+}
+
+extension MyBandDetailViewController: ValidationDelegate {
+    func validationSuccessful() {
+        self.view.showSpinner(onView: self.view)
+        provider.saveBand(band)
+    }
+    
+    func validationFailed(_ errors: [(Validatable, ValidationError)]) {
+        hideError()
+        for (_, error) in errors {
+            error.errorLabel?.text = error.errorMessage
+            error.errorLabel?.alpha = 1
         }
     }
 }

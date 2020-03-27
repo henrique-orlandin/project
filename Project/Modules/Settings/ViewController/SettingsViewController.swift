@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import FirebaseAuth
 
 class SettingsViewController: UITableViewController {
     
@@ -47,6 +48,11 @@ class SettingsViewController: UITableViewController {
         }
     }
     
+    override func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
+        let header = view as! UITableViewHeaderFooterView
+        header.textLabel?.textColor = UIColor(rgb: 0x222222)
+        header.textLabel?.font = UIFont(name: "Raleway-Bold", size: 16)
+    }
 }
 
 extension SettingsViewController: SettingsProviderProtocol {
@@ -54,10 +60,6 @@ extension SettingsViewController: SettingsProviderProtocol {
         let settingsData = provider.getSettings()
         settings = SettingsViewModel(settings: settingsData)
         configView()
-    }
-    
-    func providerDidUpdatedSettings(provider of: SettingsProvider) {
-        
     }
     
 }

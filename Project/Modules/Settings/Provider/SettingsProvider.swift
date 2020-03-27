@@ -33,7 +33,10 @@ class SettingsProvider {
             try settings.performFetch()
             if let objects = settings.fetchedObjects, objects.count > 0 {
                 delegate?.providerDidLoadSettings(provider: self)
-            } else {
+                return
+            }
+            
+            if Auth.auth().currentUser != nil {
                 let db = Firestore.firestore()
                 db.collection("settings").document(Auth.auth().currentUser!.uid).getDocument(completion: {
                     snapshot, error in
@@ -47,6 +50,11 @@ class SettingsProvider {
                         }
                     }
                 })
+            } else {
+                let _ = addSettings(data: [String:Any]())
+                settings = NSFetchedResultsController(fetchRequest: request, managedObjectContext: context, sectionNameKeyPath: nil, cacheName: nil)
+                try settings.performFetch()
+                delegate?.providerDidLoadSettings(provider: self)
             }
         } catch let error as NSError {
             print("Could not fetch. \(error), \(error.userInfo)")
@@ -60,13 +68,15 @@ class SettingsProvider {
         settingsData.privacyContactInfo = data.getPrivacyContactInfo()
         appDelegate.saveContext()
         
-        let db = Firestore.firestore()
-        let settings: [String: Any] = [
-            "notificationBandsMusicians": data.getNotificationBandsMusicians(),
-            "notificationMessages": data.getNotificationMessages(),
-            "privacyContactInfo": data.getPrivacyContactInfo(),
-        ]
-        db.collection("settings").document(Auth.auth().currentUser!.uid).updateData(settings)
+        if Auth.auth().currentUser != nil {
+            let db = Firestore.firestore()
+            let settings: [String: Any] = [
+                "notificationBandsMusicians": data.getNotificationBandsMusicians(),
+                "notificationMessages": data.getNotificationMessages(),
+                "privacyContactInfo": data.getPrivacyContactInfo(),
+            ]
+            db.collection("settings").document(Auth.auth().currentUser!.uid).updateData(settings)
+        }
     }
     
     func addSettings(data: [String:Any]) -> Settings {
@@ -83,5 +93,4 @@ class SettingsProvider {
 
 protocol SettingsProviderProtocol:class{
     func providerDidLoadSettings(provider of: SettingsProvider)
-    func providerDidUpdatedSettings(provider of: SettingsProvider)
 }

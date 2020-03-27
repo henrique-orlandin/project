@@ -8,6 +8,7 @@
 
 import UIKit
 import FirebaseAuth
+import FontAwesome_swift
 
 class ProfileViewController: UIViewController {
 
@@ -16,7 +17,11 @@ class ProfileViewController: UIViewController {
 
     @IBOutlet weak var profileImageView: UIImageView!
     @IBOutlet weak var nameLabel: UILabel!
-    @IBOutlet weak var emailLabel: UILabel!
+    
+    @IBOutlet weak var menuMyBands: UIButton!
+    @IBOutlet weak var menuMyAds: UIButton!
+    @IBOutlet weak var menuMusician: UIButton!
+    @IBOutlet weak var menuCredentials: UIButton!
     
     override func viewWillAppear(_ animated: Bool) {
         tabBarController?.tabBar.isHidden = false
@@ -28,10 +33,33 @@ class ProfileViewController: UIViewController {
         self.provider.delegate = self
 
         do {
+            self.view.showSpinner(onView: self.view)
             try self.provider.loadProfile()
         } catch {
             print(error)
         }
+        
+        menuMyAds.defaultLayout()
+        let adIcon = UIImage.fontAwesomeIcon(name: .bullhorn, style: .solid, textColor: .white, size: CGSize(width: 40, height: 40))
+        menuMyAds.setImage(adIcon, for: .normal)
+        menuMyAds.titleEdgeInsets = UIEdgeInsets(top: 0,left: 20,bottom: 0,right: 0)
+        
+        menuMyBands.defaultLayout()
+        let bandIcon = UIImage.fontAwesomeIcon(name: .music, style: .solid, textColor: .white, size: CGSize(width: 40, height: 40))
+        menuMyBands.setImage(bandIcon, for: .normal)
+        menuMyBands.titleEdgeInsets = UIEdgeInsets(top: 0,left: 20,bottom: 0,right: 0)
+        
+        menuMusician.defaultLayout()
+        let musicianIcon = UIImage.fontAwesomeIcon(name: .microphoneAlt, style: .solid, textColor: .white, size: CGSize(width: 40, height: 40))
+        menuMusician.setImage(musicianIcon, for: .normal)
+        menuMusician.titleEdgeInsets = UIEdgeInsets(top: 0,left: 20,bottom: 0,right: 0)
+        
+        menuCredentials.defaultLayout()
+        let creadentialsIcon = UIImage.fontAwesomeIcon(name: .shieldAlt, style: .solid, textColor: .white, size: CGSize(width: 40, height: 40))
+        menuCredentials.setImage(creadentialsIcon, for: .normal)
+        menuCredentials.titleEdgeInsets = UIEdgeInsets(top: 0,left: 20,bottom: 0,right: 0)
+        
+        
     }
     
     @IBAction func logout(_ sender: Any) {
@@ -54,10 +82,16 @@ class ProfileViewController: UIViewController {
     
     func editConfig() {
         if let profile = self.profile, let image = profile.getPicturesForView() {
+            profileImageView.loading()
             provider.loadImage(image: image, to: profileImageView)
+        } else {
+            let userIcon = UIImage.fontAwesomeIcon(name: .user, style: .solid, textColor: UIColor(rgb: 0x222222), size: CGSize(width: 100, height: 100))
+            profileImageView.image = userIcon
+            profileImageView.contentMode = .center
         }
         nameLabel.text = profile.name
         profileImageView.rounded()
+        
     }
     
     func goToLogin() {
@@ -105,10 +139,12 @@ extension ProfileViewController: ProfileProviderProtocol {
         } else if let error = provider.error {
             print(error.localizedDescription)
         }
+        self.view.removeSpinner()
     }
     func providerDidLoadImage(provider of: ProfileProvider, imageView: UIImageView, data: Data?) {
         if let data = data {
             profileImageView.image = UIImage(data: data)
+            profileImageView.loaded()
         }
     }
 }

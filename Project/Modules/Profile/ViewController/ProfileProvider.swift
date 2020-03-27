@@ -71,7 +71,7 @@ class ProfileProvider {
         let imageName = "\(uid).png"
         let imagesRef = storageRef.child("users/\(imageName)")
         
-        if let decodedData = Data(base64Encoded: profile.image!, options: .ignoreUnknownCharacters) {
+        if let image = profile.image, let decodedData = Data(base64Encoded: image, options: .ignoreUnknownCharacters) {
             imagesRef.putData(decodedData, metadata: nil) { metadata, error in
                 if let error = error {
                     print(error)
@@ -110,6 +110,18 @@ class ProfileProvider {
             }
         })
     }
+    
+    func saveLocation (_ location: Location) {
+        let data = self.encodeLocation(locationData: location)
+        let db = Firestore.firestore()
+        db.collection("users").document(Auth.auth().currentUser!.uid).updateData(data, completion: {
+            (error) in
+            if let error = error {
+                print(error)
+            }
+        })
+    }
+    
     
     func decode(id: String, data:[String: Any]) -> User? {
         
@@ -178,6 +190,32 @@ class ProfileProvider {
             location["country"] = country
         }
         if let postalCode = profile.location!.postalCode {
+            location["postal_code"] = postalCode
+        }
+        data["location"] = location
+        
+        return data
+    }
+    
+    func encodeLocation(locationData: Location) -> [String:Any] {
+        
+        let geopoint = GeoPoint(latitude: locationData.lat, longitude: locationData.lng)
+        
+        var data = [String: Any]()
+        
+        var location: [String: Any] = [
+            "lat_lng": geopoint
+        ]
+        if let city = locationData.city {
+            location["city"] = city
+        }
+        if let state = locationData.state {
+            location["state"] = state
+        }
+        if let country = locationData.country {
+            location["country"] = country
+        }
+        if let postalCode = locationData.postalCode {
             location["postal_code"] = postalCode
         }
         data["location"] = location

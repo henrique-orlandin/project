@@ -9,15 +9,21 @@
 import UIKit
 import RSSelectionMenu
 
-class ChatListViewController: UITableViewController {
+class ChatListViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout, UIGestureRecognizerDelegate {
     
     var provider: ChatListProvider! = nil
+    @IBOutlet weak var collectionView: UICollectionView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.provider = ChatListProvider()
         self.provider.delegate = self
         self.provider.loadChats()
+        
+        self.view.showSpinner(onView: self.view)
+        
+        collectionView.delegate = self
+        collectionView.dataSource = self
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -25,18 +31,18 @@ class ChatListViewController: UITableViewController {
     }
     
     //return the number of rows for this table
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return self.provider.numberOfChats
     }
     
     //executed for each cell on the table
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         //get the reusable cell with identifier BandCellItem
-        let cell = tableView.dequeueReusableCell(withIdentifier: "ChatCellItem", for: indexPath)
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ChatCellItem", for: indexPath)
         //get band related to table row position
         let chatViewModel = self.provider.getChatViewModel(row: indexPath.row, section: indexPath.section)
         
-        if let cell = cell as? ChatTableViewCell {
+        if let cell = cell as? ChatCollectionViewCell {
             if let chat = chatViewModel {
                 cell.cellFormat(chat: chat)
             }
@@ -46,17 +52,17 @@ class ChatListViewController: UITableViewController {
         return cell
     }
     
-    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        tableView.deselectRow(at: indexPath, animated: true)
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        return CGSize(width: view.frame.width, height: 100)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "ShowMessagesSegue" {
-            if let viewController = segue.destination as? MessageListViewController {
-                if let cell = sender as? UITableViewCell, let indexPath = tableView.indexPath(for: cell) {
-                    let item = self.provider.getChatViewModel(row: indexPath.row, section: indexPath.section)
-                    viewController.chat = item
-                }
+            if let viewController = segue.destination as? MessageListViewController,
+               let cell = sender as? UICollectionViewCell,
+               let indexPath = collectionView.indexPath(for: cell) {
+                let item = self.provider.getChatViewModel(row: indexPath.row, section: indexPath.section)
+                viewController.chat = item
             }
         }
     }
@@ -65,7 +71,7 @@ class ChatListViewController: UITableViewController {
 
 extension ChatListViewController: ChatListProviderProtocol {
     func providerDidFinishUpdatedDataset(provider of: ChatListProvider) {
-        self.tableView.reloadData()
-        refreshControl?.endRefreshing()
+        self.view.removeSpinner()
+        self.collectionView.reloadData()
     }
 }

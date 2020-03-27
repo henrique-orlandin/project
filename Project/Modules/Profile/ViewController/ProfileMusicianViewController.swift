@@ -8,12 +8,14 @@
 
 import UIKit
 import RSSelectionMenu
+import SwiftValidator
 
 class ProfileMusicianViewController: UIViewController {
 
     private var profile: ProfileMusicianViewModel! = nil
     private var provider: ProfileMusicianProvider! = nil
     private var keyboardShow = false
+    private let validator = Validator()
     
     private let skills = Skills.allCases
     private var selectedSkills = [String]()
@@ -31,17 +33,33 @@ class ProfileMusicianViewController: UIViewController {
     @IBOutlet weak var skillsTextField: UITextField!
     @IBOutlet weak var genresTextField: UITextField!
     @IBOutlet weak var descriptionTextView: UITextView!
+    @IBOutlet weak var locationTextField: UITextField!
     
     @IBOutlet weak var musicianContainer: UIStackView!
     
+    @IBOutlet weak var genreErrorLabel: UILabel!
+    @IBOutlet weak var skillsErrorLabel: UILabel!
+    @IBOutlet weak var descriptionErrorLabel: UILabel!
+    @IBOutlet weak var locationErrorLabel: UILabel!
+    
     @IBAction func done(_ sender: Any) {
-        if let profile = self.profile {
-            provider.saveData(profile)
-        }
+        validator.validate(self)
     }
     
     @IBAction func cancel(_ sender: Any) {
         navigationController?.popViewController(animated: true)
+    }
+    
+    @IBAction func tapLocation(_ gestureRecognizer : UITapGestureRecognizer ) {
+        guard gestureRecognizer.view != nil else { return }
+        
+        if gestureRecognizer.state == .ended {
+            let storyboard = UIStoryboard.init(name: "Main", bundle: nil)
+            let locationViewController = storyboard.instantiateViewController(withIdentifier: "locationVC") as! LocationMapViewController
+            locationViewController.delegate = self
+            self.navigationController?.pushViewController(locationViewController, animated: true)
+        }
+        
     }
     
     @IBAction func showMusicianFields(_ sender: Any) {
@@ -69,6 +87,7 @@ class ProfileMusicianViewController: UIViewController {
         self.configView()
 
         do {
+            self.view.showSpinner(onView: self.view)
             try self.provider.loadProfile()
         } catch {
             print(error)
@@ -98,15 +117,24 @@ class ProfileMusicianViewController: UIViewController {
         keyboardShow = show
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        skillsTextField.loadLine()
+        genresTextField.loadLine()
+        locationTextField.loadLine()
+    }
+    
     func configView () {
         skillsTextField.delegate = self
         genresTextField.delegate = self
         descriptionTextView.delegate = self
+        locationTextField.delegate = self
         
         skillsTextField.inputView = UIView()
         skillsTextField.inputAccessoryView = UIView()
         genresTextField.inputView = UIView()
         genresTextField.inputAccessoryView = UIView()
+        locationTextField.inputView = UIView()
+        locationTextField.inputAccessoryView = UIView()
         
         var selectionValues = [String]()
         for skill in skills {
@@ -134,12 +162,27 @@ class ProfileMusicianViewController: UIViewController {
             self!.profile?.setGenreFromView(selectedItems)
         }
         
-        descriptionTextView.layer.borderWidth = 1
-        descriptionTextView.layer.borderColor = UIColor(rgb: 0xCCCCCC).cgColor
-        descriptionTextView.layer.cornerRadius = 5
-        descriptionTextView.contentInset = UIEdgeInsets(top: 8, left: 3, bottom: 8, right: 3)
+        validator.registerField(genresTextField, errorLabel: genreErrorLabel, rules: [RequiredRule()])
+        validator.registerField(skillsTextField, errorLabel: skillsErrorLabel, rules: [RequiredRule()])
+        validator.registerField(descriptionTextView, errorLabel: descriptionErrorLabel, rules: [RequiredRule()])
+        
+        skillsTextField.defaultLayout()
+        genresTextField.defaultLayout()
+        descriptionTextView.defaultLayout()
+        locationTextField.defaultLayout()
+        
+        descriptionTextView.text = "Description"
+        descriptionTextView.textColor = UIColor.lightGray
+        
+        hideError()
     }
     
+    func hideError() {
+        genreErrorLabel.alpha = 0;
+        skillsErrorLabel.alpha = 0;
+        locationErrorLabel.alpha = 0
+        descriptionErrorLabel.alpha = 0;
+    }
     
     func editConfig() {
         title = "Musician Profile"
@@ -165,9 +208,15 @@ class ProfileMusicianViewController: UIViewController {
             }
         }
         
-        descriptionTextView.text = profile?.getDescriptionForView()
+        locationTextField.text = profile?.getLocationForView()
+        
+        let description = profile?.getDescriptionForView()
         
         textViewDidChange(descriptionTextView)
+        if let description = description, !description.isEmpty {
+            descriptionTextView.text = description
+            descriptionTextView.textColor = UIColor.black
+        }
         
         isMusicianSwitch.isOn = profile.getIsMusicianForView()
         if isMusicianSwitch.isOn {
@@ -204,17 +253,33 @@ extension ProfileMusicianViewController: UITextViewDelegate {
         var newFrame = textView.frame
         newFrame.size = CGSize(width: CGFloat(fmaxf(Float(newSize.width), Float(fixedWidth))), height: newSize.height)
         textView.frame = newFrame
-        
+        textView.relayout()
         self.profile?.setDescriptionFromView(descriptionTextView.text)
+    }
+    
+    func textViewDidBeginEditing(_ textView: UITextView) {
+        if textView.textColor == UIColor.lightGray {
+            textView.text = nil
+            textView.textColor = UIColor.black
+        }
+    }
+    
+    func textViewDidEndEditing(_ textView: UITextView) {
+        if textView.text.isEmpty {
+            textView.text = "Description"
+            textView.textColor = UIColor.lightGray
+        }
     }
 }
 
 extension ProfileMusicianViewController: ProfileMusicianProviderProtocol {
     func providerDidFinishSavingProfile(provider of: ProfileMusicianProvider) {
         navigationController?.popViewController(animated: true)
+        self.view.removeSpinner()
     }
     func providerDidFinishSavingProfile(provider of: ProfileMusicianProvider, error: String) {
         print(error)
+        self.view.removeSpinner()
     }
     func providerDidLoadProfile(provider of: ProfileMusicianProvider, profile: ProfileMusicianViewModel?) {
         if let profile = profile {
@@ -222,6 +287,32 @@ extension ProfileMusicianViewController: ProfileMusicianProviderProtocol {
             editConfig()
         } else if let error = provider.error {
             print(error.localizedDescription)
+        }
+        self.view.removeSpinner()
+    }
+}
+
+extension  ProfileMusicianViewController: ValidationDelegate {
+    func validationSuccessful() {
+        provider.saveData(profile)
+        self.view.showSpinner(onView: self.view)
+    }
+    
+    func validationFailed(_ errors: [(Validatable, ValidationError)]) {
+        hideError()
+        for (_, error) in errors {
+            error.errorLabel?.text = error.errorMessage
+            error.errorLabel?.alpha = 1
+        }
+    }
+}
+
+extension ProfileMusicianViewController: LocationMapViewControllerDelegate {
+    func locationDidSet(_ controller: LocationMapViewController, location: Location?) {
+        navigationController?.popViewController(animated: true)
+        if let location = location { 
+            self.profile?.setLocationFromView(city: location.city, state: location.state, country: location.country, postalCode: location.postalCode, lat: location.lat, lng: location.lng)
+            locationTextField.text = self.profile?.getLocationForView()
         }
     }
 }
